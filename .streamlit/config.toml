@@ -1,0 +1,8 @@
+# Dark, minimal, professional theme for the analytics dashboard.
+[theme]
+base = "dark"
+primaryColor = "#5B8DEF"
+backgroundColor = "#0E1117"
+secondaryBackgroundColor = "#1A1F2B"
+textColor = "#E6E9EF"
+font = "sans serif"

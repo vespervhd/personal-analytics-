@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.db
+*.log
+.streamlit/secrets.toml
+data/uploads/*
+data/exports/*
+data/database/*
+data/logs/*
+!data/uploads/.gitkeep
+!data/exports/.gitkeep
+!data/database/.gitkeep
+!data/logs/.gitkeep
