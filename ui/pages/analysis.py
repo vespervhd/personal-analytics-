@@ -10,7 +10,7 @@ from core.visualization import VisualizationError, heatmap
 from database.connection import get_session, init_db
 from database.repository import record_analysis
 from ui.components.common import require_dataset
-from ui.i18n import t
+from ui.i18n import current_lang, t
 
 
 def render() -> None:
@@ -73,7 +73,7 @@ def render() -> None:
             st.error(t("heatmap_error").format(err=exc))
 
     st.subheader(t("insights_sub"))
-    for insight in key_insights(df, report):
+    for insight in key_insights(df, report, lang=current_lang()):
         st.write(f"- {insight}")
 
     st.subheader(t("dist_detail_sub"))
@@ -81,7 +81,7 @@ def render() -> None:
     if numeric:
         column = st.selectbox(t("numeric_col_label"), options=numeric, key="dist_col")
         try:
-            detail = distribution_analysis(df[column])
+            detail = distribution_analysis(df[column], lang=current_lang())
             st.write(t("skew_line").format(v=detail["skew"], v2=detail["kurtosis"]))
             st.write(t("shapiro_line").format(s=detail["shapiro_statistic"], p=detail["shapiro_p_value"]))
             st.caption(detail["shapiro_note"])
@@ -127,7 +127,7 @@ def render() -> None:
                     result_summary={
                         "rows": overview["rows"],
                         "columns": overview["columns"],
-                        "insights": key_insights(df, report),
+                        "insights": key_insights(df, report, lang=current_lang()),
                     },
                     dataset_id=dataset_id,
                 )

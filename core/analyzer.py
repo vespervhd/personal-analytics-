@@ -59,33 +59,42 @@ def eda_report(df: pd.DataFrame) -> dict:
     return report
 
 
-def key_insights(df: pd.DataFrame, report: dict | None = None) -> list[str]:
+def key_insights(
+    df: pd.DataFrame, report: dict | None = None, lang: str = "en"
+) -> list[str]:
     """Generate insight sentences from the actual EDA numbers.
 
     Rules: missing > 20% in a column; |correlation| >= 0.7 between two
     columns; |skew| >= 1.0 in a numeric column; duplicate rows present.
     Returns an honest fallback sentence when nothing stands out.
+    Sentences are rendered through the i18n dictionary in ``lang``
+    (``"fa"`` or ``"en"``); the import is local so this core module
+    never depends on Streamlit at import time.
     """
+    from ui.i18n import t
+
     report = report or eda_report(df)
     insights: list[str] = []
 
     for column, info in report["missing"]["columns"].items():
         if info["percent"] >= MISSING_WARN_PCT:
             insights.append(
-                f"Column '{column}' is missing {info['percent']}% of its values "
-                f"({info['missing']} cells) — consider filling or dropping it."
+                t("insight_missing", lang=lang).format(
+                    column=column, percent=info["percent"], missing=info["missing"]
+                )
             )
 
     duplicates = report["overview"]["duplicate_rows"]
     if duplicates:
-        insights.append(f"There are {duplicates} duplicate row(s) in the dataset.")
+        insights.append(t("insight_duplicates", lang=lang).format(n=duplicates))
 
     for column, summary in report["columns"].items():
         if summary["type"] == "numeric" and summary.get("skew") is not None:
             if abs(summary["skew"]) >= HIGH_SKEW:
                 insights.append(
-                    f"Column '{column}' is strongly skewed (skew={summary['skew']:.2f}); "
-                    "its mean and median differ, so prefer the median."
+                    t("insight_skew", lang=lang).format(
+                        column=column, skew=f"{summary['skew']:.2f}"
+                    )
                 )
 
     correlation = report.get("correlation")
@@ -101,12 +110,11 @@ def key_insights(df: pd.DataFrame, report: dict | None = None) -> list[str]:
                     best = (col_a, col_b, value)
         if best is not None and abs(best[2]) >= STRONG_CORR:
             insights.append(
-                f"Strongest correlation: '{best[0]}' vs '{best[1]}' (r={best[2]:.2f})."
+                t("insight_correlation", lang=lang).format(
+                    a=best[0], b=best[1], r=f"{best[2]:.2f}"
+                )
             )
 
     if not insights:
-        insights.append(
-            "No strong patterns stood out: missing values are low, no heavy "
-            "skew, and no strong correlations were found."
-        )
+        insights.append(t("insight_none", lang=lang))
     return insights

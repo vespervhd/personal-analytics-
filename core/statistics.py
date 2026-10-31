@@ -111,12 +111,17 @@ def correlation_matrix(
     return df[targets].corr(method=method, numeric_only=True)
 
 
-def distribution_analysis(series: pd.Series) -> dict:
+def distribution_analysis(series: pd.Series, lang: str = "en") -> dict:
     """Shape analysis: skew, kurtosis, and a Shapiro-Wilk normality check.
 
     Shapiro-Wilk runs only for 3–5000 observations (its valid range); for
     larger samples the test is skipped and the reason is reported.
+    The ``shapiro_note`` is rendered through the i18n dictionary in
+    ``lang`` (``"fa"`` or ``"en"``); the import is local so this core
+    module never depends on Streamlit at import time.
     """
+    from ui.i18n import t
+
     clean = series.dropna()
     if pd.api.types.is_numeric_dtype(series) is False:
         raise StatisticsError(f"Column '{series.name}' must be numeric.")
@@ -127,15 +132,13 @@ def distribution_analysis(series: pd.Series) -> dict:
         "kurtosis": _clean(scipy_stats.kurtosis(clean, nan_policy="omit")),
         "shapiro_statistic": None,
         "shapiro_p_value": None,
-        "shapiro_note": "Skipped: Shapiro-Wilk needs 3–5000 observations.",
+        "shapiro_note": t("shapiro_skipped", lang=lang),
     }
     if 3 <= len(clean) <= 5000:
         statistic, p_value = scipy_stats.shapiro(clean)
         result["shapiro_statistic"] = _clean(statistic)
         result["shapiro_p_value"] = _clean(p_value)
-        result["shapiro_note"] = (
-            "p >= 0.05 is consistent with normality; p < 0.05 is not."
-        )
+        result["shapiro_note"] = t("shapiro_note", lang=lang)
     return result
 
 

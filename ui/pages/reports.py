@@ -11,7 +11,7 @@ from core.report_generator import ReportError, generate_report
 from database.connection import get_session, init_db
 from database.repository import record_report
 from ui.components.common import require_dataset
-from ui.i18n import t
+from ui.i18n import current_lang, t
 
 
 def render() -> None:
@@ -34,7 +34,7 @@ def render() -> None:
     if st.button(t("generate_btn")):
         target = SETTINGS.exports_dir / filename
         try:
-            path = generate_report(df, fmt, target, anomalies)
+            path = generate_report(df, fmt, target, anomalies, lang=current_lang())
         except ReportError as exc:
             st.error(t("report_failed").format(err=exc))
         else:

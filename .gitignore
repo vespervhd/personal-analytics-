@@ -8,7 +8,9 @@ data/uploads/*
 data/exports/*
 data/database/*
 data/logs/*
+data/persisted/*
 !data/uploads/.gitkeep
 !data/exports/.gitkeep
 !data/database/.gitkeep
 !data/logs/.gitkeep
+!data/persisted/.gitkeep

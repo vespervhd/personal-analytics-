@@ -21,6 +21,7 @@ def render() -> None:
     df = st.session_state.get("df")
     if df is None:
         st.info(t("welcome"))
+        st.write(t("welcome_about"))
         col_import, col_sample = st.columns(2)
         if col_import.button(t("import_dataset_btn")):
             nav_to("Data Import")
