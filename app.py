@@ -79,6 +79,11 @@ def main() -> None:
         unsafe_allow_html=True,
     )
     _init_state()
+    # Apply a pending navigation request BEFORE the nav widget is created.
+    # Assigning session_state["nav"] after the widget exists raises
+    # StreamlitWidgetAlreadyInstantiatedError.
+    if "nav_pending" in st.session_state:
+        st.session_state["nav"] = st.session_state.pop("nav_pending")
     SETTINGS.ensure_directories()
 
     st.sidebar.title(SETTINGS.app_name)

@@ -11,8 +11,15 @@ import streamlit as st
 
 
 def nav_to(page: str) -> None:
-    """Switch the sidebar navigation to ``page`` and rerun."""
-    st.session_state.nav = page
+    """Switch the sidebar navigation to ``page`` and rerun.
+
+    The assignment must NOT happen after the ``nav`` widget was already
+    created in this run (Streamlit raises
+    StreamlitWidgetAlreadyInstantiatedError), so the request is parked
+    under ``nav_pending`` and applied at the top of the next run, before
+    the widget exists.
+    """
+    st.session_state["nav_pending"] = page
     st.rerun()
 
 
