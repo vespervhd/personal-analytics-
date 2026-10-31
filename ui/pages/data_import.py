@@ -6,14 +6,19 @@ import pandas as pd
 import streamlit as st
 
 from config import SETTINGS
-from core.data_loader import DataLoadError, dataset_summary, load_from_bytes
+from core.data_loader import DataLoadError, dataset_summary, load_from_bytes, load_from_path
 from database.connection import get_session, init_db
 from database.repository import record_dataset
 from ui.components.common import dataframe_preview
+from ui.i18n import t
 from utils.logger import get_logger
 from utils.validators import ValidationError, file_extension
 
 log = get_logger("page_data_import")
+
+#: Bundled sample dataset shipped with the app (read-only; never written to).
+SAMPLE_PATH = SETTINGS.base_dir / "data" / "sample" / "ai-models-sample.csv"
+SAMPLE_DISPLAY_NAME = "AI models sample dataset"
 
 _DEMO_ROWS = [
     {"date": "2026-01-05", "product": "Keyboard", "region": "North", "units": 12, "revenue": 540.0},
@@ -58,31 +63,31 @@ def _record_metadata(
             )
             return row.id
     except Exception as exc:
-        st.warning(f"Dataset loaded, but its metadata could not be saved: {exc}")
+        st.warning(t("metadata_warn").format(err=exc))
         log.warning("Metadata recording failed for {}: {}", name, exc)
         return None
 
 
 def render() -> None:
-    st.header("Data Import")
+    st.header(t("page_data_import"))
     st.write(
-        f"Supported formats: {', '.join(sorted(SETTINGS.allowed_extensions))}. "
-        f"Maximum file size: {SETTINGS.max_upload_mb} MB. "
-        "Files are stored under `data/uploads/`; only metadata goes to the "
-        "database (Phase 4)."
+        t("import_intro").format(
+            formats=", ".join(sorted(SETTINGS.allowed_extensions)),
+            mb=SETTINGS.max_upload_mb,
+        )
     )
 
     uploaded = st.file_uploader(
-        "Drop a dataset file here",
+        t("uploader_label"),
         type=sorted(SETTINGS.allowed_extensions),
-        help="CSV, XLSX, XLS, JSON, or Parquet.",
+        help=t("uploader_help"),
     )
     if uploaded is not None:
         try:
             data = uploaded.getvalue()
             df, saved_path = load_from_bytes(uploaded.name, data)
         except (ValidationError, DataLoadError) as exc:
-            st.error(f"Import failed: {exc}")
+            st.error(t("import_failed").format(err=exc))
             log.warning("Import failed for {}: {}", uploaded.name, exc)
         else:
             _store_dataset(df, uploaded.name, saved_path)
@@ -91,29 +96,46 @@ def render() -> None:
                 file_extension(uploaded.name), len(data),
             )
             st.session_state.dataset_id = dataset_id
-            st.success(f"Imported `{uploaded.name}` ({len(df):,} rows × {len(df.columns)} columns).")
-            st.write(f"Saved original to `{saved_path}`.")
+            st.success(t("imported_success").format(name=uploaded.name, rows=f"{len(df):,}", cols=len(df.columns)))
+            st.write(t("saved_original").format(path=saved_path))
             log.info("Imported {} ({} rows)", uploaded.name, len(df))
 
     st.divider()
-    if st.button("Load the built-in demo dataset"):
+    if st.button(t("demo_btn")):
         demo = pd.DataFrame(_DEMO_ROWS)
         _store_dataset(demo, "Demo dataset (built-in)", None)
         st.session_state.dataset_id = _record_metadata(
             demo, "Demo dataset (built-in)", None, "demo", 0
         )
-        st.success("Demo dataset loaded. Replace it with your own upload any time.")
+        st.success(t("demo_loaded"))
+
+    st.write(t("sample_prompt"))
+    if st.button(t("try_sample_btn")):
+        try:
+            sample = load_from_path(SAMPLE_PATH)
+        except DataLoadError as exc:
+            st.error(t("sample_load_error").format(err=exc))
+            log.warning("Sample dataset load failed: {}", exc)
+        else:
+            _store_dataset(sample, SAMPLE_DISPLAY_NAME, SAMPLE_PATH)
+            st.session_state.dataset_id = _record_metadata(
+                sample, SAMPLE_DISPLAY_NAME, SAMPLE_PATH,
+                file_extension(SAMPLE_PATH.name), SAMPLE_PATH.stat().st_size,
+            )
+            st.success(
+                t("sample_loaded_replace").format(rows=f"{len(sample):,}", cols=len(sample.columns))
+            )
+            log.info("Loaded sample dataset ({} rows)", len(sample))
 
     df = st.session_state.get("df")
     if df is not None:
-        st.subheader("Preview")
+        st.subheader(t("preview_sub"))
         dataframe_preview(df, rows=10)
-        st.subheader("Detected types and summary")
+        st.subheader(t("detected_types_sub"))
         summary = dataset_summary(df)
-        st.write(f"Rows: **{summary['rows']:,}** · Columns: **{summary['columns']}** · "
-                 f"Memory: **{summary['memory_mb']} MB**")
+        st.write(t("summary_line").format(rows=f"{summary['rows']:,}", cols=summary["columns"], mb=summary["memory_mb"]))
         dtype_rows = {
-            "column": list(df.columns),
-            "detected type": [str(dtype) for dtype in df.dtypes],
+            t("col_column"): list(df.columns),
+            t("col_detected_type"): [str(dtype) for dtype in df.dtypes],
         }
         st.dataframe(dtype_rows, use_container_width=True)

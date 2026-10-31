@@ -1,0 +1,1001 @@
+ID,Model,Organization,Country,Release Year,Parameters (B),Type,License,Benchmark Score,Training Cost (USD M),Monthly Users (M)
+1,Atlas-0.5B-v3,Orbital Mind,UK,2021,0.5,Vision,Open,87.8,81.24,446.09
+2,Pixel-70B-v1,QuantumLeap Labs,USA,2020,70.0,LLM,Open,65.4,72.28,280.63
+3,Echo-180B-v4,Kavosh AI,Iran,2021,180.0,Audio,Mixed,67.4,104.33,379.41
+4,Falcon-70B-v3,Cortex Systems,UK,2022,70.0,Vision,Open,97.6,40.46,46.38
+5,Zephyr-34B-v3,QuantumLeap Labs,USA,2026,34.0,LLM,Mixed,75.4,15.07,461.15
+6,Quantum-13B-v3,QuantumLeap Labs,USA,2024,13.0,Vision,Mixed,58.1,79.39,386.54
+7,Pardis-8B-v1,QuantumLeap Labs,USA,2023,8.0,Multimodal,Closed,83.3,43.84,185.1
+8,Echo-13B-v1,Lumina Intelligence,France,2024,13.0,Robotics,Open,78.8,29.45,231.14
+9,Echo-180B-v2,Apex Neural,Canada,2025,180.0,Multimodal,Open,65.2,3.95,157.73
+10,Atlas-8B-v3,Apex Neural,Canada,2021,8.0,Robotics,Closed,72.6,109.75,229.43
+11,Orion-8B-v3,Apex Neural,Canada,2025,8.0,Code,Closed,95.0,47.99,109.67
+12,Quantum-120B-v1,Cortex Systems,UK,2026,120.0,LLM,Open,61.8,19.28,340.24
+13,Atlas-70B-v4,TensorNest,USA,2024,70.0,Audio,Mixed,66.2,66.43,471.22
+14,Falcon-1B-v3,Orbital Mind,UK,2026,1.0,Robotics,Closed,60.0,52.23,226.87
+15,Falcon-13B-v2,Kavosh AI,Iran,2024,13.0,LLM,Mixed,68.3,76.71,304.49
+16,Zephyr-7B-v1,Cortex Systems,UK,2024,7.0,Multimodal,Closed,55.9,111.5,439.36
+17,Vega-0.5B-v2,Apex Neural,Canada,2024,0.5,LLM,Open,87.6,97.94,488.99
+18,Simurgh-7B-v2,DeepWave,China,2025,7.0,Audio,Mixed,62.3,63.37,303.3
+19,Quantum-8B-v3,Lumina Intelligence,France,2023,8.0,Robotics,Mixed,71.6,107.96,225.75
+20,Vega-1B-v3,Lumina Intelligence,France,2020,1.0,Code,Mixed,65.2,26.5,35.51
+21,Nexus-8B-v1,Orbital Mind,UK,2020,8.0,Multimodal,Open,77.9,33.49,242.71
+22,Orion-405B-v4,DeepWave,China,2021,405.0,Audio,Closed,63.5,11.72,215.53
+23,Nimbus-120B-v1,Pardis AI,Iran,2025,120.0,Robotics,Mixed,59.4,48.37,169.66
+24,Vega-8B-v2,QuantumLeap Labs,USA,2024,8.0,Audio,Open,73.8,33.5,124.91
+25,Helix-180B-v1,QuantumLeap Labs,USA,2020,180.0,Robotics,Mixed,92.2,116.28,463.18
+26,Orion-70B-v4,Lumina Intelligence,France,2023,70.0,Vision,Closed,95.2,19.84,1.09
+27,Lyra-120B-v3,Pardis AI,Iran,2023,120.0,Robotics,Mixed,99.3,66.74,359.21
+28,Vega-13B-v2,Cortex Systems,UK,2020,13.0,Code,Mixed,79.1,89.78,28.59
+29,Helix-180B-v2,TensorNest,USA,2020,180.0,Code,Open,92.9,8.32,33.99
+30,Nimbus-1B-v2,Lumina Intelligence,France,2024,1.0,Code,Open,82.6,50.37,291.84
+31,Zephyr-13B-v2,DeepWave,China,2025,13.0,Robotics,Closed,65.6,47.55,335.85
+32,Helix-34B-v1,Apex Neural,Canada,2020,34.0,Audio,Mixed,99.4,119.53,36.64
+33,Quantum-13B-v2,Lumina Intelligence,France,2022,13.0,LLM,Open,71.4,19.01,416.87
+34,Lyra-405B-v1,Kavosh AI,Iran,2025,405.0,Code,Closed,96.5,12.52,439.06
+35,Atlas-1B-v2,Apex Neural,Canada,2022,1.0,Multimodal,Mixed,64.4,41.21,343.75
+36,Quantum-120B-v3,Apex Neural,Canada,2026,120.0,LLM,Open,83.2,99.54,22.05
+37,Simurgh-7B-v3,Visionary AI,Germany,2021,7.0,Robotics,Closed,79.5,51.38,4.84
+38,Falcon-7B-v1,QuantumLeap Labs,USA,2026,7.0,Multimodal,Mixed,79.6,51.63,20.92
+39,Simurgh-0.5B-v3,Visionary AI,Germany,2021,0.5,Robotics,Open,84.7,42.51,279.95
+40,Pixel-7B-v2,Pardis AI,Iran,2026,7.0,Vision,Open,94.2,3.07,368.28
+41,Simurgh-70B-v2,Visionary AI,Germany,2022,70.0,Vision,Mixed,59.8,104.67,429.3
+42,Vega-120B-v3,Lumina Intelligence,France,2022,120.0,Vision,Open,56.1,23.26,164.14
+43,Simurgh-13B-v3,QuantumLeap Labs,USA,2025,13.0,Code,Closed,85.2,101.25,165.58
+44,Atlas-13B-v2,NeuroForge,USA,2024,13.0,Multimodal,Open,59.8,52.2,364.28
+45,Nimbus-405B-v1,Visionary AI,Germany,2023,405.0,Code,Open,66.3,85.08,0.86
+46,Echo-1000B-v2,DeepWave,China,2022,1000.0,Audio,Open,97.2,110.5,311.58
+47,Pardis-1B-v3,Orbital Mind,UK,2024,1.0,Multimodal,Mixed,73.2,48.35,147.83
+48,Vega-70B-v4,Cortex Systems,UK,2025,70.0,Robotics,Open,82.4,36.18,273.97
+49,Lyra-13B-v2,NeuroForge,USA,2023,13.0,Code,Mixed,84.1,55.85,221.09
+50,Quantum-120B-v2,Lumina Intelligence,France,2025,120.0,LLM,Closed,77.9,75.99,167.6
+51,Echo-13B-v2,Lumina Intelligence,France,2026,13.0,Vision,Open,56.1,29.46,237.57
+52,Helix-70B-v2,QuantumLeap Labs,USA,2025,70.0,Robotics,Closed,77.0,29.35,328.03
+53,Simurgh-1B-v4,NeuroForge,USA,2021,1.0,Vision,Mixed,78.0,6.12,124.61
+54,Helix-7B-v4,QuantumLeap Labs,USA,2025,7.0,Code,Mixed,81.5,114.01,445.71
+55,Pardis-180B-v4,TensorNest,USA,2026,180.0,Code,Closed,94.9,89.26,237.34
+56,Simurgh-8B-v3,Apex Neural,Canada,2026,8.0,Code,Closed,82.9,33.02,38.75
+57,Vega-13B-v3,Apex Neural,Canada,2022,13.0,Code,Open,61.2,27.83,346.98
+58,Vega-1B-v4,Kavosh AI,Iran,2023,1.0,Multimodal,Mixed,75.7,7.57,416.45
+59,Simurgh-405B-v1,Pardis AI,Iran,2026,405.0,Code,Closed,76.2,113.13,149.31
+60,Pardis-70B-v2,Pardis AI,Iran,2023,70.0,Vision,Closed,74.4,3.58,168.07
+61,Simurgh-70B-v2,Orbital Mind,UK,2026,70.0,Audio,Open,98.6,64.14,453.47
+62,Pixel-1000B-v1,TensorNest,USA,2020,1000.0,Robotics,Closed,61.0,55.46,25.15
+63,Zephyr-8B-v4,Pardis AI,Iran,2022,8.0,Multimodal,Closed,67.4,114.15,210.79
+64,Helix-0.5B-v1,QuantumLeap Labs,USA,2022,0.5,Vision,Mixed,58.1,114.88,20.14
+65,Vega-8B-v1,NeuroForge,USA,2024,8.0,Vision,Open,60.6,80.37,281.99
+66,Helix-13B-v3,Lumina Intelligence,France,2021,13.0,Code,Mixed,97.9,86.23,388.9
+67,Lyra-1B-v1,Cortex Systems,UK,2022,1.0,Code,Mixed,95.4,45.1,470.74
+68,Atlas-405B-v2,Lumina Intelligence,France,2020,405.0,Robotics,Closed,92.8,72.09,60.54
+69,Simurgh-0.5B-v3,TensorNest,USA,2024,0.5,Audio,Mixed,71.5,60.76,170.62
+70,Pardis-120B-v1,Pardis AI,Iran,2023,120.0,Multimodal,Mixed,94.7,55.22,76.5
+71,Falcon-180B-v3,Cortex Systems,UK,2024,180.0,Code,Closed,75.7,99.11,296.24
+72,Pardis-8B-v1,Visionary AI,Germany,2022,8.0,Audio,Open,88.4,68.42,334.1
+73,Nexus-120B-v3,Visionary AI,Germany,2021,120.0,Audio,Open,70.8,31.08,139.84
+74,Falcon-13B-v1,TensorNest,USA,2024,13.0,Vision,Open,65.7,48.83,277.59
+75,Falcon-120B-v4,Lumina Intelligence,France,2023,120.0,LLM,Open,68.1,48.59,121.66
+76,Pixel-34B-v4,Orbital Mind,UK,2024,34.0,Code,Closed,73.9,89.54,165.4
+77,Helix-13B-v3,Kavosh AI,Iran,2022,13.0,Vision,Open,87.1,37.93,371.44
+78,Orion-8B-v2,Kavosh AI,Iran,2025,8.0,Audio,Closed,87.2,117.2,262.32
+79,Atlas-8B-v3,Apex Neural,Canada,2021,8.0,Multimodal,Open,68.5,84.99,63.3
+80,Nexus-180B-v3,NeuroForge,USA,2025,180.0,Vision,Mixed,93.6,58.96,436.36
+81,Lyra-120B-v4,TensorNest,USA,2023,120.0,Multimodal,Open,98.0,30.37,430.86
+82,Pardis-1B-v4,QuantumLeap Labs,USA,2023,1.0,LLM,Mixed,83.0,6.53,74.61
+83,Lyra-1B-v2,TensorNest,USA,2020,1.0,Code,Closed,82.0,94.91,112.85
+84,Nimbus-120B-v4,DeepWave,China,2022,120.0,Code,Closed,68.6,74.56,304.82
+85,Atlas-8B-v2,Kavosh AI,Iran,2022,8.0,Robotics,Open,62.0,20.94,37.54
+86,Nimbus-120B-v4,NeuroForge,USA,2022,120.0,LLM,Open,67.8,34.0,429.8
+87,Echo-8B-v3,QuantumLeap Labs,USA,2026,8.0,Robotics,Mixed,84.4,112.05,212.58
+88,Vega-1000B-v2,DeepWave,China,2022,1000.0,Vision,Open,57.7,95.14,297.53
+89,Lyra-120B-v1,TensorNest,USA,2023,120.0,Robotics,Closed,86.1,113.13,250.24
+90,Helix-1B-v1,Simurgh AI,Iran,2023,1.0,Robotics,Closed,81.9,3.2,114.47
+91,Pardis-405B-v1,Orbital Mind,UK,2026,405.0,Robotics,Closed,80.6,91.6,87.6
+92,Echo-120B-v3,DeepWave,China,2021,120.0,Code,Closed,83.2,59.06,45.63
+93,Nimbus-34B-v3,Visionary AI,Germany,2025,34.0,LLM,Open,69.7,83.27,144.12
+94,Pardis-180B-v1,Pardis AI,Iran,2023,180.0,LLM,Closed,66.2,14.0,386.28
+95,Pardis-0.5B-v4,DeepWave,China,2023,0.5,LLM,Open,78.1,74.75,249.25
+96,Simurgh-0.5B-v2,Simurgh AI,Iran,2022,0.5,Code,Open,96.3,52.63,349.13
+97,Nexus-1000B-v2,QuantumLeap Labs,USA,2025,1000.0,Vision,Closed,79.5,66.31,46.61
+98,Helix-1B-v2,QuantumLeap Labs,USA,2023,1.0,Robotics,Closed,77.6,32.88,417.36
+99,Vega-120B-v2,Simurgh AI,Iran,2023,120.0,Vision,Mixed,77.6,105.53,432.01
+100,Simurgh-70B-v3,Apex Neural,Canada,2026,70.0,Code,Closed,91.5,34.01,149.28
+101,Pixel-1000B-v4,TensorNest,USA,2026,1000.0,Vision,Closed,79.0,41.48,275.96
+102,Nimbus-120B-v3,DeepWave,China,2026,120.0,Vision,Mixed,65.6,46.02,428.01
+103,Nexus-34B-v4,Pardis AI,Iran,2025,34.0,Audio,Closed,99.0,95.11,326.01
+104,Helix-0.5B-v2,Cortex Systems,UK,2024,0.5,Code,Closed,93.7,104.92,220.16
+105,Helix-0.5B-v2,DeepWave,China,2023,0.5,Robotics,Open,58.3,93.8,132.52
+106,Falcon-70B-v1,TensorNest,USA,2026,70.0,Multimodal,Mixed,93.2,45.66,158.34
+107,Simurgh-120B-v1,Kavosh AI,Iran,2024,120.0,LLM,Open,83.1,110.52,498.71
+108,Atlas-70B-v1,Kavosh AI,Iran,2026,70.0,Robotics,Mixed,93.8,53.3,347.0
+109,Nexus-34B-v1,NeuroForge,USA,2022,34.0,Multimodal,Closed,74.2,29.38,206.03
+110,Simurgh-7B-v2,Orbital Mind,UK,2021,7.0,LLM,Mixed,93.8,74.4,120.42
+111,Orion-8B-v4,TensorNest,USA,2025,8.0,Multimodal,Closed,66.4,1.23,402.32
+112,Echo-180B-v2,Apex Neural,Canada,2020,180.0,Audio,Closed,99.0,35.97,481.01
+113,Lyra-120B-v3,Kavosh AI,Iran,2021,120.0,Audio,Closed,59.7,45.83,179.49
+114,Falcon-13B-v1,Apex Neural,Canada,2026,13.0,Robotics,Closed,67.2,67.95,342.9
+115,Nexus-405B-v4,Kavosh AI,Iran,2026,405.0,Multimodal,Open,82.0,42.34,318.31
+116,Lyra-1000B-v2,TensorNest,USA,2025,1000.0,LLM,Mixed,83.8,37.14,220.42
+117,Zephyr-7B-v1,TensorNest,USA,2022,7.0,Multimodal,Mixed,73.5,24.18,393.26
+118,Quantum-180B-v3,Visionary AI,Germany,2026,180.0,Vision,Closed,95.7,113.31,483.69
+119,Falcon-34B-v1,Apex Neural,Canada,2023,34.0,LLM,Open,88.6,27.15,338.17
+120,Nimbus-180B-v3,Orbital Mind,UK,2020,180.0,Audio,Open,66.8,14.92,184.3
+121,Echo-13B-v4,Kavosh AI,Iran,2026,13.0,Robotics,Closed,59.8,28.14,12.52
+122,Zephyr-405B-v2,DeepWave,China,2025,405.0,LLM,Mixed,91.7,109.14,151.1
+123,Atlas-7B-v1,Pardis AI,Iran,2020,7.0,Multimodal,Closed,60.2,28.25,268.78
+124,Helix-34B-v4,Pardis AI,Iran,2024,34.0,Robotics,Mixed,61.9,49.84,49.52
+125,Pixel-70B-v3,Simurgh AI,Iran,2020,70.0,Robotics,Closed,64.7,53.42,118.06
+126,Atlas-1000B-v3,Visionary AI,Germany,2024,1000.0,Robotics,Closed,57.7,33.18,484.1
+127,Atlas-1000B-v2,Simurgh AI,Iran,2025,1000.0,Robotics,Mixed,98.2,6.16,166.76
+128,Simurgh-405B-v2,Cortex Systems,UK,2020,405.0,Code,Open,81.1,97.59,116.51
+129,Simurgh-405B-v1,Cortex Systems,UK,2022,405.0,Vision,Open,79.0,95.84,54.97
+130,Orion-0.5B-v3,NeuroForge,USA,2026,0.5,Vision,Mixed,69.4,20.99,26.21
+131,Nimbus-180B-v1,Kavosh AI,Iran,2025,180.0,LLM,Closed,74.9,43.51,296.84
+132,Quantum-8B-v1,Simurgh AI,Iran,2025,8.0,Robotics,Mixed,68.4,77.24,15.59
+133,Pardis-70B-v4,Simurgh AI,Iran,2025,70.0,LLM,Closed,86.7,53.28,449.63
+134,Pixel-7B-v1,Visionary AI,Germany,2021,7.0,Multimodal,Mixed,83.2,65.85,162.6
+135,Quantum-13B-v4,TensorNest,USA,2024,13.0,Code,Closed,59.4,84.24,426.4
+136,Simurgh-180B-v2,Orbital Mind,UK,2023,180.0,Audio,Open,73.4,99.31,199.37
+137,Atlas-34B-v4,Kavosh AI,Iran,2022,34.0,Robotics,Closed,71.7,18.4,461.49
+138,Atlas-1B-v1,QuantumLeap Labs,USA,2023,1.0,LLM,Mixed,87.9,97.43,278.19
+139,Quantum-180B-v3,TensorNest,USA,2025,180.0,LLM,Closed,70.7,79.87,375.14
+140,Nexus-13B-v3,Kavosh AI,Iran,2022,13.0,LLM,Mixed,77.6,18.65,241.1
+141,Zephyr-180B-v3,QuantumLeap Labs,USA,2020,180.0,Multimodal,Mixed,65.1,51.55,280.49
+142,Pixel-1000B-v1,TensorNest,USA,2024,1000.0,Robotics,Mixed,66.9,21.73,351.35
+143,Zephyr-34B-v1,Apex Neural,Canada,2021,34.0,Vision,Mixed,84.3,8.44,370.49
+144,Atlas-180B-v2,NeuroForge,USA,2023,180.0,Audio,Closed,70.2,44.47,360.8
+145,Pixel-1B-v1,TensorNest,USA,2021,1.0,Vision,Mixed,57.2,9.88,221.56
+146,Helix-405B-v4,Pardis AI,Iran,2023,405.0,Multimodal,Open,88.6,13.75,214.96
+147,Echo-1000B-v4,Apex Neural,Canada,2024,1000.0,Robotics,Closed,57.0,47.49,299.67
+148,Vega-13B-v2,NeuroForge,USA,2026,13.0,Vision,Closed,67.9,14.49,248.7
+149,Orion-7B-v4,Pardis AI,Iran,2024,7.0,Robotics,Open,77.3,100.02,403.1
+150,Nimbus-0.5B-v4,QuantumLeap Labs,USA,2020,0.5,Audio,Open,93.4,69.13,286.7
+151,Echo-70B-v3,Kavosh AI,Iran,2020,70.0,Audio,Open,98.0,20.71,473.81
+152,Pardis-34B-v1,Simurgh AI,Iran,2023,34.0,LLM,Open,74.4,48.11,39.33
+153,Falcon-34B-v2,Apex Neural,Canada,2022,34.0,Vision,Open,77.7,13.77,254.98
+154,Zephyr-1000B-v2,Visionary AI,Germany,2021,1000.0,LLM,Open,66.4,20.9,76.44
+155,Atlas-7B-v4,Orbital Mind,UK,2023,7.0,Code,Mixed,75.0,110.91,282.25
+156,Pixel-34B-v3,Orbital Mind,UK,2021,34.0,Audio,Open,75.9,75.8,398.17
+157,Nexus-34B-v1,TensorNest,USA,2022,34.0,Audio,Closed,56.7,44.31,143.55
+158,Pardis-1B-v4,Orbital Mind,UK,2023,1.0,Code,Mixed,97.5,88.7,20.52
+159,Echo-8B-v3,TensorNest,USA,2024,8.0,Audio,Mixed,61.7,7.52,51.76
+160,Falcon-1B-v2,Visionary AI,Germany,2020,1.0,Vision,Mixed,74.5,52.79,261.38
+161,Zephyr-34B-v3,Cortex Systems,UK,2023,34.0,Audio,Closed,85.2,6.38,315.45
+162,Atlas-34B-v1,Visionary AI,Germany,2024,34.0,Robotics,Closed,67.6,86.88,328.29
+163,Pardis-7B-v3,TensorNest,USA,2020,7.0,Code,Mixed,61.3,42.04,483.85
+164,Echo-70B-v2,Kavosh AI,Iran,2024,70.0,Robotics,Open,68.8,45.26,395.83
+165,Echo-1000B-v1,Cortex Systems,UK,2025,1000.0,Robotics,Closed,77.6,2.29,154.44
+166,Zephyr-120B-v2,Lumina Intelligence,France,2021,120.0,Vision,Open,58.4,101.35,50.58
+167,Pardis-180B-v1,DeepWave,China,2025,180.0,Multimodal,Mixed,60.8,45.27,81.13
+168,Simurgh-405B-v2,Kavosh AI,Iran,2025,405.0,Audio,Open,73.3,81.2,118.77
+169,Pixel-13B-v4,Simurgh AI,Iran,2021,13.0,Code,Open,68.8,97.05,234.51
+170,Zephyr-1000B-v4,Lumina Intelligence,France,2023,1000.0,Multimodal,Closed,77.4,50.3,81.04
+171,Simurgh-405B-v2,Lumina Intelligence,France,2026,405.0,Multimodal,Open,83.5,104.91,277.27
+172,Falcon-180B-v1,QuantumLeap Labs,USA,2022,180.0,LLM,Open,67.1,108.65,73.68
+173,Atlas-8B-v4,Pardis AI,Iran,2022,8.0,LLM,Closed,57.4,60.29,117.9
+174,Zephyr-8B-v1,QuantumLeap Labs,USA,2022,8.0,LLM,Mixed,83.9,94.99,68.81
+175,Pardis-120B-v2,Apex Neural,Canada,2026,120.0,Robotics,Closed,75.0,0.73,39.62
+176,Vega-7B-v4,Apex Neural,Canada,2020,7.0,Multimodal,Open,68.4,5.83,209.92
+177,Helix-1B-v1,TensorNest,USA,2026,1.0,Audio,Mixed,78.9,75.87,287.53
+178,Orion-13B-v4,Kavosh AI,Iran,2020,13.0,Code,Closed,65.7,50.05,332.19
+179,Quantum-34B-v1,QuantumLeap Labs,USA,2024,34.0,Code,Mixed,90.0,60.96,10.18
+180,Nexus-1000B-v4,Simurgh AI,Iran,2022,1000.0,Multimodal,Mixed,55.7,94.64,172.41
+181,Echo-1000B-v1,Kavosh AI,Iran,2026,1000.0,Code,Mixed,88.7,16.1,176.16
+182,Pardis-1000B-v2,Visionary AI,Germany,2026,1000.0,Robotics,Closed,98.6,57.48,91.15
+183,Atlas-120B-v1,Cortex Systems,UK,2022,120.0,Vision,Open,90.2,106.31,157.8
+184,Quantum-70B-v4,Apex Neural,Canada,2022,70.0,LLM,Mixed,63.5,42.9,390.42
+185,Zephyr-13B-v1,Orbital Mind,UK,2026,13.0,Multimodal,Closed,94.6,89.22,447.32
+186,Zephyr-7B-v4,Pardis AI,Iran,2025,7.0,Audio,Closed,96.1,62.36,400.58
+187,Nimbus-1B-v4,Kavosh AI,Iran,2024,1.0,Vision,Mixed,68.1,12.4,163.97
+188,Lyra-120B-v4,Apex Neural,Canada,2021,120.0,Robotics,Closed,70.6,5.18,435.02
+189,Pixel-70B-v3,Visionary AI,Germany,2025,70.0,LLM,Open,84.9,48.8,256.55
+190,Echo-7B-v1,Kavosh AI,Iran,2021,7.0,Code,Mixed,89.8,4.27,33.63
+191,Zephyr-34B-v4,Orbital Mind,UK,2024,34.0,LLM,Mixed,61.8,54.05,185.49
+192,Simurgh-1B-v2,Simurgh AI,Iran,2024,1.0,Multimodal,Closed,69.0,33.51,480.26
+193,Falcon-7B-v4,NeuroForge,USA,2024,7.0,Audio,Mixed,60.2,93.02,352.02
+194,Pixel-13B-v4,Lumina Intelligence,France,2021,13.0,LLM,Open,93.0,54.3,449.34
+195,Atlas-1000B-v3,Simurgh AI,Iran,2025,1000.0,Multimodal,Mixed,57.9,65.11,445.67
+196,Falcon-1000B-v2,Cortex Systems,UK,2026,1000.0,Multimodal,Mixed,65.0,118.22,396.03
+197,Simurgh-120B-v1,Lumina Intelligence,France,2022,120.0,Code,Mixed,71.4,96.46,275.83
+198,Atlas-1B-v3,TensorNest,USA,2023,1.0,Robotics,Mixed,76.3,49.35,204.72
+199,Atlas-7B-v3,TensorNest,USA,2025,7.0,LLM,Closed,75.7,62.13,64.18
+200,Echo-405B-v2,DeepWave,China,2026,405.0,Vision,Closed,77.4,104.2,415.7
+201,Orion-13B-v2,DeepWave,China,2021,13.0,Multimodal,Mixed,65.0,113.7,259.45
+202,Pardis-1B-v3,Apex Neural,Canada,2021,1.0,Robotics,Mixed,67.2,75.04,307.22
+203,Quantum-1000B-v2,QuantumLeap Labs,USA,2024,1000.0,Code,Open,62.6,74.98,451.0
+204,Pardis-405B-v1,Visionary AI,Germany,2026,405.0,LLM,Open,57.0,77.01,288.39
+205,Vega-405B-v4,Orbital Mind,UK,2024,405.0,Robotics,Open,77.2,75.3,144.84
+206,Helix-8B-v4,Apex Neural,Canada,2022,8.0,Audio,Open,85.6,19.05,207.82
+207,Vega-34B-v2,Simurgh AI,Iran,2022,34.0,Robotics,Closed,87.7,103.31,487.69
+208,Simurgh-34B-v1,Cortex Systems,UK,2022,34.0,Vision,Closed,60.5,54.01,70.45
+209,Lyra-70B-v4,NeuroForge,USA,2021,70.0,Vision,Closed,96.6,86.56,94.93
+210,Helix-180B-v4,Cortex Systems,UK,2023,180.0,Multimodal,Closed,56.0,113.43,252.73
+211,Vega-405B-v3,Lumina Intelligence,France,2020,405.0,LLM,Closed,77.0,105.89,327.13
+212,Lyra-180B-v1,Simurgh AI,Iran,2026,180.0,LLM,Closed,61.0,31.81,182.9
+213,Zephyr-0.5B-v4,Pardis AI,Iran,2020,0.5,Code,Mixed,63.7,66.43,36.78
+214,Helix-180B-v3,DeepWave,China,2026,180.0,Code,Mixed,82.2,15.53,48.35
+215,Simurgh-34B-v3,Visionary AI,Germany,2026,34.0,Vision,Open,81.8,48.23,20.14
+216,Orion-34B-v4,NeuroForge,USA,2024,34.0,Audio,Open,82.0,61.91,163.99
+217,Zephyr-7B-v4,TensorNest,USA,2024,7.0,Robotics,Closed,81.4,60.93,254.86
+218,Falcon-405B-v3,Simurgh AI,Iran,2023,405.0,LLM,Closed,69.7,13.24,208.28
+219,Simurgh-1000B-v1,Apex Neural,Canada,2024,1000.0,Audio,Closed,98.0,93.97,388.08
+220,Vega-0.5B-v4,TensorNest,USA,2021,0.5,Code,Mixed,87.1,92.98,190.1
+221,Vega-0.5B-v1,Orbital Mind,UK,2021,0.5,LLM,Closed,69.0,18.26,345.25
+222,Quantum-405B-v4,Pardis AI,Iran,2026,405.0,Robotics,Mixed,57.8,16.66,103.68
+223,Echo-120B-v4,Visionary AI,Germany,2022,120.0,Vision,Closed,95.6,41.15,177.15
+224,Echo-1000B-v3,Kavosh AI,Iran,2024,1000.0,Audio,Open,97.6,33.55,149.26
+225,Simurgh-13B-v2,Apex Neural,Canada,2025,13.0,Robotics,Closed,69.1,41.92,466.85
+226,Lyra-13B-v1,Kavosh AI,Iran,2024,13.0,Robotics,Mixed,71.9,117.62,409.19
+227,Lyra-0.5B-v3,Cortex Systems,UK,2025,0.5,LLM,Closed,96.1,78.75,373.67
+228,Vega-180B-v3,Lumina Intelligence,France,2024,180.0,Robotics,Closed,61.1,73.92,293.42
+229,Nexus-1000B-v2,Lumina Intelligence,France,2025,1000.0,Vision,Open,59.5,39.7,236.21
+230,Simurgh-7B-v1,Orbital Mind,UK,2024,7.0,Vision,Closed,84.1,105.69,237.86
+231,Vega-13B-v3,Orbital Mind,UK,2022,13.0,Robotics,Open,95.4,10.83,287.07
+232,Falcon-0.5B-v2,DeepWave,China,2023,0.5,Vision,Open,99.4,47.7,247.7
+233,Pardis-13B-v1,Kavosh AI,Iran,2020,13.0,Multimodal,Mixed,81.8,111.42,167.53
+234,Echo-180B-v4,Simurgh AI,Iran,2021,180.0,Code,Closed,67.1,97.08,165.35
+235,Helix-1000B-v3,Kavosh AI,Iran,2025,1000.0,Vision,Open,87.8,94.91,283.89
+236,Orion-405B-v4,Lumina Intelligence,France,2026,405.0,Audio,Mixed,69.6,48.16,47.7
+237,Helix-34B-v2,Cortex Systems,UK,2020,34.0,Multimodal,Closed,65.5,90.48,477.02
+238,Pixel-405B-v1,Apex Neural,Canada,2022,405.0,Robotics,Closed,85.8,7.55,59.12
+239,Orion-70B-v3,Apex Neural,Canada,2025,70.0,LLM,Mixed,95.8,35.48,307.32
+240,Orion-120B-v2,Lumina Intelligence,France,2023,120.0,Robotics,Mixed,71.6,84.26,456.4
+241,Simurgh-1000B-v2,DeepWave,China,2026,1000.0,Vision,Mixed,88.6,104.79,40.94
+242,Quantum-34B-v1,Simurgh AI,Iran,2024,34.0,LLM,Open,91.9,108.36,101.09
+243,Orion-7B-v3,DeepWave,China,2026,7.0,Code,Closed,60.2,24.73,291.58
+244,Quantum-120B-v1,QuantumLeap Labs,USA,2023,120.0,Vision,Mixed,73.5,67.71,279.4
+245,Simurgh-13B-v1,Orbital Mind,UK,2023,13.0,Multimodal,Open,88.2,69.44,22.65
+246,Falcon-1B-v1,Visionary AI,Germany,2020,1.0,Audio,Open,67.8,21.68,67.72
+247,Falcon-1000B-v4,Orbital Mind,UK,2022,1000.0,Audio,Closed,93.7,108.82,187.83
+248,Echo-180B-v2,Orbital Mind,UK,2025,180.0,Multimodal,Open,62.9,64.52,264.43
+249,Vega-0.5B-v1,Kavosh AI,Iran,2022,0.5,Audio,Mixed,87.0,50.95,189.64
+250,Vega-120B-v3,Lumina Intelligence,France,2021,120.0,Multimodal,Open,96.7,87.03,56.43
+251,Nimbus-405B-v1,Orbital Mind,UK,2021,405.0,Vision,Open,59.5,4.13,298.9
+252,Pardis-0.5B-v2,Kavosh AI,Iran,2025,0.5,LLM,Closed,74.5,64.82,377.2
+253,Orion-180B-v3,NeuroForge,USA,2021,180.0,Robotics,Mixed,69.2,71.79,336.27
+254,Vega-13B-v2,Visionary AI,Germany,2025,13.0,Code,Open,73.4,33.09,278.36
+255,Falcon-7B-v4,TensorNest,USA,2024,7.0,Audio,Open,98.3,113.0,335.67
+256,Zephyr-70B-v4,DeepWave,China,2021,70.0,Multimodal,Closed,63.2,64.6,120.49
+257,Lyra-7B-v4,Lumina Intelligence,France,2020,7.0,Code,Closed,98.1,66.92,67.06
+258,Lyra-8B-v3,Lumina Intelligence,France,2025,8.0,LLM,Closed,92.7,11.19,362.3
+259,Nexus-13B-v4,Lumina Intelligence,France,2025,13.0,Code,Mixed,56.8,8.83,402.33
+260,Falcon-1000B-v2,TensorNest,USA,2023,1000.0,Vision,Closed,68.5,109.09,105.91
+261,Falcon-1B-v4,Lumina Intelligence,France,2021,1.0,Robotics,Mixed,86.3,47.66,119.67
+262,Simurgh-13B-v4,Visionary AI,Germany,2023,13.0,Code,Mixed,71.0,31.46,256.41
+263,Helix-1B-v4,Simurgh AI,Iran,2026,1.0,Multimodal,Open,71.5,49.73,281.27
+264,Falcon-7B-v1,Lumina Intelligence,France,2022,7.0,Code,Mixed,80.8,50.17,76.21
+265,Vega-70B-v2,Visionary AI,Germany,2023,70.0,Code,Mixed,97.0,40.57,381.68
+266,Falcon-1000B-v4,Simurgh AI,Iran,2023,1000.0,Vision,Mixed,90.4,20.39,360.16
+267,Orion-180B-v1,Simurgh AI,Iran,2024,180.0,LLM,Open,97.1,80.22,382.17
+268,Orion-1000B-v2,Pardis AI,Iran,2020,1000.0,Robotics,Open,55.4,60.74,186.61
+269,Echo-1000B-v4,TensorNest,USA,2025,1000.0,Audio,Open,55.3,66.24,5.94
+270,Falcon-13B-v3,DeepWave,China,2020,13.0,Code,Mixed,85.0,96.76,454.89
+271,Atlas-180B-v2,QuantumLeap Labs,USA,2021,180.0,Vision,Mixed,78.4,97.84,133.67
+272,Atlas-34B-v4,Pardis AI,Iran,2023,34.0,Code,Open,99.1,27.18,342.02
+273,Echo-1000B-v1,QuantumLeap Labs,USA,2020,1000.0,Audio,Closed,71.8,57.17,318.38
+274,Orion-1B-v4,Kavosh AI,Iran,2026,1.0,Audio,Mixed,89.9,67.95,428.98
+275,Quantum-0.5B-v2,QuantumLeap Labs,USA,2021,0.5,Robotics,Mixed,76.2,5.68,37.18
+276,Quantum-405B-v1,Apex Neural,Canada,2021,405.0,Multimodal,Open,97.8,70.49,376.13
+277,Pardis-70B-v1,Kavosh AI,Iran,2022,70.0,Vision,Mixed,65.7,100.17,194.58
+278,Zephyr-70B-v2,DeepWave,China,2026,70.0,Robotics,Mixed,58.5,89.48,172.94
+279,Nimbus-8B-v1,QuantumLeap Labs,USA,2022,8.0,Code,Mixed,97.5,47.66,386.78
+280,Echo-13B-v4,NeuroForge,USA,2023,13.0,Vision,Closed,79.6,45.11,92.88
+281,Echo-70B-v1,TensorNest,USA,2026,70.0,Code,Closed,90.5,85.6,41.03
+282,Nimbus-1000B-v2,Cortex Systems,UK,2025,1000.0,Audio,Closed,71.1,11.07,471.48
+283,Zephyr-13B-v1,Simurgh AI,Iran,2021,13.0,LLM,Open,74.2,66.88,256.23
+284,Nexus-1B-v3,QuantumLeap Labs,USA,2024,1.0,LLM,Mixed,81.6,39.0,192.63
+285,Nimbus-70B-v1,Apex Neural,Canada,2025,70.0,Code,Open,80.5,20.43,190.37
+286,Lyra-13B-v3,Cortex Systems,UK,2023,13.0,Vision,Open,62.4,33.19,149.88
+287,Zephyr-13B-v2,QuantumLeap Labs,USA,2025,13.0,Robotics,Closed,81.4,23.55,53.5
+288,Nexus-70B-v3,Apex Neural,Canada,2026,70.0,Code,Closed,90.8,39.61,167.37
+289,Pixel-7B-v3,Orbital Mind,UK,2022,7.0,Code,Mixed,63.9,37.77,482.29
+290,Lyra-1000B-v4,Visionary AI,Germany,2024,1000.0,Vision,Closed,71.7,98.0,196.47
+291,Pixel-8B-v2,QuantumLeap Labs,USA,2025,8.0,Code,Open,97.4,55.45,354.19
+292,Simurgh-13B-v1,Simurgh AI,Iran,2026,13.0,Audio,Mixed,77.2,76.04,121.02
+293,Orion-70B-v4,Orbital Mind,UK,2020,70.0,Audio,Mixed,76.3,48.16,253.31
+294,Nimbus-180B-v1,Kavosh AI,Iran,2026,180.0,Multimodal,Mixed,94.8,64.48,319.09
+295,Atlas-8B-v3,QuantumLeap Labs,USA,2021,8.0,Robotics,Mixed,57.0,118.03,338.74
+296,Simurgh-34B-v4,Pardis AI,Iran,2020,34.0,LLM,Open,66.5,61.33,259.4
+297,Falcon-405B-v2,TensorNest,USA,2023,405.0,Multimodal,Closed,75.6,81.58,345.22
+298,Zephyr-0.5B-v4,Cortex Systems,UK,2020,0.5,Multimodal,Closed,96.0,10.39,415.66
+299,Orion-34B-v3,Kavosh AI,Iran,2022,34.0,Audio,Open,78.2,41.86,48.82
+300,Falcon-120B-v3,Kavosh AI,Iran,2020,120.0,Multimodal,Open,91.1,13.9,424.59
+301,Atlas-1000B-v2,Orbital Mind,UK,2025,1000.0,Vision,Mixed,62.8,19.3,279.93
+302,Vega-70B-v2,Simurgh AI,Iran,2021,70.0,Robotics,Mixed,74.2,3.6,307.06
+303,Helix-405B-v4,Lumina Intelligence,France,2023,405.0,LLM,Mixed,64.6,33.47,351.88
+304,Pixel-1B-v2,QuantumLeap Labs,USA,2022,1.0,Multimodal,Open,75.4,31.56,431.32
+305,Echo-34B-v4,DeepWave,China,2024,34.0,Audio,Mixed,60.1,42.3,228.94
+306,Pardis-1000B-v3,Cortex Systems,UK,2024,1000.0,Code,Open,84.9,37.65,119.29
+307,Orion-34B-v2,QuantumLeap Labs,USA,2024,34.0,Audio,Closed,81.5,69.02,211.53
+308,Echo-180B-v2,Simurgh AI,Iran,2024,180.0,Vision,Closed,67.9,22.53,420.99
+309,Nexus-34B-v1,TensorNest,USA,2023,34.0,Vision,Open,91.3,115.66,252.72
+310,Nimbus-1000B-v4,Simurgh AI,Iran,2023,1000.0,Robotics,Closed,76.7,10.01,15.44
+311,Lyra-0.5B-v3,Lumina Intelligence,France,2021,0.5,Code,Closed,62.5,54.93,371.26
+312,Quantum-180B-v1,Simurgh AI,Iran,2024,180.0,LLM,Closed,89.5,98.81,183.44
+313,Simurgh-120B-v2,NeuroForge,USA,2023,120.0,LLM,Mixed,91.9,90.19,148.86
+314,Helix-13B-v3,NeuroForge,USA,2026,13.0,LLM,Closed,93.5,14.17,405.95
+315,Simurgh-405B-v3,Lumina Intelligence,France,2026,405.0,Robotics,Mixed,83.2,20.0,69.63
+316,Pardis-8B-v1,Lumina Intelligence,France,2024,8.0,Multimodal,Mixed,67.5,64.7,161.83
+317,Lyra-13B-v3,Kavosh AI,Iran,2026,13.0,Code,Mixed,91.3,16.36,375.05
+318,Nexus-13B-v2,Pardis AI,Iran,2025,13.0,Vision,Open,61.5,38.72,123.78
+319,Nimbus-120B-v2,Orbital Mind,UK,2024,120.0,Robotics,Closed,82.9,45.08,37.77
+320,Nimbus-180B-v3,QuantumLeap Labs,USA,2025,180.0,Multimodal,Closed,97.3,39.34,1.25
+321,Atlas-120B-v3,Kavosh AI,Iran,2026,120.0,LLM,Mixed,72.7,116.18,412.43
+322,Lyra-34B-v3,Simurgh AI,Iran,2022,34.0,Code,Mixed,60.8,102.31,394.15
+323,Simurgh-0.5B-v1,Orbital Mind,UK,2020,0.5,Robotics,Closed,55.7,111.54,79.0
+324,Nexus-70B-v2,Simurgh AI,Iran,2025,70.0,Vision,Mixed,68.4,104.94,438.3
+325,Echo-34B-v3,QuantumLeap Labs,USA,2020,34.0,Multimodal,Mixed,95.2,19.95,198.18
+326,Falcon-8B-v4,Apex Neural,Canada,2025,8.0,LLM,Mixed,59.2,25.69,38.98
+327,Vega-180B-v4,TensorNest,USA,2020,180.0,LLM,Mixed,70.3,14.56,430.17
+328,Orion-120B-v1,Kavosh AI,Iran,2021,120.0,Audio,Open,87.5,12.38,156.68
+329,Orion-70B-v2,Apex Neural,Canada,2025,70.0,Robotics,Open,58.0,67.64,305.16
+330,Helix-34B-v2,Cortex Systems,UK,2025,34.0,Robotics,Open,95.9,73.97,221.2
+331,Atlas-1B-v2,Lumina Intelligence,France,2026,1.0,LLM,Mixed,87.5,42.25,214.7
+332,Vega-13B-v1,Cortex Systems,UK,2021,13.0,Code,Mixed,81.7,72.95,389.49
+333,Nexus-1000B-v3,Kavosh AI,Iran,2021,1000.0,Code,Mixed,77.7,89.77,147.78
+334,Simurgh-8B-v4,NeuroForge,USA,2023,8.0,LLM,Open,77.2,71.31,264.15
+335,Zephyr-34B-v2,NeuroForge,USA,2023,34.0,Code,Closed,71.3,81.98,381.37
+336,Nexus-405B-v1,QuantumLeap Labs,USA,2020,405.0,Multimodal,Open,56.8,7.35,394.65
+337,Lyra-1000B-v4,DeepWave,China,2023,1000.0,Robotics,Closed,58.7,64.43,308.03
+338,Atlas-13B-v1,Apex Neural,Canada,2024,13.0,Vision,Open,78.9,46.95,317.15
+339,Echo-1000B-v1,Orbital Mind,UK,2022,1000.0,Robotics,Closed,87.5,101.59,28.96
+340,Nimbus-1B-v4,QuantumLeap Labs,USA,2024,1.0,Code,Open,68.8,89.03,370.33
+341,Nexus-7B-v1,QuantumLeap Labs,USA,2021,7.0,Audio,Closed,78.3,93.98,360.39
+342,Zephyr-7B-v3,Cortex Systems,UK,2025,7.0,LLM,Open,69.9,51.58,261.93
+343,Falcon-405B-v1,Apex Neural,Canada,2023,405.0,Audio,Mixed,71.0,60.0,283.45
+344,Orion-13B-v1,Visionary AI,Germany,2024,13.0,Robotics,Mixed,60.1,88.92,1.29
+345,Vega-0.5B-v4,NeuroForge,USA,2022,0.5,Audio,Open,63.0,115.25,17.69
+346,Falcon-1000B-v4,Kavosh AI,Iran,2021,1000.0,Multimodal,Open,73.5,86.46,135.64
+347,Pixel-34B-v1,QuantumLeap Labs,USA,2024,34.0,Robotics,Open,63.0,96.54,490.71
+348,Atlas-120B-v3,Pardis AI,Iran,2026,120.0,Multimodal,Closed,58.8,54.86,184.47
+349,Pixel-13B-v2,Apex Neural,Canada,2023,13.0,Multimodal,Mixed,98.2,119.73,387.95
+350,Quantum-8B-v2,Kavosh AI,Iran,2020,8.0,Audio,Open,65.4,41.64,419.79
+351,Zephyr-0.5B-v4,NeuroForge,USA,2026,0.5,Robotics,Mixed,68.7,24.7,491.56
+352,Helix-0.5B-v2,Pardis AI,Iran,2025,0.5,Multimodal,Open,57.0,27.85,422.75
+353,Falcon-34B-v4,Pardis AI,Iran,2025,34.0,LLM,Mixed,59.3,16.11,409.98
+354,Pixel-405B-v1,QuantumLeap Labs,USA,2023,405.0,Robotics,Open,65.5,31.39,157.51
+355,Falcon-34B-v3,Pardis AI,Iran,2023,34.0,Multimodal,Open,58.3,24.41,389.97
+356,Atlas-7B-v1,TensorNest,USA,2021,7.0,Audio,Closed,69.0,14.58,179.15
+357,Helix-13B-v4,Lumina Intelligence,France,2022,13.0,LLM,Open,62.0,82.36,413.2
+358,Pixel-0.5B-v2,Kavosh AI,Iran,2026,0.5,Multimodal,Open,59.1,29.86,177.88
+359,Nexus-1000B-v3,DeepWave,China,2022,1000.0,Vision,Open,97.4,102.57,277.98
+360,Vega-1B-v4,DeepWave,China,2020,1.0,Vision,Open,55.5,99.66,491.28
+361,Vega-70B-v3,Cortex Systems,UK,2025,70.0,Robotics,Mixed,58.7,70.38,458.72
+362,Nexus-1B-v2,QuantumLeap Labs,USA,2025,1.0,Audio,Open,59.1,101.69,404.45
+363,Nexus-120B-v1,QuantumLeap Labs,USA,2021,120.0,Code,Closed,91.6,47.46,14.75
+364,Nimbus-7B-v3,Orbital Mind,UK,2021,7.0,Vision,Closed,67.5,106.02,17.33
+365,Pixel-8B-v3,TensorNest,USA,2023,8.0,Audio,Mixed,76.3,10.62,191.51
+366,Vega-1000B-v2,Pardis AI,Iran,2025,1000.0,Code,Open,99.0,93.85,179.56
+367,Simurgh-120B-v3,DeepWave,China,2024,120.0,Code,Closed,72.3,21.66,159.45
+368,Nexus-13B-v1,Lumina Intelligence,France,2026,13.0,Audio,Mixed,70.9,70.12,116.39
+369,Atlas-8B-v2,Cortex Systems,UK,2022,8.0,Code,Mixed,57.5,119.57,109.71
+370,Zephyr-7B-v2,Pardis AI,Iran,2021,7.0,Code,Closed,90.9,83.75,456.99
+371,Falcon-34B-v2,NeuroForge,USA,2024,34.0,Vision,Closed,79.1,21.15,18.99
+372,Vega-405B-v2,NeuroForge,USA,2020,405.0,Code,Closed,55.0,110.16,100.74
+373,Zephyr-7B-v3,Cortex Systems,UK,2020,7.0,LLM,Open,81.1,110.08,387.19
+374,Pardis-34B-v1,DeepWave,China,2022,34.0,Robotics,Mixed,72.6,12.21,150.89
+375,Orion-70B-v4,Cortex Systems,UK,2025,70.0,Multimodal,Open,86.5,67.48,444.8
+376,Simurgh-34B-v2,TensorNest,USA,2025,34.0,Code,Open,71.8,88.11,147.27
+377,Falcon-0.5B-v4,Cortex Systems,UK,2026,0.5,Code,Open,63.1,38.25,404.41
+378,Vega-1000B-v1,TensorNest,USA,2023,1000.0,Vision,Closed,88.2,28.64,491.19
+379,Echo-1B-v3,Cortex Systems,UK,2023,1.0,LLM,Closed,64.3,83.21,175.25
+380,Falcon-0.5B-v1,QuantumLeap Labs,USA,2023,0.5,Audio,Mixed,73.7,20.04,207.02
+381,Zephyr-180B-v4,Pardis AI,Iran,2020,180.0,Audio,Mixed,84.0,82.49,81.34
+382,Simurgh-0.5B-v3,QuantumLeap Labs,USA,2020,0.5,Multimodal,Closed,97.3,9.0,85.06
+383,Orion-1B-v1,Pardis AI,Iran,2022,1.0,Code,Mixed,94.7,84.57,215.67
+384,Orion-405B-v4,Orbital Mind,UK,2021,405.0,LLM,Open,69.7,116.93,204.65
+385,Falcon-180B-v3,DeepWave,China,2025,180.0,Multimodal,Closed,65.6,6.05,285.89
+386,Orion-0.5B-v3,Simurgh AI,Iran,2020,0.5,Audio,Open,68.1,79.48,300.11
+387,Atlas-0.5B-v2,Lumina Intelligence,France,2021,0.5,Robotics,Closed,98.5,56.88,57.76
+388,Helix-120B-v3,Pardis AI,Iran,2020,120.0,Robotics,Mixed,72.2,44.59,190.73
+389,Helix-0.5B-v3,Cortex Systems,UK,2023,0.5,Audio,Closed,65.1,32.3,30.83
+390,Echo-1B-v1,Kavosh AI,Iran,2025,1.0,Multimodal,Mixed,73.4,90.8,113.76
+391,Pardis-70B-v4,NeuroForge,USA,2024,70.0,Robotics,Closed,80.5,28.35,149.43
+392,Pardis-0.5B-v2,Pardis AI,Iran,2020,0.5,Audio,Open,97.2,20.14,105.95
+393,Orion-0.5B-v4,Lumina Intelligence,France,2020,0.5,Robotics,Closed,64.0,98.73,73.95
+394,Lyra-34B-v1,TensorNest,USA,2020,34.0,Audio,Mixed,72.7,39.2,138.11
+395,Pardis-0.5B-v4,Simurgh AI,Iran,2020,0.5,Audio,Open,61.6,70.59,379.19
+396,Atlas-405B-v1,QuantumLeap Labs,USA,2026,405.0,Multimodal,Mixed,94.2,105.36,132.08
+397,Helix-405B-v4,Orbital Mind,UK,2020,405.0,Vision,Closed,72.9,74.23,340.41
+398,Nexus-70B-v3,Pardis AI,Iran,2025,70.0,Vision,Open,88.2,110.51,448.52
+399,Zephyr-13B-v3,NeuroForge,USA,2022,13.0,Audio,Mixed,85.5,116.7,113.99
+400,Falcon-120B-v3,Apex Neural,Canada,2022,120.0,Robotics,Closed,81.9,10.81,220.86
+401,Falcon-120B-v3,Pardis AI,Iran,2026,120.0,LLM,Mixed,90.2,7.97,354.79
+402,Orion-180B-v1,Pardis AI,Iran,2021,180.0,Vision,Open,92.2,30.01,228.23
+403,Falcon-8B-v3,Visionary AI,Germany,2022,8.0,Audio,Mixed,72.7,110.78,340.59
+404,Zephyr-120B-v4,Lumina Intelligence,France,2021,120.0,Audio,Mixed,79.5,41.38,418.83
+405,Falcon-1B-v3,Apex Neural,Canada,2020,1.0,Audio,Open,62.2,68.71,482.46
+406,Echo-8B-v2,Lumina Intelligence,France,2022,8.0,Robotics,Closed,77.8,103.77,483.57
+407,Nexus-120B-v2,Orbital Mind,UK,2025,120.0,Vision,Mixed,90.6,26.93,304.18
+408,Falcon-1000B-v3,Apex Neural,Canada,2023,1000.0,Audio,Closed,75.4,26.26,151.08
+409,Pardis-405B-v4,DeepWave,China,2024,405.0,LLM,Open,77.8,79.52,421.64
+410,Quantum-1000B-v3,Visionary AI,Germany,2022,1000.0,Robotics,Open,76.4,40.42,138.25
+411,Pardis-13B-v3,Visionary AI,Germany,2025,13.0,Robotics,Mixed,68.3,18.08,382.74
+412,Simurgh-405B-v4,NeuroForge,USA,2025,405.0,Multimodal,Mixed,61.2,3.15,248.69
+413,Lyra-70B-v4,Apex Neural,Canada,2023,70.0,Robotics,Open,80.9,119.37,408.01
+414,Falcon-8B-v4,Visionary AI,Germany,2025,8.0,Multimodal,Mixed,68.4,20.48,328.81
+415,Orion-13B-v1,DeepWave,China,2023,13.0,Vision,Mixed,66.5,97.02,381.46
+416,Echo-34B-v1,Cortex Systems,UK,2021,34.0,Multimodal,Open,88.1,36.92,394.05
+417,Zephyr-13B-v3,Visionary AI,Germany,2023,13.0,LLM,Closed,57.4,76.16,290.16
+418,Atlas-120B-v2,TensorNest,USA,2024,120.0,LLM,Mixed,72.0,35.87,27.04
+419,Orion-8B-v3,Cortex Systems,UK,2023,8.0,Code,Closed,61.4,103.5,90.19
+420,Helix-34B-v2,QuantumLeap Labs,USA,2022,34.0,Robotics,Open,55.2,32.9,380.6
+421,Pixel-7B-v4,Cortex Systems,UK,2026,7.0,LLM,Open,82.3,76.06,201.7
+422,Nimbus-0.5B-v1,Simurgh AI,Iran,2024,0.5,Vision,Mixed,71.6,1.79,161.11
+423,Vega-0.5B-v1,DeepWave,China,2025,0.5,Robotics,Open,65.1,105.25,156.05
+424,Nimbus-180B-v3,QuantumLeap Labs,USA,2021,180.0,LLM,Open,68.3,34.97,363.92
+425,Quantum-34B-v4,TensorNest,USA,2025,34.0,Vision,Closed,99.3,58.87,375.06
+426,Simurgh-70B-v1,Cortex Systems,UK,2021,70.0,Vision,Mixed,98.8,25.42,10.97
+427,Orion-1B-v3,DeepWave,China,2025,1.0,Robotics,Open,71.7,76.87,385.63
+428,Nexus-405B-v1,TensorNest,USA,2025,405.0,LLM,Mixed,92.2,5.88,57.9
+429,Nimbus-1B-v3,Simurgh AI,Iran,2023,1.0,Robotics,Open,64.1,82.32,4.66
+430,Echo-1B-v3,Pardis AI,Iran,2024,1.0,Code,Mixed,61.1,99.7,52.47
+431,Pixel-1B-v3,Kavosh AI,Iran,2020,1.0,LLM,Closed,63.8,24.05,131.5
+432,Vega-34B-v4,DeepWave,China,2022,34.0,Vision,Open,79.4,109.25,344.11
+433,Zephyr-8B-v1,Simurgh AI,Iran,2020,8.0,Robotics,Open,95.4,100.24,334.51
+434,Atlas-180B-v1,Cortex Systems,UK,2025,180.0,Robotics,Open,95.3,77.36,228.38
+435,Lyra-120B-v1,Apex Neural,Canada,2020,120.0,Vision,Open,92.9,43.29,338.39
+436,Falcon-1B-v1,Pardis AI,Iran,2026,1.0,LLM,Open,92.9,79.64,85.26
+437,Helix-405B-v3,Visionary AI,Germany,2025,405.0,LLM,Closed,91.3,22.03,200.39
+438,Lyra-70B-v4,Simurgh AI,Iran,2026,70.0,Audio,Mixed,94.4,20.1,66.26
+439,Nexus-7B-v1,Kavosh AI,Iran,2023,7.0,Code,Closed,90.7,81.44,90.64
+440,Simurgh-34B-v1,Pardis AI,Iran,2026,34.0,Robotics,Mixed,98.3,15.77,460.2
+441,Nimbus-120B-v1,QuantumLeap Labs,USA,2020,120.0,Multimodal,Mixed,69.0,84.58,338.97
+442,Pixel-405B-v2,Kavosh AI,Iran,2025,405.0,Multimodal,Mixed,78.3,84.1,47.63
+443,Falcon-8B-v4,Orbital Mind,UK,2022,8.0,Robotics,Mixed,83.5,17.92,413.22
+444,Nexus-0.5B-v2,TensorNest,USA,2024,0.5,Audio,Closed,93.7,9.08,245.83
+445,Zephyr-13B-v1,Lumina Intelligence,France,2024,13.0,Vision,Mixed,83.6,48.45,117.51
+446,Helix-405B-v4,Simurgh AI,Iran,2020,405.0,Audio,Closed,69.1,117.68,372.62
+447,Atlas-70B-v4,NeuroForge,USA,2020,70.0,Code,Mixed,55.0,11.0,302.11
+448,Echo-13B-v2,TensorNest,USA,2025,13.0,Robotics,Closed,97.3,43.66,27.15
+449,Pardis-120B-v3,Lumina Intelligence,France,2024,120.0,Code,Mixed,76.1,78.89,357.96
+450,Atlas-1000B-v2,QuantumLeap Labs,USA,2020,1000.0,Multimodal,Closed,91.9,115.74,146.0
+451,Zephyr-1B-v1,DeepWave,China,2021,1.0,Audio,Open,91.6,89.13,204.61
+452,Pixel-8B-v2,Apex Neural,Canada,2020,8.0,Audio,Open,75.3,93.79,358.4
+453,Simurgh-70B-v1,QuantumLeap Labs,USA,2025,70.0,Robotics,Mixed,60.5,107.02,228.7
+454,Quantum-7B-v4,TensorNest,USA,2020,7.0,Code,Mixed,57.2,112.24,419.41
+455,Quantum-7B-v2,Simurgh AI,Iran,2025,7.0,Vision,Open,72.2,72.11,441.35
+456,Nimbus-70B-v2,DeepWave,China,2022,70.0,Audio,Closed,98.2,54.4,66.69
+457,Pixel-180B-v3,Pardis AI,Iran,2026,180.0,Robotics,Mixed,93.3,85.45,467.76
+458,Vega-8B-v2,Orbital Mind,UK,2024,8.0,Robotics,Closed,85.6,110.55,66.34
+459,Echo-7B-v3,Kavosh AI,Iran,2025,7.0,LLM,Closed,80.0,69.98,471.34
+460,Nimbus-1000B-v3,Kavosh AI,Iran,2026,1000.0,Audio,Open,78.3,3.13,72.67
+461,Nexus-8B-v3,Orbital Mind,UK,2026,8.0,Vision,Closed,85.4,17.66,31.03
+462,Vega-180B-v1,Apex Neural,Canada,2022,180.0,Audio,Open,82.4,81.1,280.95
+463,Falcon-1000B-v4,Lumina Intelligence,France,2021,1000.0,Code,Mixed,67.8,79.77,463.24
+464,Nimbus-1000B-v3,Pardis AI,Iran,2024,1000.0,LLM,Open,88.1,24.45,434.43
+465,Pardis-8B-v3,Simurgh AI,Iran,2026,8.0,Code,Mixed,87.9,23.66,362.46
+466,Lyra-120B-v2,Lumina Intelligence,France,2025,120.0,LLM,Open,97.8,88.24,59.69
+467,Nimbus-13B-v3,NeuroForge,USA,2021,13.0,Vision,Mixed,92.6,0.78,233.17
+468,Nexus-7B-v3,Cortex Systems,UK,2024,7.0,LLM,Mixed,82.4,79.46,245.28
+469,Quantum-34B-v1,TensorNest,USA,2026,34.0,Robotics,Closed,78.4,114.84,260.31
+470,Orion-70B-v4,DeepWave,China,2020,70.0,Multimodal,Open,94.3,79.63,165.54
+471,Vega-405B-v4,Apex Neural,Canada,2024,405.0,Robotics,Open,60.1,41.59,120.18
+472,Pixel-405B-v2,Orbital Mind,UK,2020,405.0,Robotics,Closed,72.0,95.57,56.7
+473,Quantum-13B-v1,Apex Neural,Canada,2024,13.0,Multimodal,Mixed,90.7,53.52,21.94
+474,Vega-34B-v1,Orbital Mind,UK,2020,34.0,Vision,Mixed,78.7,75.27,105.4
+475,Simurgh-8B-v4,Orbital Mind,UK,2026,8.0,LLM,Open,78.9,84.36,488.11
+476,Echo-1B-v2,Pardis AI,Iran,2020,1.0,Audio,Mixed,69.8,10.59,27.14
+477,Quantum-1B-v2,Apex Neural,Canada,2022,1.0,Audio,Closed,75.1,48.59,158.21
+478,Echo-1B-v1,Pardis AI,Iran,2025,1.0,Robotics,Mixed,57.8,89.54,22.77
+479,Zephyr-180B-v1,QuantumLeap Labs,USA,2022,180.0,Robotics,Closed,82.0,33.85,463.35
+480,Nimbus-1000B-v1,Pardis AI,Iran,2023,1000.0,Vision,Mixed,64.8,89.64,398.39
+481,Lyra-1000B-v2,DeepWave,China,2022,1000.0,Robotics,Mixed,83.8,114.89,5.58
+482,Orion-1B-v1,DeepWave,China,2020,1.0,Code,Mixed,72.5,65.75,42.57
+483,Falcon-34B-v2,Lumina Intelligence,France,2023,34.0,Robotics,Mixed,61.3,22.16,308.45
+484,Vega-1B-v2,Apex Neural,Canada,2025,1.0,Code,Open,92.9,111.89,497.16
+485,Echo-180B-v1,Simurgh AI,Iran,2022,180.0,Robotics,Open,66.2,23.77,290.3
+486,Zephyr-7B-v2,Visionary AI,Germany,2020,7.0,Multimodal,Mixed,58.1,23.3,242.94
+487,Pixel-1000B-v3,Visionary AI,Germany,2025,1000.0,Code,Open,80.2,43.8,158.17
+488,Orion-0.5B-v3,Pardis AI,Iran,2021,0.5,Vision,Mixed,87.9,52.39,420.06
+489,Echo-34B-v4,Cortex Systems,UK,2023,34.0,Audio,Closed,89.5,58.49,54.43
+490,Pixel-1B-v3,Orbital Mind,UK,2026,1.0,Vision,Mixed,63.7,88.05,313.31
+491,Atlas-0.5B-v1,Kavosh AI,Iran,2026,0.5,Code,Mixed,73.0,70.85,453.15
+492,Lyra-180B-v4,DeepWave,China,2025,180.0,Vision,Closed,72.5,106.98,294.8
+493,Orion-120B-v1,Apex Neural,Canada,2023,120.0,Multimodal,Mixed,55.5,28.74,482.0
+494,Echo-7B-v2,TensorNest,USA,2023,7.0,Vision,Open,80.2,67.94,436.1
+495,Falcon-120B-v3,Cortex Systems,UK,2020,120.0,Vision,Closed,65.3,31.8,117.02
+496,Vega-180B-v3,Orbital Mind,UK,2023,180.0,Audio,Closed,94.2,4.88,324.27
+497,Falcon-180B-v3,QuantumLeap Labs,USA,2026,180.0,Robotics,Closed,80.7,68.46,188.34
+498,Zephyr-405B-v1,Pardis AI,Iran,2024,405.0,Multimodal,Closed,98.3,26.83,202.93
+499,Helix-120B-v1,Visionary AI,Germany,2024,120.0,Vision,Closed,62.4,9.34,321.74
+500,Orion-7B-v2,Lumina Intelligence,France,2022,7.0,Code,Mixed,91.4,79.37,207.31
+501,Falcon-1B-v4,Visionary AI,Germany,2025,1.0,Audio,Closed,64.4,19.43,416.68
+502,Vega-0.5B-v2,NeuroForge,USA,2024,0.5,Code,Open,61.0,61.57,445.4
+503,Nexus-7B-v3,Cortex Systems,UK,2021,7.0,Code,Closed,81.7,67.68,9.32
+504,Falcon-1000B-v3,Kavosh AI,Iran,2020,1000.0,Vision,Closed,82.0,56.62,240.84
+505,Pardis-70B-v2,Lumina Intelligence,France,2026,70.0,Code,Open,82.7,61.35,83.87
+506,Zephyr-120B-v1,Orbital Mind,UK,2021,120.0,Audio,Closed,60.9,2.09,261.36
+507,Echo-70B-v2,DeepWave,China,2024,70.0,LLM,Open,76.2,73.81,19.53
+508,Quantum-1B-v1,DeepWave,China,2023,1.0,Robotics,Open,95.1,64.76,0.61
+509,Echo-70B-v4,Orbital Mind,UK,2022,70.0,LLM,Mixed,78.6,27.62,401.15
+510,Zephyr-405B-v1,Pardis AI,Iran,2023,405.0,Vision,Closed,76.2,27.98,429.53
+511,Pixel-180B-v4,Apex Neural,Canada,2022,180.0,Vision,Open,86.6,94.75,289.0
+512,Quantum-0.5B-v4,QuantumLeap Labs,USA,2025,0.5,Vision,Mixed,90.8,49.12,53.3
+513,Echo-405B-v3,Pardis AI,Iran,2022,405.0,Code,Closed,80.1,73.46,495.9
+514,Simurgh-8B-v4,Pardis AI,Iran,2024,8.0,Code,Closed,63.0,67.14,241.89
+515,Pixel-34B-v4,Apex Neural,Canada,2025,34.0,Vision,Mixed,60.3,27.65,391.56
+516,Atlas-8B-v4,Cortex Systems,UK,2026,8.0,Multimodal,Mixed,82.3,82.18,26.04
+517,Echo-0.5B-v1,Pardis AI,Iran,2026,0.5,Vision,Closed,96.2,52.3,32.05
+518,Zephyr-1B-v1,Lumina Intelligence,France,2025,1.0,Audio,Closed,82.3,62.57,355.81
+519,Nexus-7B-v4,TensorNest,USA,2023,7.0,LLM,Open,92.9,111.7,259.08
+520,Nexus-405B-v2,Lumina Intelligence,France,2024,405.0,Vision,Mixed,56.6,28.79,0.15
+521,Atlas-13B-v4,Cortex Systems,UK,2022,13.0,Robotics,Closed,73.0,24.12,7.69
+522,Atlas-1B-v3,Kavosh AI,Iran,2025,1.0,Code,Mixed,70.5,115.6,138.26
+523,Vega-120B-v4,TensorNest,USA,2024,120.0,LLM,Closed,62.8,60.8,279.32
+524,Lyra-34B-v1,DeepWave,China,2026,34.0,Code,Closed,94.0,97.6,287.45
+525,Helix-70B-v4,Kavosh AI,Iran,2026,70.0,Vision,Closed,97.8,55.12,230.37
+526,Pardis-0.5B-v4,TensorNest,USA,2020,0.5,Multimodal,Open,72.0,94.66,110.2
+527,Vega-34B-v4,Kavosh AI,Iran,2022,34.0,Code,Mixed,55.4,99.88,124.14
+528,Nimbus-1000B-v3,QuantumLeap Labs,USA,2020,1000.0,Code,Open,76.2,42.49,447.16
+529,Orion-1000B-v2,Apex Neural,Canada,2023,1000.0,Robotics,Open,65.5,29.12,132.71
+530,Vega-8B-v3,Lumina Intelligence,France,2021,8.0,LLM,Open,95.9,81.13,331.72
+531,Nexus-180B-v1,TensorNest,USA,2026,180.0,Audio,Closed,82.6,59.13,492.68
+532,Pardis-13B-v4,TensorNest,USA,2021,13.0,Code,Closed,72.7,90.05,64.13
+533,Simurgh-70B-v4,DeepWave,China,2024,70.0,LLM,Mixed,70.5,103.26,387.95
+534,Atlas-180B-v4,Simurgh AI,Iran,2022,180.0,Robotics,Open,55.5,25.37,290.51
+535,Zephyr-405B-v3,Visionary AI,Germany,2021,405.0,Code,Closed,65.6,56.61,306.55
+536,Orion-120B-v4,Visionary AI,Germany,2021,120.0,Audio,Mixed,88.5,43.87,200.3
+537,Orion-405B-v2,Simurgh AI,Iran,2024,405.0,Robotics,Open,91.2,86.53,402.05
+538,Nimbus-70B-v2,DeepWave,China,2021,70.0,Robotics,Open,76.0,1.27,210.77
+539,Pardis-1000B-v3,Cortex Systems,UK,2026,1000.0,Audio,Closed,66.2,103.03,23.86
+540,Falcon-7B-v1,QuantumLeap Labs,USA,2021,7.0,Multimodal,Closed,92.3,11.65,372.3
+541,Zephyr-34B-v3,Apex Neural,Canada,2022,34.0,LLM,Closed,60.4,104.1,481.56
+542,Pixel-405B-v2,Lumina Intelligence,France,2026,405.0,Multimodal,Closed,69.5,61.3,387.37
+543,Atlas-70B-v3,Simurgh AI,Iran,2023,70.0,Robotics,Open,93.6,76.91,464.28
+544,Echo-405B-v4,Pardis AI,Iran,2026,405.0,LLM,Open,62.2,27.46,158.45
+545,Falcon-13B-v4,Apex Neural,Canada,2022,13.0,Audio,Closed,88.3,62.56,225.15
+546,Orion-0.5B-v2,Cortex Systems,UK,2025,0.5,Vision,Mixed,66.2,89.29,374.87
+547,Orion-70B-v1,Lumina Intelligence,France,2020,70.0,LLM,Closed,79.4,3.26,198.51
+548,Atlas-13B-v2,QuantumLeap Labs,USA,2020,13.0,Robotics,Closed,68.8,29.76,142.09
+549,Orion-7B-v2,Orbital Mind,UK,2020,7.0,LLM,Mixed,70.9,109.84,432.12
+550,Pardis-180B-v3,Simurgh AI,Iran,2024,180.0,Audio,Open,98.1,83.74,88.53
+551,Helix-1000B-v4,TensorNest,USA,2024,1000.0,Robotics,Mixed,78.8,109.08,240.83
+552,Simurgh-1B-v4,Lumina Intelligence,France,2022,1.0,Multimodal,Closed,66.6,36.5,0.06
+553,Zephyr-13B-v4,Cortex Systems,UK,2024,13.0,LLM,Mixed,96.0,113.64,238.54
+554,Simurgh-70B-v3,NeuroForge,USA,2024,70.0,Vision,Open,79.4,22.71,441.08
+555,Nimbus-8B-v2,Pardis AI,Iran,2025,8.0,Robotics,Mixed,72.3,45.47,131.5
+556,Echo-8B-v3,Pardis AI,Iran,2022,8.0,Robotics,Mixed,78.7,32.33,94.01
+557,Orion-7B-v3,QuantumLeap Labs,USA,2020,7.0,Robotics,Closed,82.5,32.73,311.38
+558,Zephyr-0.5B-v2,Lumina Intelligence,France,2020,0.5,Code,Open,63.3,12.36,134.6
+559,Helix-0.5B-v2,Kavosh AI,Iran,2020,0.5,Vision,Open,77.0,41.1,155.8
+560,Zephyr-120B-v1,Simurgh AI,Iran,2022,120.0,LLM,Open,57.5,93.1,35.7
+561,Orion-8B-v3,Simurgh AI,Iran,2026,8.0,Audio,Open,60.4,92.2,124.49
+562,Vega-0.5B-v2,Simurgh AI,Iran,2023,0.5,Robotics,Open,78.2,117.86,236.42
+563,Lyra-34B-v2,Orbital Mind,UK,2025,34.0,Robotics,Open,88.1,65.99,61.08
+564,Echo-13B-v2,Simurgh AI,Iran,2022,13.0,LLM,Mixed,64.7,13.64,316.46
+565,Nexus-7B-v3,Visionary AI,Germany,2024,7.0,LLM,Closed,90.1,1.17,21.01
+566,Helix-405B-v2,Kavosh AI,Iran,2022,405.0,LLM,Open,62.0,11.06,309.33
+567,Nexus-0.5B-v3,Orbital Mind,UK,2025,0.5,Vision,Mixed,78.9,12.98,243.93
+568,Quantum-1000B-v3,Visionary AI,Germany,2026,1000.0,Audio,Mixed,63.6,82.74,179.09
+569,Lyra-0.5B-v4,Cortex Systems,UK,2025,0.5,Audio,Mixed,68.1,83.67,94.9
+570,Quantum-34B-v3,Cortex Systems,UK,2025,34.0,Audio,Closed,93.6,71.88,430.28
+571,Atlas-180B-v2,Cortex Systems,UK,2023,180.0,Multimodal,Closed,79.1,54.54,387.96
+572,Nimbus-7B-v1,DeepWave,China,2024,7.0,Multimodal,Mixed,65.6,86.55,329.15
+573,Pardis-70B-v2,DeepWave,China,2024,70.0,Robotics,Closed,89.1,18.58,141.57
+574,Echo-34B-v1,Pardis AI,Iran,2020,34.0,Code,Mixed,58.0,100.24,64.9
+575,Vega-1B-v4,NeuroForge,USA,2021,1.0,LLM,Open,80.4,100.37,328.96
+576,Pixel-405B-v3,DeepWave,China,2020,405.0,Multimodal,Open,82.0,8.6,465.11
+577,Echo-120B-v1,Lumina Intelligence,France,2023,120.0,Robotics,Open,71.1,89.24,445.22
+578,Simurgh-0.5B-v3,Visionary AI,Germany,2024,0.5,LLM,Mixed,58.1,36.54,472.3
+579,Atlas-1B-v2,DeepWave,China,2024,1.0,Audio,Open,63.6,78.86,285.02
+580,Quantum-180B-v4,Cortex Systems,UK,2025,180.0,LLM,Mixed,80.7,80.97,351.28
+581,Atlas-7B-v2,Pardis AI,Iran,2024,7.0,Audio,Mixed,70.0,19.07,499.22
+582,Zephyr-34B-v3,Simurgh AI,Iran,2026,34.0,Multimodal,Closed,89.0,51.73,362.94
+583,Vega-405B-v2,TensorNest,USA,2023,405.0,Code,Mixed,66.3,115.4,223.76
+584,Nexus-0.5B-v3,Pardis AI,Iran,2024,0.5,LLM,Mixed,61.0,106.85,3.29
+585,Vega-34B-v1,Lumina Intelligence,France,2026,34.0,Robotics,Closed,95.9,61.4,285.34
+586,Orion-1B-v1,TensorNest,USA,2023,1.0,Multimodal,Open,61.2,44.11,291.08
+587,Lyra-13B-v1,Lumina Intelligence,France,2024,13.0,Audio,Mixed,95.8,88.14,361.79
+588,Orion-120B-v1,Simurgh AI,Iran,2024,120.0,Robotics,Closed,56.7,97.02,190.78
+589,Simurgh-34B-v3,NeuroForge,USA,2026,34.0,Audio,Closed,96.4,14.55,385.2
+590,Echo-405B-v1,Kavosh AI,Iran,2025,405.0,Robotics,Closed,57.4,62.97,159.67
+591,Orion-34B-v2,TensorNest,USA,2021,34.0,LLM,Mixed,87.6,47.21,222.81
+592,Pixel-180B-v1,TensorNest,USA,2021,180.0,Audio,Closed,90.0,17.85,168.09
+593,Pixel-0.5B-v4,Simurgh AI,Iran,2022,0.5,LLM,Closed,77.3,92.88,65.2
+594,Helix-180B-v2,Cortex Systems,UK,2023,180.0,Audio,Mixed,80.4,67.38,498.54
+595,Vega-8B-v1,DeepWave,China,2022,8.0,Audio,Closed,85.5,69.16,56.27
+596,Nimbus-34B-v3,Pardis AI,Iran,2021,34.0,Multimodal,Closed,81.4,3.0,152.42
+597,Pixel-120B-v2,Visionary AI,Germany,2023,120.0,LLM,Open,63.9,44.92,378.87
+598,Atlas-0.5B-v2,QuantumLeap Labs,USA,2024,0.5,Vision,Closed,55.6,83.29,55.65
+599,Helix-0.5B-v3,Simurgh AI,Iran,2021,0.5,Robotics,Mixed,64.4,65.62,375.18
+600,Helix-405B-v2,DeepWave,China,2025,405.0,Robotics,Mixed,55.8,70.0,331.77
+601,Lyra-7B-v1,NeuroForge,USA,2022,7.0,Vision,Mixed,82.5,6.46,327.38
+602,Atlas-70B-v3,NeuroForge,USA,2025,70.0,Robotics,Closed,93.5,2.39,433.71
+603,Nimbus-8B-v4,Orbital Mind,UK,2024,8.0,Robotics,Open,95.2,58.21,298.56
+604,Orion-8B-v4,QuantumLeap Labs,USA,2024,8.0,Robotics,Open,56.8,110.68,152.47
+605,Nimbus-7B-v1,Simurgh AI,Iran,2022,7.0,Robotics,Closed,70.8,36.35,498.0
+606,Lyra-0.5B-v3,DeepWave,China,2023,0.5,LLM,Mixed,97.2,27.15,170.9
+607,Echo-7B-v1,Pardis AI,Iran,2025,7.0,Audio,Mixed,97.7,73.53,312.77
+608,Nimbus-8B-v2,Lumina Intelligence,France,2023,8.0,Multimodal,Mixed,69.7,65.11,103.39
+609,Pixel-180B-v2,Cortex Systems,UK,2026,180.0,Vision,Closed,85.6,107.85,454.78
+610,Simurgh-7B-v2,Pardis AI,Iran,2022,7.0,LLM,Mixed,78.7,86.36,92.08
+611,Falcon-0.5B-v3,Cortex Systems,UK,2023,0.5,Audio,Closed,74.7,112.06,447.07
+612,Lyra-7B-v2,Kavosh AI,Iran,2020,7.0,Vision,Open,56.2,118.32,308.48
+613,Pixel-405B-v2,TensorNest,USA,2024,405.0,Vision,Open,85.6,43.18,344.07
+614,Orion-180B-v4,Simurgh AI,Iran,2025,180.0,Robotics,Closed,63.2,46.56,236.93
+615,Vega-8B-v1,Cortex Systems,UK,2023,8.0,LLM,Closed,97.3,26.78,335.67
+616,Simurgh-8B-v1,Lumina Intelligence,France,2021,8.0,Audio,Mixed,76.8,39.05,228.78
+617,Nimbus-70B-v1,Lumina Intelligence,France,2024,70.0,Robotics,Closed,87.0,47.36,469.57
+618,Pixel-180B-v1,TensorNest,USA,2024,180.0,LLM,Closed,75.3,105.34,438.89
+619,Quantum-180B-v4,Lumina Intelligence,France,2025,180.0,LLM,Mixed,72.2,91.84,481.3
+620,Lyra-120B-v4,Lumina Intelligence,France,2022,120.0,Multimodal,Closed,62.4,35.4,459.52
+621,Quantum-7B-v4,Kavosh AI,Iran,2026,7.0,Robotics,Closed,59.0,60.13,89.89
+622,Falcon-180B-v2,TensorNest,USA,2023,180.0,Audio,Closed,75.1,21.55,295.16
+623,Vega-120B-v1,Kavosh AI,Iran,2022,120.0,Multimodal,Mixed,83.9,85.41,82.01
+624,Atlas-1B-v1,Kavosh AI,Iran,2025,1.0,Audio,Mixed,71.2,62.91,192.05
+625,Pixel-7B-v4,DeepWave,China,2024,7.0,Audio,Open,89.2,109.48,282.75
+626,Pardis-7B-v2,Orbital Mind,UK,2026,7.0,Vision,Open,89.2,6.25,154.04
+627,Simurgh-120B-v3,Kavosh AI,Iran,2025,120.0,Vision,Open,95.0,115.26,1.78
+628,Nexus-120B-v4,Apex Neural,Canada,2026,120.0,Audio,Mixed,90.9,73.0,246.74
+629,Pixel-1000B-v4,Lumina Intelligence,France,2023,1000.0,Audio,Closed,58.5,72.05,122.36
+630,Lyra-405B-v2,DeepWave,China,2020,405.0,Vision,Open,57.5,41.95,72.7
+631,Echo-405B-v3,NeuroForge,USA,2022,405.0,LLM,Open,59.8,119.25,80.68
+632,Pixel-1000B-v2,Apex Neural,Canada,2023,1000.0,Robotics,Mixed,71.0,4.4,384.26
+633,Zephyr-70B-v1,Visionary AI,Germany,2026,70.0,Audio,Mixed,57.9,56.55,61.02
+634,Zephyr-180B-v4,Apex Neural,Canada,2024,180.0,Vision,Mixed,64.3,7.08,285.69
+635,Quantum-1B-v4,Orbital Mind,UK,2025,1.0,Robotics,Mixed,96.6,118.35,143.6
+636,Pardis-34B-v3,TensorNest,USA,2024,34.0,Code,Mixed,70.7,15.65,281.32
+637,Falcon-1000B-v4,DeepWave,China,2023,1000.0,Vision,Mixed,65.4,34.93,96.79
+638,Nexus-120B-v1,QuantumLeap Labs,USA,2025,120.0,Vision,Mixed,99.5,49.74,166.9
+639,Simurgh-1000B-v2,DeepWave,China,2020,1000.0,Robotics,Open,85.7,30.6,33.93
+640,Quantum-180B-v3,Apex Neural,Canada,2026,180.0,LLM,Open,85.5,41.03,362.2
+641,Nexus-7B-v2,TensorNest,USA,2022,7.0,Multimodal,Mixed,76.3,56.99,17.79
+642,Helix-7B-v4,Cortex Systems,UK,2026,7.0,Code,Closed,75.6,97.72,463.9
+643,Pardis-180B-v3,NeuroForge,USA,2024,180.0,Robotics,Mixed,69.0,64.35,104.14
+644,Zephyr-34B-v1,Orbital Mind,UK,2021,34.0,Multimodal,Open,70.1,45.09,267.14
+645,Pixel-405B-v4,Cortex Systems,UK,2021,405.0,Code,Open,93.5,90.21,352.64
+646,Falcon-0.5B-v3,Visionary AI,Germany,2023,0.5,LLM,Closed,94.0,44.65,414.73
+647,Vega-180B-v3,Apex Neural,Canada,2021,180.0,LLM,Closed,89.9,93.36,456.68
+648,Quantum-0.5B-v4,Simurgh AI,Iran,2024,0.5,Vision,Open,70.1,58.07,436.94
+649,Simurgh-34B-v2,Apex Neural,Canada,2026,34.0,LLM,Mixed,85.1,16.01,362.29
+650,Nimbus-180B-v1,Simurgh AI,Iran,2020,180.0,Multimodal,Open,85.6,71.36,43.55
+651,Nexus-1B-v3,Simurgh AI,Iran,2020,1.0,Code,Closed,83.4,25.26,100.29
+652,Lyra-180B-v3,Apex Neural,Canada,2026,180.0,Audio,Mixed,60.2,18.0,136.83
+653,Pixel-180B-v1,NeuroForge,USA,2021,180.0,Code,Closed,79.4,32.6,471.64
+654,Pixel-8B-v2,Apex Neural,Canada,2020,8.0,Multimodal,Mixed,94.7,64.92,25.37
+655,Helix-1000B-v1,NeuroForge,USA,2020,1000.0,Audio,Open,58.8,47.09,352.34
+656,Echo-120B-v3,TensorNest,USA,2022,120.0,Multimodal,Open,86.7,80.54,266.75
+657,Pixel-7B-v1,Simurgh AI,Iran,2026,7.0,Robotics,Closed,59.3,37.32,322.21
+658,Helix-8B-v2,Simurgh AI,Iran,2021,8.0,Code,Closed,95.6,47.11,349.81
+659,Zephyr-34B-v4,Orbital Mind,UK,2023,34.0,LLM,Open,76.2,42.24,230.63
+660,Lyra-34B-v2,Cortex Systems,UK,2024,34.0,LLM,Closed,91.4,95.63,162.94
+661,Atlas-13B-v4,Orbital Mind,UK,2023,13.0,Code,Closed,65.6,29.32,79.52
+662,Nimbus-1B-v3,Simurgh AI,Iran,2021,1.0,Robotics,Mixed,74.2,117.63,283.61
+663,Quantum-8B-v2,Visionary AI,Germany,2025,8.0,Robotics,Open,87.9,85.46,418.38
+664,Pixel-405B-v4,QuantumLeap Labs,USA,2022,405.0,Code,Open,91.6,21.22,477.94
+665,Pixel-1B-v4,QuantumLeap Labs,USA,2022,1.0,Audio,Mixed,84.4,10.95,408.52
+666,Simurgh-1000B-v1,TensorNest,USA,2026,1000.0,Vision,Mixed,61.6,63.8,195.0
+667,Helix-8B-v2,TensorNest,USA,2025,8.0,Multimodal,Closed,80.4,109.59,152.28
+668,Falcon-34B-v1,Pardis AI,Iran,2024,34.0,LLM,Mixed,98.9,48.56,63.79
+669,Nexus-34B-v1,Apex Neural,Canada,2020,34.0,Robotics,Mixed,91.5,43.17,430.63
+670,Vega-70B-v4,NeuroForge,USA,2025,70.0,Multimodal,Mixed,72.0,45.85,272.56
+671,Orion-120B-v2,Orbital Mind,UK,2021,120.0,Code,Closed,92.5,43.3,208.62
+672,Pardis-1000B-v2,Apex Neural,Canada,2021,1000.0,LLM,Open,83.9,17.37,442.45
+673,Nimbus-7B-v1,Orbital Mind,UK,2021,7.0,Robotics,Closed,93.3,107.24,347.7
+674,Pixel-7B-v4,Pardis AI,Iran,2024,7.0,Audio,Mixed,91.5,46.23,112.88
+675,Pixel-0.5B-v4,Pardis AI,Iran,2026,0.5,Robotics,Open,86.7,32.38,463.28
+676,Zephyr-0.5B-v1,TensorNest,USA,2024,0.5,Audio,Mixed,71.4,69.67,480.87
+677,Orion-180B-v3,QuantumLeap Labs,USA,2023,180.0,Code,Open,78.3,73.25,122.62
+678,Falcon-1000B-v1,Orbital Mind,UK,2025,1000.0,Robotics,Mixed,90.5,37.57,26.4
+679,Quantum-0.5B-v4,Visionary AI,Germany,2023,0.5,Code,Closed,80.5,39.85,176.46
+680,Lyra-7B-v1,Apex Neural,Canada,2025,7.0,Code,Mixed,68.5,94.22,130.23
+681,Helix-405B-v2,Orbital Mind,UK,2024,405.0,LLM,Mixed,99.1,97.09,312.16
+682,Helix-1B-v2,Apex Neural,Canada,2024,1.0,LLM,Closed,66.2,73.93,137.62
+683,Nexus-1B-v2,Apex Neural,Canada,2024,1.0,Robotics,Open,84.3,44.44,87.71
+684,Vega-120B-v2,Kavosh AI,Iran,2026,120.0,Code,Open,70.3,10.22,72.54
+685,Pardis-120B-v4,Cortex Systems,UK,2026,120.0,Audio,Open,84.4,87.15,83.65
+686,Falcon-34B-v1,TensorNest,USA,2025,34.0,Multimodal,Open,57.3,55.74,238.12
+687,Falcon-180B-v2,Simurgh AI,Iran,2023,180.0,Robotics,Mixed,72.4,31.59,265.23
+688,Nexus-13B-v4,Pardis AI,Iran,2023,13.0,Robotics,Closed,97.8,81.98,20.52
+689,Echo-34B-v4,DeepWave,China,2024,34.0,Robotics,Closed,69.9,32.12,49.15
+690,Pixel-70B-v4,Orbital Mind,UK,2026,70.0,Robotics,Mixed,65.8,80.66,385.25
+691,Zephyr-1000B-v2,DeepWave,China,2022,1000.0,Code,Open,84.9,99.82,5.99
+692,Quantum-1B-v4,QuantumLeap Labs,USA,2022,1.0,Vision,Mixed,67.6,23.25,11.86
+693,Nexus-405B-v2,QuantumLeap Labs,USA,2024,405.0,Robotics,Open,86.5,14.49,428.22
+694,Nimbus-1000B-v2,Cortex Systems,UK,2020,1000.0,Robotics,Open,66.3,56.09,468.09
+695,Helix-13B-v4,Orbital Mind,UK,2025,13.0,Robotics,Closed,66.5,93.71,138.65
+696,Nimbus-70B-v3,NeuroForge,USA,2020,70.0,Multimodal,Closed,62.9,8.42,489.71
+697,Pixel-70B-v2,Lumina Intelligence,France,2025,70.0,Audio,Open,61.4,92.27,109.2
+698,Atlas-120B-v3,Orbital Mind,UK,2020,120.0,LLM,Open,58.1,87.33,388.62
+699,Helix-7B-v1,NeuroForge,USA,2020,7.0,Robotics,Closed,66.9,84.04,452.31
+700,Nexus-180B-v4,TensorNest,USA,2023,180.0,Audio,Closed,92.6,93.73,392.69
+701,Vega-0.5B-v4,DeepWave,China,2025,0.5,Audio,Open,80.2,112.21,179.47
+702,Lyra-70B-v1,Orbital Mind,UK,2025,70.0,Robotics,Open,71.3,102.42,170.04
+703,Simurgh-13B-v2,Simurgh AI,Iran,2021,13.0,Code,Open,98.1,79.32,149.44
+704,Atlas-1000B-v3,Pardis AI,Iran,2023,1000.0,LLM,Mixed,74.5,22.82,17.86
+705,Falcon-405B-v2,NeuroForge,USA,2023,405.0,Audio,Open,90.3,77.24,249.85
+706,Nexus-0.5B-v3,Simurgh AI,Iran,2020,0.5,Multimodal,Mixed,56.9,14.27,403.55
+707,Quantum-120B-v2,Orbital Mind,UK,2025,120.0,Code,Open,96.2,4.52,70.8
+708,Nexus-120B-v1,Orbital Mind,UK,2021,120.0,Robotics,Mixed,60.8,20.75,24.99
+709,Pardis-1B-v4,Apex Neural,Canada,2024,1.0,Vision,Mixed,57.8,98.11,57.1
+710,Simurgh-405B-v2,TensorNest,USA,2020,405.0,Vision,Closed,70.0,100.32,368.97
+711,Zephyr-1B-v2,Pardis AI,Iran,2022,1.0,Vision,Open,81.4,40.33,60.38
+712,Simurgh-70B-v2,Cortex Systems,UK,2025,70.0,Multimodal,Mixed,62.3,29.31,291.0
+713,Atlas-1000B-v4,Cortex Systems,UK,2026,1000.0,Vision,Open,94.1,9.78,3.62
+714,Falcon-1000B-v3,QuantumLeap Labs,USA,2023,1000.0,Robotics,Closed,85.8,24.82,319.92
+715,Helix-70B-v2,DeepWave,China,2021,70.0,Code,Mixed,56.7,21.68,249.95
+716,Echo-13B-v3,QuantumLeap Labs,USA,2023,13.0,LLM,Mixed,65.5,14.19,265.1
+717,Pixel-34B-v2,QuantumLeap Labs,USA,2023,34.0,Robotics,Mixed,64.3,6.46,56.35
+718,Echo-120B-v4,Cortex Systems,UK,2021,120.0,Vision,Mixed,96.1,6.58,182.1
+719,Nimbus-13B-v3,Lumina Intelligence,France,2024,13.0,Audio,Open,59.6,6.39,268.68
+720,Simurgh-0.5B-v4,Cortex Systems,UK,2024,0.5,LLM,Open,94.8,86.6,296.36
+721,Nimbus-8B-v3,Visionary AI,Germany,2021,8.0,LLM,Closed,65.1,28.53,206.3
+722,Nimbus-8B-v1,Lumina Intelligence,France,2023,8.0,Code,Closed,57.4,52.36,108.09
+723,Helix-7B-v4,TensorNest,USA,2022,7.0,Vision,Closed,87.0,75.88,487.78
+724,Zephyr-7B-v1,Lumina Intelligence,France,2025,7.0,Code,Open,67.5,13.42,232.77
+725,Orion-34B-v2,Pardis AI,Iran,2022,34.0,Code,Open,90.1,76.6,305.77
+726,Pixel-180B-v2,Cortex Systems,UK,2020,180.0,Audio,Mixed,76.8,119.48,295.79
+727,Lyra-0.5B-v4,Simurgh AI,Iran,2025,0.5,Vision,Open,69.6,69.58,445.91
+728,Orion-405B-v1,TensorNest,USA,2023,405.0,LLM,Open,99.1,88.04,252.11
+729,Quantum-70B-v4,Pardis AI,Iran,2026,70.0,Robotics,Open,75.1,28.94,279.25
+730,Falcon-70B-v2,NeuroForge,USA,2021,70.0,Multimodal,Closed,65.6,119.87,7.97
+731,Lyra-7B-v4,Orbital Mind,UK,2026,7.0,Code,Mixed,81.0,117.17,231.89
+732,Pardis-70B-v2,Cortex Systems,UK,2026,70.0,Multimodal,Mixed,75.7,76.04,430.19
+733,Nimbus-34B-v1,QuantumLeap Labs,USA,2022,34.0,Audio,Closed,86.1,73.54,287.62
+734,Simurgh-1000B-v1,Lumina Intelligence,France,2024,1000.0,Multimodal,Mixed,96.5,61.82,455.0
+735,Nexus-1B-v4,Visionary AI,Germany,2022,1.0,Audio,Mixed,56.8,44.04,324.09
+736,Atlas-180B-v2,Kavosh AI,Iran,2021,180.0,Multimodal,Open,79.0,77.92,368.69
+737,Pardis-8B-v2,TensorNest,USA,2022,8.0,Multimodal,Closed,77.4,50.81,27.24
+738,Zephyr-120B-v4,Visionary AI,Germany,2024,120.0,Code,Open,75.9,63.88,412.69
+739,Helix-405B-v3,Apex Neural,Canada,2026,405.0,Robotics,Mixed,91.0,112.91,32.82
+740,Atlas-1B-v4,Simurgh AI,Iran,2021,1.0,Multimodal,Open,59.9,33.19,348.54
+741,Orion-8B-v1,Simurgh AI,Iran,2022,8.0,Audio,Mixed,79.1,15.93,173.36
+742,Falcon-1000B-v1,Simurgh AI,Iran,2022,1000.0,Vision,Open,56.0,96.26,417.48
+743,Echo-34B-v4,DeepWave,China,2024,34.0,Multimodal,Mixed,83.7,39.22,296.68
+744,Quantum-180B-v4,Kavosh AI,Iran,2023,180.0,Multimodal,Mixed,60.9,94.74,85.88
+745,Vega-120B-v3,Apex Neural,Canada,2022,120.0,LLM,Open,70.7,54.77,83.19
+746,Falcon-180B-v3,Cortex Systems,UK,2021,180.0,Vision,Mixed,85.8,80.0,76.75
+747,Atlas-0.5B-v3,Lumina Intelligence,France,2024,0.5,Vision,Closed,66.6,22.22,281.25
+748,Echo-34B-v3,NeuroForge,USA,2021,34.0,Multimodal,Closed,79.0,19.6,150.79
+749,Nimbus-120B-v2,NeuroForge,USA,2023,120.0,Multimodal,Open,55.2,88.65,487.8
+750,Echo-13B-v4,Visionary AI,Germany,2022,13.0,Code,Mixed,61.5,67.87,453.44
+751,Zephyr-1B-v4,Simurgh AI,Iran,2020,1.0,Vision,Mixed,79.5,37.04,200.82
+752,Helix-34B-v1,Lumina Intelligence,France,2022,34.0,LLM,Mixed,83.5,70.05,111.08
+753,Vega-0.5B-v1,Apex Neural,Canada,2024,0.5,Audio,Mixed,84.9,10.58,255.9
+754,Helix-34B-v1,Lumina Intelligence,France,2025,34.0,Multimodal,Closed,61.6,102.47,184.82
+755,Nexus-13B-v3,Visionary AI,Germany,2022,13.0,Multimodal,Closed,93.9,10.6,363.93
+756,Falcon-70B-v4,Simurgh AI,Iran,2022,70.0,Vision,Mixed,98.2,50.92,448.22
+757,Pardis-405B-v1,Cortex Systems,UK,2021,405.0,Vision,Closed,76.1,104.12,493.32
+758,Pixel-70B-v1,QuantumLeap Labs,USA,2020,70.0,Audio,Mixed,95.7,49.8,277.91
+759,Pixel-7B-v2,Kavosh AI,Iran,2021,7.0,Audio,Closed,79.6,5.16,413.13
+760,Lyra-120B-v4,TensorNest,USA,2021,120.0,LLM,Open,61.9,36.09,320.28
+761,Helix-1B-v3,Orbital Mind,UK,2023,1.0,Vision,Closed,95.4,77.41,14.23
+762,Helix-1B-v3,Apex Neural,Canada,2024,1.0,Audio,Mixed,74.4,31.02,342.96
+763,Pardis-1B-v3,Kavosh AI,Iran,2024,1.0,Robotics,Mixed,55.8,31.22,290.83
+764,Zephyr-120B-v2,Cortex Systems,UK,2022,120.0,Vision,Open,67.1,50.4,456.05
+765,Nexus-13B-v3,Visionary AI,Germany,2024,13.0,Robotics,Open,77.9,92.0,91.63
+766,Pixel-7B-v3,QuantumLeap Labs,USA,2026,7.0,Multimodal,Mixed,90.6,32.65,348.99
+767,Atlas-180B-v3,Visionary AI,Germany,2026,180.0,Vision,Open,61.1,33.84,389.41
+768,Zephyr-7B-v1,Pardis AI,Iran,2021,7.0,Vision,Mixed,64.8,22.69,448.53
+769,Falcon-180B-v1,TensorNest,USA,2023,180.0,Audio,Open,60.2,15.83,8.7
+770,Lyra-34B-v2,Visionary AI,Germany,2026,34.0,Audio,Mixed,78.3,116.42,86.11
+771,Nexus-1B-v2,Apex Neural,Canada,2021,1.0,Robotics,Open,85.6,36.96,104.93
+772,Nimbus-1B-v1,QuantumLeap Labs,USA,2020,1.0,Audio,Closed,56.9,13.03,396.53
+773,Pixel-0.5B-v4,DeepWave,China,2020,0.5,Multimodal,Open,57.9,80.14,377.28
+774,Pixel-8B-v2,QuantumLeap Labs,USA,2021,8.0,Robotics,Closed,56.3,17.55,373.1
+775,Pixel-34B-v3,Apex Neural,Canada,2021,34.0,Code,Mixed,82.3,60.64,34.18
+776,Simurgh-0.5B-v2,TensorNest,USA,2025,0.5,Vision,Closed,62.6,90.51,2.17
+777,Atlas-8B-v4,Kavosh AI,Iran,2022,8.0,Robotics,Mixed,63.2,80.86,53.67
+778,Nimbus-70B-v2,Visionary AI,Germany,2024,70.0,Vision,Closed,60.0,118.16,61.82
+779,Quantum-7B-v4,QuantumLeap Labs,USA,2026,7.0,Multimodal,Mixed,67.8,86.68,41.13
+780,Atlas-70B-v3,Simurgh AI,Iran,2023,70.0,Code,Mixed,68.9,117.14,221.98
+781,Nimbus-13B-v4,DeepWave,China,2021,13.0,LLM,Closed,96.8,44.16,6.4
+782,Helix-1000B-v1,Orbital Mind,UK,2023,1000.0,Audio,Mixed,84.3,10.29,71.69
+783,Falcon-405B-v1,Pardis AI,Iran,2025,405.0,Vision,Open,71.2,23.97,100.14
+784,Atlas-8B-v4,Pardis AI,Iran,2025,8.0,Audio,Closed,89.0,91.94,296.83
+785,Nimbus-34B-v4,Orbital Mind,UK,2025,34.0,Code,Closed,98.9,61.42,73.7
+786,Atlas-1B-v3,Simurgh AI,Iran,2023,1.0,Audio,Open,83.0,16.24,49.81
+787,Pardis-1B-v4,NeuroForge,USA,2025,1.0,LLM,Open,72.0,81.54,76.38
+788,Pixel-1B-v1,TensorNest,USA,2025,1.0,Code,Closed,90.3,24.31,331.05
+789,Quantum-13B-v3,Simurgh AI,Iran,2026,13.0,Code,Mixed,55.8,91.7,495.36
+790,Nimbus-120B-v3,QuantumLeap Labs,USA,2026,120.0,Audio,Closed,75.5,4.04,278.34
+791,Falcon-7B-v4,Apex Neural,Canada,2023,7.0,Vision,Closed,86.8,58.55,54.7
+792,Helix-1000B-v4,Orbital Mind,UK,2023,1000.0,Code,Open,77.5,47.03,247.35
+793,Pixel-1000B-v3,Pardis AI,Iran,2026,1000.0,Multimodal,Closed,57.7,70.9,64.11
+794,Zephyr-405B-v1,Visionary AI,Germany,2026,405.0,Robotics,Closed,71.9,51.43,495.97
+795,Zephyr-0.5B-v2,Pardis AI,Iran,2021,0.5,Vision,Mixed,68.9,10.28,344.0
+796,Atlas-34B-v2,Apex Neural,Canada,2020,34.0,Code,Closed,56.7,78.97,211.24
+797,Nimbus-13B-v1,DeepWave,China,2025,13.0,Audio,Mixed,56.0,38.05,285.18
+798,Pixel-1B-v4,Visionary AI,Germany,2020,1.0,Robotics,Mixed,64.2,59.66,405.73
+799,Zephyr-7B-v3,Orbital Mind,UK,2022,7.0,Audio,Open,77.1,101.7,393.58
+800,Vega-13B-v3,DeepWave,China,2020,13.0,Multimodal,Mixed,72.9,27.18,371.45
+801,Falcon-405B-v1,QuantumLeap Labs,USA,2024,405.0,Multimodal,Closed,58.0,96.16,237.64
+802,Zephyr-1B-v3,Lumina Intelligence,France,2024,1.0,Multimodal,Closed,84.5,37.67,207.16
+803,Pixel-180B-v4,Apex Neural,Canada,2025,180.0,Code,Open,94.2,75.38,258.12
+804,Pixel-120B-v2,Cortex Systems,UK,2025,120.0,Robotics,Closed,66.9,76.59,404.47
+805,Pixel-1000B-v1,Pardis AI,Iran,2024,1000.0,Vision,Closed,75.6,28.92,373.22
+806,Pardis-70B-v4,Apex Neural,Canada,2022,70.0,LLM,Mixed,64.1,49.55,411.86
+807,Orion-13B-v2,Orbital Mind,UK,2023,13.0,Vision,Open,61.7,3.42,398.52
+808,Helix-120B-v4,Apex Neural,Canada,2023,120.0,Robotics,Open,64.0,32.8,14.58
+809,Echo-180B-v2,Apex Neural,Canada,2025,180.0,LLM,Mixed,76.6,2.49,429.79
+810,Zephyr-405B-v3,QuantumLeap Labs,USA,2026,405.0,LLM,Closed,94.9,80.63,442.86
+811,Pardis-7B-v2,Pardis AI,Iran,2020,7.0,Code,Mixed,77.3,14.57,332.11
+812,Simurgh-180B-v3,TensorNest,USA,2023,180.0,LLM,Open,81.7,92.81,156.71
+813,Falcon-70B-v2,TensorNest,USA,2023,70.0,Vision,Open,59.8,25.77,137.28
+814,Lyra-405B-v1,Pardis AI,Iran,2023,405.0,Code,Closed,86.1,13.64,272.88
+815,Echo-8B-v3,Simurgh AI,Iran,2026,8.0,Vision,Closed,76.1,44.19,154.09
+816,Pixel-0.5B-v1,Orbital Mind,UK,2025,0.5,Robotics,Open,66.3,46.22,319.48
+817,Zephyr-1000B-v1,Kavosh AI,Iran,2024,1000.0,Vision,Closed,72.3,109.18,196.49
+818,Lyra-1B-v2,Apex Neural,Canada,2022,1.0,Vision,Open,95.8,75.8,439.73
+819,Nimbus-0.5B-v3,Orbital Mind,UK,2026,0.5,LLM,Closed,76.0,49.61,420.58
+820,Nimbus-1B-v2,Kavosh AI,Iran,2025,1.0,Multimodal,Mixed,58.0,50.56,364.62
+821,Falcon-34B-v4,DeepWave,China,2025,34.0,LLM,Open,83.5,22.13,221.71
+822,Orion-0.5B-v4,Orbital Mind,UK,2021,0.5,Robotics,Closed,69.0,9.96,78.92
+823,Falcon-1000B-v2,DeepWave,China,2026,1000.0,Code,Mixed,73.3,112.74,225.75
+824,Orion-13B-v2,Kavosh AI,Iran,2025,13.0,Code,Closed,90.6,23.92,207.25
+825,Nimbus-70B-v2,Cortex Systems,UK,2020,70.0,LLM,Mixed,83.8,75.23,453.42
+826,Vega-13B-v2,Simurgh AI,Iran,2020,13.0,Audio,Mixed,74.1,31.29,44.54
+827,Orion-405B-v1,Visionary AI,Germany,2020,405.0,Robotics,Mixed,74.4,110.41,226.86
+828,Helix-1B-v2,Orbital Mind,UK,2025,1.0,Vision,Open,97.1,97.63,133.11
+829,Helix-70B-v2,Kavosh AI,Iran,2023,70.0,Vision,Mixed,64.6,98.91,363.36
+830,Nimbus-7B-v4,Lumina Intelligence,France,2026,7.0,Vision,Open,67.9,31.49,308.84
+831,Zephyr-405B-v4,Lumina Intelligence,France,2020,405.0,LLM,Closed,60.9,38.86,346.51
+832,Vega-70B-v4,Orbital Mind,UK,2025,70.0,Code,Closed,58.3,66.88,26.07
+833,Helix-34B-v1,Lumina Intelligence,France,2020,34.0,Multimodal,Mixed,82.6,36.37,197.35
+834,Orion-180B-v1,Visionary AI,Germany,2024,180.0,Vision,Closed,62.6,59.19,169.59
+835,Orion-1B-v3,Simurgh AI,Iran,2025,1.0,Code,Closed,61.3,14.11,22.09
+836,Helix-13B-v3,Cortex Systems,UK,2023,13.0,Multimodal,Closed,82.3,91.41,131.89
+837,Nimbus-7B-v3,Visionary AI,Germany,2025,7.0,Audio,Open,79.7,110.75,318.33
+838,Nexus-8B-v2,Simurgh AI,Iran,2020,8.0,Vision,Open,56.6,31.3,352.98
+839,Atlas-120B-v1,Pardis AI,Iran,2023,120.0,Multimodal,Mixed,80.0,54.99,56.25
+840,Pardis-7B-v1,Kavosh AI,Iran,2022,7.0,LLM,Open,93.6,21.76,84.16
+841,Pardis-13B-v2,DeepWave,China,2024,13.0,LLM,Mixed,89.1,21.75,460.21
+842,Simurgh-120B-v1,Lumina Intelligence,France,2022,120.0,LLM,Closed,85.3,81.71,197.09
+843,Atlas-34B-v2,TensorNest,USA,2020,34.0,LLM,Closed,92.0,79.18,227.03
+844,Pixel-1000B-v1,Apex Neural,Canada,2022,1000.0,LLM,Mixed,82.7,54.43,473.71
+845,Simurgh-405B-v2,Kavosh AI,Iran,2021,405.0,LLM,Mixed,67.6,95.8,371.9
+846,Pixel-70B-v1,DeepWave,China,2023,70.0,Multimodal,Open,65.7,92.53,199.46
+847,Pardis-8B-v2,NeuroForge,USA,2023,8.0,Audio,Closed,83.8,114.54,77.08
+848,Helix-70B-v3,Apex Neural,Canada,2025,70.0,Code,Open,71.0,11.62,183.73
+849,Helix-120B-v4,Lumina Intelligence,France,2023,120.0,Multimodal,Mixed,81.7,10.92,211.27
+850,Pixel-7B-v4,Visionary AI,Germany,2025,7.0,Audio,Open,56.8,41.08,231.77
+851,Echo-1000B-v2,Lumina Intelligence,France,2023,1000.0,Code,Mixed,83.8,10.17,234.11
+852,Simurgh-120B-v3,QuantumLeap Labs,USA,2021,120.0,Vision,Mixed,95.2,101.0,261.55
+853,Pixel-0.5B-v1,Apex Neural,Canada,2020,0.5,Code,Open,77.7,49.62,232.33
+854,Pixel-13B-v3,Kavosh AI,Iran,2022,13.0,Code,Open,89.2,2.05,370.26
+855,Orion-7B-v4,Simurgh AI,Iran,2020,7.0,LLM,Closed,94.0,35.79,293.61
+856,Simurgh-1000B-v4,Simurgh AI,Iran,2024,1000.0,Multimodal,Closed,98.0,104.57,93.6
+857,Atlas-405B-v3,Cortex Systems,UK,2026,405.0,Robotics,Open,74.3,2.25,197.47
+858,Orion-1000B-v4,NeuroForge,USA,2023,1000.0,Robotics,Closed,93.7,115.9,300.95
+859,Lyra-405B-v3,Simurgh AI,Iran,2025,405.0,Robotics,Mixed,85.0,96.58,43.83
+860,Nexus-8B-v1,Cortex Systems,UK,2026,8.0,LLM,Mixed,98.2,103.1,104.62
+861,Orion-1000B-v2,Orbital Mind,UK,2023,1000.0,Robotics,Mixed,63.5,36.18,231.72
+862,Nimbus-0.5B-v1,Simurgh AI,Iran,2021,0.5,Vision,Mixed,86.3,115.67,235.75
+863,Pixel-8B-v2,Simurgh AI,Iran,2022,8.0,Code,Closed,57.3,1.04,315.21
+864,Nimbus-70B-v4,Kavosh AI,Iran,2025,70.0,Code,Mixed,87.5,119.88,18.52
+865,Helix-180B-v4,Pardis AI,Iran,2021,180.0,Robotics,Open,78.5,50.7,157.93
+866,Lyra-1000B-v4,QuantumLeap Labs,USA,2023,1000.0,LLM,Closed,82.7,77.58,224.17
+867,Nexus-7B-v3,Pardis AI,Iran,2025,7.0,Vision,Closed,70.3,27.93,109.86
+868,Zephyr-405B-v4,Orbital Mind,UK,2021,405.0,Multimodal,Mixed,86.7,115.18,416.54
+869,Echo-34B-v4,Orbital Mind,UK,2026,34.0,Vision,Mixed,64.2,82.91,43.11
+870,Orion-7B-v2,Simurgh AI,Iran,2021,7.0,Code,Closed,59.5,49.98,496.88
+871,Vega-8B-v1,Apex Neural,Canada,2020,8.0,Multimodal,Closed,70.9,19.12,413.98
+872,Nexus-1B-v3,DeepWave,China,2023,1.0,LLM,Mixed,65.1,67.48,243.19
+873,Simurgh-34B-v1,Visionary AI,Germany,2026,34.0,Code,Closed,94.9,102.42,436.85
+874,Echo-1B-v1,TensorNest,USA,2023,1.0,Audio,Open,98.4,93.82,304.83
+875,Pardis-180B-v1,QuantumLeap Labs,USA,2024,180.0,LLM,Open,83.0,104.52,455.49
+876,Falcon-13B-v4,Cortex Systems,UK,2026,13.0,Code,Closed,87.6,12.01,323.55
+877,Pardis-7B-v1,Visionary AI,Germany,2026,7.0,Vision,Closed,98.1,92.33,3.3
+878,Zephyr-13B-v2,Simurgh AI,Iran,2020,13.0,Multimodal,Closed,86.8,49.86,314.72
+879,Orion-180B-v4,Lumina Intelligence,France,2026,180.0,Vision,Open,90.7,49.67,204.66
+880,Pardis-180B-v3,Simurgh AI,Iran,2020,180.0,Audio,Open,89.3,86.14,258.68
+881,Atlas-34B-v3,QuantumLeap Labs,USA,2023,34.0,Vision,Closed,57.7,91.13,330.09
+882,Orion-405B-v1,Orbital Mind,UK,2025,405.0,Robotics,Mixed,94.0,116.72,209.66
+883,Falcon-180B-v3,Orbital Mind,UK,2025,180.0,Robotics,Closed,95.5,1.05,139.9
+884,Pixel-7B-v4,DeepWave,China,2023,7.0,Robotics,Open,94.5,74.96,309.1
+885,Falcon-34B-v4,Simurgh AI,Iran,2026,34.0,Vision,Closed,58.8,64.54,195.0
+886,Falcon-7B-v3,Kavosh AI,Iran,2021,7.0,LLM,Mixed,79.6,62.61,378.53
+887,Nexus-0.5B-v3,Cortex Systems,UK,2021,0.5,Multimodal,Mixed,73.8,60.68,366.0
+888,Lyra-1000B-v3,Visionary AI,Germany,2020,1000.0,LLM,Mixed,96.9,53.9,286.22
+889,Helix-34B-v2,NeuroForge,USA,2026,34.0,Robotics,Mixed,80.2,107.33,313.88
+890,Pardis-405B-v2,DeepWave,China,2022,405.0,Multimodal,Closed,84.7,97.83,286.39
+891,Falcon-70B-v2,Cortex Systems,UK,2020,70.0,Multimodal,Mixed,80.9,98.76,180.64
+892,Orion-70B-v4,QuantumLeap Labs,USA,2020,70.0,LLM,Open,73.9,15.69,107.4
+893,Zephyr-1000B-v4,QuantumLeap Labs,USA,2024,1000.0,Code,Mixed,89.7,104.65,292.16
+894,Nimbus-120B-v4,Orbital Mind,UK,2025,120.0,Audio,Open,61.4,15.34,355.58
+895,Falcon-180B-v1,Cortex Systems,UK,2025,180.0,Vision,Closed,76.1,89.6,472.04
+896,Atlas-405B-v4,Visionary AI,Germany,2020,405.0,LLM,Closed,80.4,4.93,76.66
+897,Lyra-34B-v3,Visionary AI,Germany,2022,34.0,Audio,Open,90.2,17.14,294.82
+898,Lyra-13B-v2,NeuroForge,USA,2021,13.0,Robotics,Closed,55.1,65.75,33.79
+899,Nimbus-120B-v3,NeuroForge,USA,2024,120.0,Audio,Closed,89.8,57.08,360.02
+900,Orion-7B-v4,TensorNest,USA,2026,7.0,Audio,Mixed,75.0,103.97,162.61
+901,Echo-405B-v4,TensorNest,USA,2023,405.0,Vision,Closed,70.1,5.59,335.23
+902,Falcon-13B-v1,Simurgh AI,Iran,2026,13.0,Vision,Mixed,56.1,75.65,385.8
+903,Quantum-1000B-v1,Apex Neural,Canada,2025,1000.0,Code,Open,63.6,74.28,288.43
+904,Pixel-180B-v2,NeuroForge,USA,2026,180.0,Audio,Mixed,94.9,14.52,468.09
+905,Nexus-13B-v2,Cortex Systems,UK,2021,13.0,Robotics,Mixed,74.8,96.85,303.43
+906,Pixel-0.5B-v4,Pardis AI,Iran,2026,0.5,LLM,Closed,74.4,49.85,429.83
+907,Nimbus-13B-v1,Visionary AI,Germany,2020,13.0,LLM,Mixed,62.5,17.37,127.78
+908,Orion-13B-v4,QuantumLeap Labs,USA,2025,13.0,Vision,Open,82.3,39.1,13.6
+909,Lyra-70B-v1,NeuroForge,USA,2022,70.0,Vision,Closed,94.7,31.03,470.79
+910,Nexus-8B-v2,QuantumLeap Labs,USA,2026,8.0,Code,Mixed,65.5,61.08,252.22
+911,Lyra-0.5B-v3,QuantumLeap Labs,USA,2023,0.5,Code,Closed,57.9,3.57,316.77
+912,Lyra-180B-v1,NeuroForge,USA,2021,180.0,Code,Mixed,89.9,36.62,203.38
+913,Pardis-1000B-v2,QuantumLeap Labs,USA,2026,1000.0,Vision,Closed,79.0,20.27,122.59
+914,Quantum-120B-v1,Pardis AI,Iran,2020,120.0,Audio,Mixed,67.9,116.65,0.28
+915,Lyra-405B-v3,Simurgh AI,Iran,2026,405.0,Robotics,Closed,99.5,101.11,106.38
+916,Lyra-0.5B-v2,DeepWave,China,2025,0.5,Code,Mixed,58.1,10.86,349.22
+917,Falcon-180B-v3,Cortex Systems,UK,2023,180.0,Vision,Mixed,77.5,96.27,441.97
+918,Echo-13B-v4,Visionary AI,Germany,2022,13.0,Vision,Mixed,98.7,41.06,229.91
+919,Zephyr-0.5B-v2,TensorNest,USA,2025,0.5,LLM,Mixed,76.2,108.18,336.36
+920,Quantum-120B-v4,Pardis AI,Iran,2024,120.0,LLM,Mixed,84.0,64.68,446.29
+921,Helix-1000B-v1,Orbital Mind,UK,2022,1000.0,Audio,Mixed,70.9,21.34,383.99
+922,Nexus-1B-v4,Kavosh AI,Iran,2022,1.0,Vision,Closed,55.4,89.2,379.21
+923,Falcon-34B-v2,Orbital Mind,UK,2020,34.0,Code,Mixed,68.5,86.17,117.14
+924,Zephyr-0.5B-v3,Simurgh AI,Iran,2023,0.5,Robotics,Mixed,82.0,0.96,492.13
+925,Nimbus-1B-v3,Orbital Mind,UK,2024,1.0,Code,Closed,62.6,23.33,369.41
+926,Echo-405B-v2,Orbital Mind,UK,2020,405.0,Code,Open,88.2,15.38,466.78
+927,Quantum-13B-v2,Lumina Intelligence,France,2026,13.0,Robotics,Open,99.1,83.19,266.48
+928,Echo-180B-v4,Apex Neural,Canada,2020,180.0,Audio,Mixed,85.0,78.04,426.93
+929,Nimbus-70B-v3,Visionary AI,Germany,2020,70.0,Robotics,Mixed,75.8,43.44,379.51
+930,Vega-0.5B-v3,Kavosh AI,Iran,2023,0.5,Code,Closed,69.1,47.08,167.36
+931,Simurgh-0.5B-v2,TensorNest,USA,2025,0.5,Audio,Open,95.8,23.71,164.62
+932,Echo-1000B-v1,QuantumLeap Labs,USA,2020,1000.0,Audio,Closed,91.0,71.14,313.15
+933,Pardis-13B-v2,Visionary AI,Germany,2020,13.0,Audio,Open,97.7,99.92,410.82
+934,Simurgh-8B-v1,DeepWave,China,2026,8.0,Code,Mixed,74.5,11.57,223.23
+935,Atlas-0.5B-v1,QuantumLeap Labs,USA,2023,0.5,Multimodal,Mixed,57.9,15.39,459.56
+936,Nexus-13B-v4,Simurgh AI,Iran,2020,13.0,LLM,Mixed,57.5,6.36,424.97
+937,Atlas-405B-v4,Pardis AI,Iran,2021,405.0,Code,Mixed,82.8,54.46,232.11
+938,Pixel-405B-v1,Pardis AI,Iran,2022,405.0,Robotics,Mixed,89.8,54.54,164.1
+939,Atlas-1B-v1,Lumina Intelligence,France,2024,1.0,Robotics,Open,81.4,100.91,452.19
+940,Echo-180B-v3,Cortex Systems,UK,2022,180.0,Audio,Closed,87.2,53.41,121.58
+941,Nexus-7B-v3,NeuroForge,USA,2024,7.0,Audio,Mixed,97.7,90.55,155.6
+942,Simurgh-7B-v2,DeepWave,China,2023,7.0,Multimodal,Mixed,70.3,44.32,4.05
+943,Echo-1000B-v2,TensorNest,USA,2020,1000.0,Vision,Mixed,91.5,67.18,27.31
+944,Vega-8B-v2,Visionary AI,Germany,2026,8.0,LLM,Closed,63.4,57.14,345.92
+945,Pixel-34B-v3,Simurgh AI,Iran,2024,34.0,Multimodal,Closed,69.6,12.67,438.05
+946,Helix-8B-v1,NeuroForge,USA,2025,8.0,Vision,Mixed,65.2,74.91,119.52
+947,Simurgh-34B-v4,Kavosh AI,Iran,2021,34.0,Audio,Open,91.8,0.91,4.96
+948,Nexus-180B-v1,Visionary AI,Germany,2021,180.0,Multimodal,Closed,63.7,70.32,382.77
+949,Nexus-8B-v2,NeuroForge,USA,2022,8.0,Vision,Open,94.4,86.29,169.92
+950,Vega-7B-v2,DeepWave,China,2020,7.0,Vision,Closed,95.5,2.62,338.73
+951,Echo-1B-v3,Pardis AI,Iran,2021,1.0,Multimodal,Closed,65.7,97.16,330.46
+952,Simurgh-405B-v4,DeepWave,China,2025,405.0,LLM,Open,61.4,110.91,397.45
+953,Quantum-70B-v3,Lumina Intelligence,France,2022,70.0,Code,Closed,98.5,29.42,23.11
+954,Pixel-8B-v3,TensorNest,USA,2026,8.0,Vision,Closed,66.0,75.57,140.04
+955,Pardis-180B-v4,Cortex Systems,UK,2021,180.0,Robotics,Open,89.9,94.94,307.45
+956,Quantum-70B-v3,Cortex Systems,UK,2023,70.0,Code,Closed,63.0,85.53,262.74
+957,Falcon-120B-v4,Simurgh AI,Iran,2022,120.0,Code,Closed,83.4,94.9,324.87
+958,Vega-8B-v4,Lumina Intelligence,France,2026,8.0,Vision,Closed,64.7,51.06,188.55
+959,Pardis-34B-v3,Cortex Systems,UK,2024,34.0,LLM,Open,88.4,35.48,259.42
+960,Pixel-0.5B-v4,Lumina Intelligence,France,2024,0.5,Code,Closed,74.0,56.16,204.48
+961,Zephyr-13B-v4,Simurgh AI,Iran,2020,13.0,Vision,Closed,65.4,77.48,179.55
+962,Lyra-180B-v1,QuantumLeap Labs,USA,2026,180.0,Multimodal,Open,59.4,8.65,19.15
+963,Zephyr-8B-v3,Lumina Intelligence,France,2022,8.0,Multimodal,Mixed,91.3,82.06,137.24
+964,Pixel-7B-v3,Kavosh AI,Iran,2020,7.0,Multimodal,Closed,91.6,94.0,201.91
+965,Pardis-405B-v1,Pardis AI,Iran,2023,405.0,Robotics,Mixed,99.0,114.18,432.73
+966,Vega-8B-v4,Lumina Intelligence,France,2021,8.0,Code,Mixed,90.0,90.94,361.26
+967,Zephyr-1B-v3,Simurgh AI,Iran,2026,1.0,Vision,Closed,89.3,83.78,104.8
+968,Pardis-180B-v1,Simurgh AI,Iran,2022,180.0,Vision,Mixed,93.9,36.74,368.91
+969,Simurgh-1000B-v3,Simurgh AI,Iran,2022,1000.0,Vision,Closed,73.9,90.34,381.42
+970,Quantum-13B-v3,Kavosh AI,Iran,2024,13.0,LLM,Mixed,89.9,110.67,76.85
+971,Pixel-1000B-v4,Visionary AI,Germany,2023,1000.0,Vision,Closed,57.8,46.43,237.39
+972,Pixel-120B-v3,Visionary AI,Germany,2020,120.0,Vision,Open,85.0,21.4,413.24
+973,Helix-0.5B-v2,TensorNest,USA,2021,0.5,LLM,Closed,67.6,28.04,329.79
+974,Helix-0.5B-v3,QuantumLeap Labs,USA,2024,0.5,LLM,Open,69.5,109.19,195.56
+975,Orion-180B-v4,QuantumLeap Labs,USA,2023,180.0,Robotics,Open,72.3,108.44,103.25
+976,Lyra-70B-v4,Lumina Intelligence,France,2021,70.0,Code,Mixed,96.8,70.54,251.24
+977,Helix-13B-v2,Orbital Mind,UK,2020,13.0,Vision,Closed,57.8,47.97,403.78
+978,Zephyr-405B-v4,DeepWave,China,2023,405.0,Audio,Mixed,56.7,11.02,323.15
+979,Zephyr-13B-v4,Simurgh AI,Iran,2024,13.0,Vision,Closed,66.1,108.01,366.62
+980,Nimbus-1000B-v2,Simurgh AI,Iran,2025,1000.0,Code,Open,72.5,113.49,119.86
+981,Lyra-1000B-v3,Cortex Systems,UK,2025,1000.0,LLM,Mixed,87.3,108.28,454.37
+982,Simurgh-180B-v1,Pardis AI,Iran,2022,180.0,LLM,Open,77.4,93.56,205.05
+983,Lyra-8B-v1,Cortex Systems,UK,2023,8.0,LLM,Open,83.4,81.11,230.96
+984,Falcon-70B-v2,Visionary AI,Germany,2023,70.0,LLM,Open,66.2,85.12,68.25
+985,Falcon-120B-v4,Orbital Mind,UK,2023,120.0,LLM,Open,79.4,29.15,475.01
+986,Helix-13B-v2,Cortex Systems,UK,2021,13.0,LLM,Mixed,59.5,35.37,267.33
+987,Orion-1B-v1,Pardis AI,Iran,2025,1.0,Multimodal,Open,74.6,21.44,357.21
+988,Quantum-8B-v4,Orbital Mind,UK,2025,8.0,LLM,Mixed,91.1,76.96,358.21
+989,Nimbus-13B-v4,QuantumLeap Labs,USA,2020,13.0,Code,Open,57.2,45.35,100.88
+990,Zephyr-8B-v2,Lumina Intelligence,France,2020,8.0,LLM,Closed,56.2,1.85,410.27
+991,Echo-1B-v2,Orbital Mind,UK,2020,1.0,Robotics,Open,87.2,5.38,256.25
+992,Zephyr-180B-v2,Visionary AI,Germany,2024,180.0,Vision,Mixed,72.6,51.4,116.21
+993,Zephyr-34B-v2,QuantumLeap Labs,USA,2020,34.0,Audio,Mixed,69.1,46.76,229.39
+994,Echo-13B-v3,QuantumLeap Labs,USA,2020,13.0,LLM,Open,73.3,92.13,249.79
+995,Falcon-180B-v2,QuantumLeap Labs,USA,2022,180.0,LLM,Mixed,69.4,75.74,194.29
+996,Orion-34B-v2,Kavosh AI,Iran,2025,34.0,Robotics,Closed,98.5,80.0,33.77
+997,Pixel-405B-v4,NeuroForge,USA,2023,405.0,Code,Mixed,88.0,60.46,352.32
+998,Vega-0.5B-v1,NeuroForge,USA,2022,0.5,Vision,Mixed,74.1,29.3,39.7
+999,Zephyr-120B-v3,Cortex Systems,UK,2021,120.0,Vision,Closed,64.1,4.65,461.71
+1000,Helix-34B-v2,TensorNest,USA,2022,34.0,Multimodal,Mixed,90.0,4.85,395.89

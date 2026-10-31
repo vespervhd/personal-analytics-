@@ -19,6 +19,7 @@ from core.visualization import scatter_plot
 from database.connection import get_session, init_db
 from database.repository import record_model_config
 from ui.components.common import require_dataset
+from ui.i18n import t
 
 
 def _save_model_config(name: str, model_type: str, parameters: dict) -> None:
@@ -30,83 +31,79 @@ def _save_model_config(name: str, model_type: str, parameters: dict) -> None:
                 session, name=name, model_type=model_type,
                 parameters=parameters, dataset_id=dataset_id,
             )
-        st.success(f"Model configuration '{name}' saved.")
+        st.success(t("model_saved").format(name=name))
     except Exception as exc:
-        st.error(f"Could not save model configuration: {exc}")
+        st.error(t("model_save_error").format(err=exc))
 
 
 def render() -> None:
-    st.header("Machine Learning")
+    st.header(t("page_ml"))
     df = require_dataset()
     if df is None:
         return
 
     numeric = [str(c) for c in df.select_dtypes(include="number").columns]
 
-    st.subheader("Anomaly detection — Isolation Forest")
+    st.subheader(t("anomaly_if_sub"))
     if numeric:
-        columns = st.multiselect("Numeric columns", options=numeric, default=numeric,
+        columns = st.multiselect(t("numeric_cols_label"), options=numeric, default=numeric,
                                  key="iso_cols")
-        contamination = st.slider("Expected anomaly share", 0.01, 0.5, 0.1, 0.01,
+        contamination = st.slider(t("anomaly_share"), 0.01, 0.5, 0.1, 0.01,
                                   key="iso_cont")
-        if st.button("Run anomaly detection"):
+        if st.button(t("run_anomaly_btn")):
             try:
                 st.session_state.ml_anomalies = detect_anomalies_isolation_forest(
                     df, columns or None, contamination=contamination
                 )
             except MLEngineError as exc:
-                st.error(f"Anomaly detection failed: {exc}")
+                st.error(t("anomaly_failed").format(err=exc))
         result = st.session_state.get("ml_anomalies")
         if result:
-            st.write(f"Analysed **{result['rows_analysed']:,}** rows "
-                     f"({result['rows_dropped_missing']} dropped for missing values).")
-            st.write(f"Anomalies found: **{result['anomalies']}** "
-                     f"(contamination={result['contamination']}).")
+            st.write(t("analysed_line").format(rows=f"{result['rows_analysed']:,}", dropped=result["rows_dropped_missing"]))
+            st.write(t("anomalies_found").format(n=result["anomalies"], c=result["contamination"]))
             if result["anomaly_rows"]:
                 st.dataframe(result["anomaly_rows"], use_container_width=True)
-            if st.button("Save this anomaly configuration"):
+            if st.button(t("save_anomaly_btn")):
                 _save_model_config("isolation_forest", "isolation_forest",
                                    {"columns": result["columns"],
                                     "contamination": result["contamination"]})
     else:
-        st.write("Anomaly detection needs numeric columns.")
+        st.write(t("anomaly_needs"))
 
-    st.subheader("Anomaly detection — Z-score")
+    st.subheader(t("anomaly_z_sub"))
     if numeric:
-        z_cols = st.multiselect("Numeric columns", options=numeric, default=numeric,
+        z_cols = st.multiselect(t("numeric_cols_label"), options=numeric, default=numeric,
                                 key="z_cols")
-        threshold = st.slider("Std-dev threshold", 1.0, 5.0, 3.0, 0.5, key="z_thresh")
-        if st.button("Run Z-score detection"):
+        threshold = st.slider(t("z_thresh"), 1.0, 5.0, 3.0, 0.5, key="z_thresh")
+        if st.button(t("run_z_btn")):
             try:
                 st.session_state.ml_zscores = zscore_outliers(df, z_cols or None,
                                                               threshold=threshold)
             except MLEngineError as exc:
-                st.error(f"Z-score detection failed: {exc}")
+                st.error(t("z_failed").format(err=exc))
         z_result = st.session_state.get("ml_zscores")
         if z_result:
-            st.write(f"Outliers found: **{z_result['outliers']}** "
-                     f"(threshold={z_result['threshold']} std devs).")
+            st.write(t("outliers_found").format(n=z_result["outliers"], t=z_result["threshold"]))
             st.dataframe(z_result["per_column"], use_container_width=True)
     else:
-        st.write("Z-score detection needs numeric columns.")
+        st.write(t("z_needs"))
 
-    st.subheader("Clustering — K-Means")
+    st.subheader(t("clustering_sub"))
     if len(numeric) >= 1:
-        n_clusters = st.slider("Number of clusters", 2, 10, 3, key="km_k")
-        if st.button("Run clustering"):
+        n_clusters = st.slider(t("n_clusters"), 2, 10, 3, key="km_k")
+        if st.button(t("run_clustering_btn")):
             try:
                 st.session_state.ml_clusters = cluster_kmeans(
                     df, numeric, n_clusters=n_clusters
                 )
             except MLEngineError as exc:
-                st.error(f"Clustering failed: {exc}")
+                st.error(t("clustering_failed").format(err=exc))
         clusters = st.session_state.get("ml_clusters")
         if clusters:
-            st.write(f"Inertia: **{clusters['inertia']}** · "
-                     f"Rows clustered: **{clusters['rows_clustered']:,}**")
+            st.write(t("inertia_line").format(v=clusters["inertia"], rows=f"{clusters['rows_clustered']:,}"))
             st.dataframe(
-                {"cluster": list(clusters["cluster_sizes"]),
-                 "size": list(clusters["cluster_sizes"].values())},
+                {t("col_cluster"): list(clusters["cluster_sizes"]),
+                 t("col_size"): list(clusters["cluster_sizes"].values())},
                 use_container_width=True,
             )
             if len(numeric) >= 2:
@@ -117,47 +114,45 @@ def render() -> None:
                     scatter_plot(plotted, numeric[0], numeric[1], color="cluster"),
                     use_container_width=True,
                 )
-            if st.button("Save this clustering configuration"):
+            if st.button(t("save_clustering_btn")):
                 _save_model_config("kmeans", "kmeans",
                                    {"columns": clusters["columns"],
                                     "n_clusters": clusters["n_clusters"]})
     else:
-        st.write("Clustering needs at least one numeric column.")
+        st.write(t("clustering_needs"))
 
-    st.subheader("Classification")
+    st.subheader(t("classification_sub"))
     categorical = [
         str(c) for c in df.columns if df[c].nunique(dropna=True) <= 20
     ]
     if categorical:
-        target = st.selectbox("Target column", options=categorical, key="clf_target")
+        target = st.selectbox(t("target_col_label"), options=categorical, key="clf_target")
         features = st.multiselect(
-            "Features", options=[c for c in df.columns if c != target],
+            t("features_label"), options=[c for c in df.columns if c != target],
             key="clf_features",
         )
-        model = st.selectbox("Model", options=["random_forest", "xgboost"],
+        model = st.selectbox(t("model_label"), options=["random_forest", "xgboost"],
                              key="clf_model")
-        if st.button("Train and evaluate"):
+        if st.button(t("train_btn")):
             try:
                 st.session_state.ml_classification = classify(
                     df, target, features or None, model=model
                 )
             except MLEngineError as exc:
-                st.error(f"Classification failed: {exc}")
+                st.error(t("clf_failed").format(err=exc))
         clf = st.session_state.get("ml_classification")
         if clf:
-            st.write(f"Accuracy: **{clf['accuracy']:.3f}** on "
-                     f"{clf['test_rows']} test rows "
-                     f"({clf['rows_dropped_missing']} rows dropped for missing values).")
-            st.write("Confusion matrix (rows = actual, columns = predicted):")
+            st.write(t("accuracy_line").format(acc=f"{clf['accuracy']:.3f}", test=clf["test_rows"], dropped=clf["rows_dropped_missing"]))
+            st.write(t("confusion_caption"))
             st.dataframe(clf["confusion_matrix"], use_container_width=True)
-            st.write("Per-class report:")
+            st.write(t("per_class_caption"))
             st.dataframe(clf["per_class"], use_container_width=True)
             if clf["top_feature_importances"]:
-                st.write("Top feature importances:")
+                st.write(t("top_features_caption"))
                 st.dataframe(clf["top_feature_importances"], use_container_width=True)
-            if st.button("Save this classification configuration"):
+            if st.button(t("save_clf_btn")):
                 _save_model_config(f"classifier_{clf['target']}", clf["method"],
                                    {"target": clf["target"],
                                     "features": clf["features"]})
     else:
-        st.write("Classification needs a categorical or low-cardinality target column.")
+        st.write(t("clf_needs"))
