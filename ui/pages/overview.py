@@ -4,9 +4,10 @@ from __future__ import annotations
 
 import streamlit as st
 
+from core.analyzer import business_summary
 from core.data_loader import DataLoadError, load_from_path
 from ui.components.common import dataframe_preview, metric_row, nav_to
-from ui.i18n import t
+from ui.i18n import current_lang, t
 from ui.pages.data_import import (
     SAMPLE_DISPLAY_NAME,
     SAMPLE_PATH,
@@ -55,6 +56,20 @@ def render() -> None:
             t("metric_memory"): f"{df.memory_usage(deep=True).sum() / 1024 / 1024:.2f} MB",
         }
     )
+
+    st.subheader(t("business_summary_sub"))
+    numeric_cols = [str(c) for c in df.select_dtypes(include="number").columns]
+    if numeric_cols:
+        value_col = st.selectbox(
+            t("forecast_value_label"),
+            options=numeric_cols,
+            index=len(numeric_cols) - 1,
+            key="biz_value",
+        )
+        for line in business_summary(df, lang=current_lang(), value_column=value_col):
+            st.write(line)
+    else:
+        st.write(t("business_none"))
 
     st.subheader(t("preview_sub"))
     dataframe_preview(df, rows=10)

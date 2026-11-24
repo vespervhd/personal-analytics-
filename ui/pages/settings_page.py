@@ -7,6 +7,7 @@ from pathlib import Path
 import streamlit as st
 
 from config import SETTINGS
+from core.alerts import send_telegram_message
 from core.persistence import load_state, save_state
 from core.workspaces import (
     create_project,
@@ -51,6 +52,19 @@ def render() -> None:
         use_container_width=True,
     )
     st.caption(t("config_caption"))
+
+    st.subheader(t("tg_sub"))
+    # Status only: the token is never displayed, not even in part.
+    if SETTINGS.telegram_configured:
+        st.write(t("tg_configured"))
+    else:
+        st.write(t("tg_not_configured"))
+        st.caption(t("tg_setup_hint"))
+    if st.button(t("tg_test_btn")):
+        if send_telegram_message(t("tg_test_message")):
+            st.success(t("tg_test_ok"))
+        else:
+            st.error(t("tg_test_failed"))
 
     st.subheader(t("logging_sub"))
     level = st.selectbox(

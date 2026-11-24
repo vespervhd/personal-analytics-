@@ -59,6 +59,173 @@ def eda_report(df: pd.DataFrame) -> dict:
     return report
 
 
+def _fmt_num(value: float) -> str:
+    """Format a number with thousands separators, no decimals when integral."""
+    number = float(value)
+    if number == int(number):
+        return f"{int(number):,}"
+    return f"{number:,.2f}"
+
+
+def _detect_date_column(df: pd.DataFrame) -> str | None:
+    """First column holding dates (datetime dtype, or mostly parseable text)."""
+    for col in df.columns:
+        if pd.api.types.is_datetime64_any_dtype(df[col]):
+            return str(col)
+        if pd.api.types.is_numeric_dtype(df[col]):
+            continue
+        parsed = pd.to_datetime(df[col], errors="coerce")
+        if len(parsed) and parsed.notna().mean() >= 0.8:
+            return str(col)
+    return None
+
+
+def _detect_category_column(df: pd.DataFrame, exclude: set[str]) -> str | None:
+    """First text column with a handful of distinct values (2..50)."""
+    for col in df.columns:
+        if str(col) in exclude:
+            continue
+        if not pd.api.types.is_string_dtype(df[col]):
+            continue
+        if 2 <= df[col].nunique(dropna=True) <= 50:
+            return str(col)
+    return None
+
+
+def business_summary(
+    df: pd.DataFrame,
+    lang: str = "fa",
+    value_column: str | None = None,
+    category_column: str | None = None,
+    date_column: str | None = None,
+) -> list[str]:
+    """Plain-language business summary from the actual numbers.
+
+    Sentences, each derived from the data (never invented): the top
+    category by total value, the best and weakest period when a date
+    column exists, the trend (second-half vs first-half mean), and the
+    largest single value with its category and date. Columns are
+    auto-detected when not given: the value is the last numeric column,
+    the category the first low-cardinality text column, the date the
+    first parseable date column. Returns an honest fallback sentence
+    when no numeric column exists.
+    """
+    from ui.i18n import t
+
+    numeric = [str(c) for c in df.select_dtypes(include="number").columns]
+    value = value_column if value_column in numeric else (numeric[-1] if numeric else None)
+    if value is None or len(df) == 0:
+        return [t("business_none", lang=lang)]
+
+    date = None
+    if date_column is not None and date_column in df.columns:
+        parsed = pd.to_datetime(df[date_column], errors="coerce")
+        if len(parsed) and parsed.notna().mean() >= 0.8:
+            date = str(date_column)
+    if date is None:
+        date = _detect_date_column(df)
+
+    category = None
+    if category_column is not None and category_column in df.columns:
+        if 2 <= df[category_column].nunique(dropna=True) <= 50:
+            category = str(category_column)
+    if category is None:
+        category = _detect_category_column(df, {value, date} if date else {value})
+
+    sentences: list[str] = []
+    values = pd.to_numeric(df[value], errors="coerce")
+
+    if category is not None:
+        totals = df.assign(_v=values).groupby(category)["_v"].sum().dropna()
+        if not totals.empty:
+            top = totals.idxmax()
+            sentences.append(
+                t("business_top_category", lang=lang).format(
+                    category=top, total=_fmt_num(totals[top]), value=value
+                )
+            )
+
+    if date is not None:
+        dates = pd.to_datetime(df[date], errors="coerce")
+        frame = pd.DataFrame({"d": dates, "v": values}).dropna()
+        if not frame.empty:
+            if frame["d"].nunique() > 12:
+                frame = frame.assign(period=frame["d"].dt.strftime("%Y-%m"))
+            else:
+                frame = frame.assign(period=frame["d"].dt.strftime("%Y-%m-%d"))
+            by_period = frame.groupby("period")["v"].sum()
+            if len(by_period) >= 2:
+                best, worst = by_period.idxmax(), by_period.idxmin()
+                sentences.append(
+                    t("business_best_period", lang=lang).format(
+                        period=best, total=_fmt_num(by_period[best])
+                    )
+                )
+                sentences.append(
+                    t("business_worst_period", lang=lang).format(
+                        period=worst, total=_fmt_num(by_period[worst])
+                    )
+                )
+
+    ordered = pd.DataFrame({"v": values})
+    if date is not None:
+        ordered["d"] = pd.to_datetime(df[date], errors="coerce")
+        ordered = ordered.dropna(subset=["v", "d"]).sort_values("d")
+    else:
+        ordered = ordered.dropna(subset=["v"])
+    if len(ordered) >= 2:
+        half = len(ordered) // 2
+        first = float(ordered["v"].iloc[:half].mean())
+        second = float(ordered["v"].iloc[half:].mean())
+        if first != 0:
+            change = (second - first) / abs(first) * 100
+            if abs(change) < 1:
+                sentences.append(
+                    t("business_trend_flat", lang=lang).format(
+                        value=value, first=_fmt_num(first), second=_fmt_num(second)
+                    )
+                )
+            elif change > 0:
+                sentences.append(
+                    t("business_trend_up", lang=lang).format(
+                        value=value,
+                        first=_fmt_num(first),
+                        second=_fmt_num(second),
+                        pct=f"{change:.1f}",
+                    )
+                )
+            else:
+                sentences.append(
+                    t("business_trend_down", lang=lang).format(
+                        value=value,
+                        first=_fmt_num(first),
+                        second=_fmt_num(second),
+                        pct=f"{abs(change):.1f}",
+                    )
+                )
+
+    if values.notna().any():
+        max_idx = values.idxmax()
+        amount = _fmt_num(float(values.loc[max_idx]))
+        parts = []
+        if category is not None:
+            parts.append(
+                t("business_where_category", lang=lang).format(category=df.loc[max_idx, category])
+            )
+        if date is not None:
+            when = pd.to_datetime(df.loc[max_idx, date], errors="coerce")
+            if pd.notna(when):
+                parts.append(
+                    t("business_where_date", lang=lang).format(date=when.date().isoformat())
+                )
+        where = " (" + ("، " if lang == "fa" else ", ").join(parts) + ")" if parts else ""
+        sentences.append(
+            t("business_max_single", lang=lang).format(value=value, amount=amount, where=where)
+        )
+
+    return sentences or [t("business_none", lang=lang)]
+
+
 def key_insights(
     df: pd.DataFrame, report: dict | None = None, lang: str = "en"
 ) -> list[str]:

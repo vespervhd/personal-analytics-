@@ -74,16 +74,29 @@ p, .stMarkdown { color: #1F1E1C; }
   padding: 0.15rem 0;
 }
 
-/* ---- Sidebar collapse button ---------------------------------------- */
-/* Streamlit draws this as a Material Symbols ligature; when that icon
-   font fails to load, the raw "keyboard_double_arrow_left" text shows
-   instead of an arrow (seen live). Hide the ligature and draw a plain
-   double chevron, so the button never shows raw text on any browser. */
-[data-testid="stSidebarCollapseButton"] {
+/* ---- Sidebar collapse / expand buttons ------------------------------- */
+/* Streamlit draws these as Material Symbols ligatures; when that icon
+   font fails to load, the raw "keyboard_double_arrow_left/right" text
+   shows instead of an arrow (seen live). The testid sits on a wrapper
+   div, NOT on the button: wrapper > button[aria-label] > icon span, and
+   the icon span carries its own size (xl), so font-size: 0 on the
+   wrapper alone does nothing — the inner button and every descendant
+   must be zeroed, then a plain double chevron is drawn on the button
+   itself. Verified against the Streamlit 1.66.1 bundle structure. */
+[data-testid="stSidebarCollapseButton"] button,
+[data-testid="stSidebarCollapseButton"] button *,
+[data-testid="stExpandSidebarButton"],
+[data-testid="stExpandSidebarButton"] * {
   font-size: 0 !important;
 }
-[data-testid="stSidebarCollapseButton"]::after {
+[data-testid="stSidebarCollapseButton"] button::after {
   content: "«";
+  font-size: 1.5rem !important;
+  line-height: 1;
+  color: #6B6862;
+}
+[data-testid="stExpandSidebarButton"]::after {
+  content: "»";
   font-size: 1.5rem !important;
   line-height: 1;
   color: #6B6862;

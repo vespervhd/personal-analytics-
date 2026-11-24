@@ -8,6 +8,8 @@ reported in understandable terms; raw model objects are never returned.
 
 from __future__ import annotations
 
+import warnings
+
 import numpy as np
 import pandas as pd
 from sklearn.cluster import KMeans
@@ -22,6 +24,12 @@ log = get_logger("ml_engine")
 
 #: Anomaly rows included in full in results (the total count is always exact).
 MAX_ANOMALY_ROWS = 50
+
+#: Minimum time points needed before a smoothing model is attempted.
+MIN_FORECAST_POINTS = 8
+
+#: Largest horizon the forecaster accepts (the UI offers up to 12).
+MAX_FORECAST_HORIZON = 24
 
 
 class MLEngineError(ValueError):
@@ -259,4 +267,130 @@ def classify(
         "top_feature_importances": importances,
     }
     log.info("classify ({}) accuracy {}", model, result["accuracy"])
+    return result
+
+
+def _seasonal_periods(freq_label: str | None, points: int) -> int | None:
+    """Season length for a Holt-Winters fit, or None when too short.
+
+    Daily data gets a weekly season (7) from 14 points; monthly data
+    a yearly season (12) from 24 points; weekly data a yearly season
+    (52) from 104 points. Anything shorter fits without seasonality.
+    """
+    if not freq_label:
+        return None
+    if freq_label.startswith("D") and points >= 14:
+        return 7
+    if freq_label.startswith("M") and points >= 24:
+        return 12
+    if freq_label.startswith("W") and points >= 104:
+        return 52
+    return None
+
+
+def forecast_series(
+    df: pd.DataFrame,
+    date_column: str,
+    value_column: str,
+    horizon: int = 3,
+) -> dict:
+    """Forecast a numeric series forward in time.
+
+    The value is summed per date, sorted, and fitted with Holt-Winters
+    exponential smoothing when the data is long enough for a seasonal
+    cycle. It falls back to plain exponential smoothing, then to a
+    naive repeat of the last value — the ``method`` field always says
+    which one ran, so a fallback is never mistaken for a full model.
+    With fewer than :data:`MIN_FORECAST_POINTS` points no model is
+    fitted; the result reports ``insufficient_data`` with an empty
+    forecast instead of guessing.
+    """
+    if date_column not in df.columns:
+        raise MLEngineError(f"Unknown date column: {date_column}")
+    if value_column not in df.columns:
+        raise MLEngineError(f"Unknown value column: {value_column}")
+    if not 1 <= horizon <= MAX_FORECAST_HORIZON:
+        raise MLEngineError(f"horizon must be between 1 and {MAX_FORECAST_HORIZON}.")
+    if pd.api.types.is_numeric_dtype(df[date_column]):
+        raise MLEngineError(f"Column '{date_column}' must contain dates, not numbers.")
+    dates = pd.to_datetime(df[date_column], errors="coerce")
+    values = pd.to_numeric(df[value_column], errors="coerce")
+    work = pd.DataFrame({"date": dates, "value": values}).dropna()
+    if work.empty:
+        raise MLEngineError("No usable date/value pairs in the selected columns.")
+    series = work.groupby("date")["value"].sum().sort_index()
+    history_dates = [d.date().isoformat() for d in series.index]
+    history_values = [_json_safe(v) for v in series.tolist()]
+    base = {
+        "date_column": date_column,
+        "value_column": value_column,
+        "points": int(len(series)),
+        "horizon": int(horizon),
+        "history_dates": history_dates,
+        "history_values": history_values,
+        "forecast_dates": [],
+        "forecast": [],
+        "note": None,
+    }
+    if len(series) < MIN_FORECAST_POINTS:
+        return {**base, "method": "insufficient_data", "note": "too_few_points"}
+
+    # Put the series on a regular grid (interpolating interior gaps) so
+    # the smoother sees equally spaced points.
+    inferred = pd.infer_freq(series.index)
+    if inferred is not None:
+        # infer_freq returns a string today, a BaseOffset in future pandas.
+        offset = pd.tseries.frequencies.to_offset(inferred)
+        freq_label = offset.freqstr
+    else:
+        median_gap = series.index.to_series().diff().median()
+        if pd.isna(median_gap):
+            raise MLEngineError("Could not determine the spacing of the dates.")
+        offset = pd.tseries.frequencies.to_offset(median_gap)
+        freq_label = str(offset)
+    full_index = pd.date_range(series.index.min(), series.index.max(), freq=offset)
+    regular = series.reindex(full_index).interpolate(limit_area="inside").dropna()
+    if len(regular) < MIN_FORECAST_POINTS:
+        return {**base, "method": "insufficient_data", "note": "too_few_points"}
+
+    from statsmodels.tools.sm_exceptions import ConvergenceWarning
+    from statsmodels.tsa.holtwinters import ExponentialSmoothing
+
+    seasonal = _seasonal_periods(freq_label, len(regular))
+    fitted = None
+    method = "naive"
+    # A convergence warning on noisy real data is not a failure: the
+    # fit still returns parameters, so silence it and use the result.
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore", ConvergenceWarning)
+        if seasonal is not None:
+            try:
+                fitted = ExponentialSmoothing(
+                    regular,
+                    trend="add",
+                    seasonal="add",
+                    seasonal_periods=seasonal,
+                ).fit()
+                method = "holt_winters"
+            except Exception:
+                fitted = None
+        if fitted is None:
+            try:
+                fitted = ExponentialSmoothing(regular, trend="add").fit()
+                method = "exponential_smoothing"
+            except Exception:
+                fitted = None
+    if fitted is not None:
+        predicted = fitted.forecast(horizon)
+    else:
+        predicted = pd.Series([float(regular.iloc[-1])] * horizon)
+    last = regular.index.max()
+    forecast_dates = [(last + offset * step).date().isoformat() for step in range(1, horizon + 1)]
+    result = {
+        **base,
+        "method": method,
+        "forecast_dates": forecast_dates,
+        "forecast": [_json_safe(v) for v in predicted.tolist()],
+    }
+    log.info("forecast ({}) {} points -> {} ahead", method, len(regular), horizon)
     return result

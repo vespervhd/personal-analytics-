@@ -31,6 +31,12 @@ def test_db_url_points_inside_database_dir() -> None:
     assert SETTINGS.db_url == f"sqlite:///{SETTINGS.db_path}"
 
 
+def test_telegram_configured_flag() -> None:
+    assert Settings(telegram_bot_token="tok", telegram_chat_id="42").telegram_configured is True
+    assert Settings(telegram_bot_token="tok", telegram_chat_id="").telegram_configured is False
+    assert Settings(telegram_bot_token="", telegram_chat_id="42").telegram_configured is False
+
+
 def test_ensure_directories_creates_the_tree() -> None:
     with tempfile.TemporaryDirectory() as tmp:
         root = Path(tmp)

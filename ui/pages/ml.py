@@ -6,20 +6,38 @@ button is pressed, and results persist in session state until replaced.
 
 from __future__ import annotations
 
+import pandas as pd
 import streamlit as st
 
 from core.ml_engine import (
+    MIN_FORECAST_POINTS,
     MLEngineError,
     classify,
     cluster_kmeans,
     detect_anomalies_isolation_forest,
+    forecast_series,
     zscore_outliers,
 )
-from core.visualization import scatter_plot
+from core.visualization import line_chart, scatter_plot
 from database.connection import get_session, init_db
 from database.repository import record_model_config
 from ui.components.common import require_dataset
 from ui.i18n import t
+
+
+def _date_columns(df) -> list[str]:
+    """Columns holding dates (datetime dtype, or mostly parseable text)."""
+    found = []
+    for col in df.columns:
+        if pd.api.types.is_datetime64_any_dtype(df[col]):
+            found.append(str(col))
+            continue
+        if pd.api.types.is_numeric_dtype(df[col]):
+            continue
+        parsed = pd.to_datetime(df[col], errors="coerce")
+        if parsed.notna().mean() >= 0.8:
+            found.append(str(col))
+    return found
 
 
 def _save_model_config(name: str, model_type: str, parameters: dict) -> None:
@@ -156,3 +174,52 @@ def render() -> None:
                                     "features": clf["features"]})
     else:
         st.write(t("clf_needs"))
+
+    st.subheader(t("forecast_sub"))
+    date_cols = _date_columns(df)
+    if not date_cols:
+        st.write(t("forecast_needs_date"))
+    elif not numeric:
+        st.write(t("forecast_needs_value"))
+    else:
+        date_col = st.selectbox(t("forecast_date_label"), options=date_cols, key="fc_date")
+        value_col = st.selectbox(t("forecast_value_label"), options=numeric, key="fc_value")
+        horizon = st.slider(t("forecast_horizon_label"), 1, 12, 3, key="fc_horizon")
+        if st.button(t("forecast_run_btn")):
+            try:
+                st.session_state.ml_forecast = forecast_series(
+                    df, date_col, value_col, horizon=horizon
+                )
+            except MLEngineError as exc:
+                st.error(t("forecast_failed").format(err=exc))
+        fc = st.session_state.get("ml_forecast")
+        if fc:
+            method_key = {
+                "holt_winters": "forecast_method_holt_winters",
+                "exponential_smoothing": "forecast_method_exponential",
+                "naive": "forecast_method_naive",
+            }.get(fc["method"])
+            if method_key:
+                st.write(t("forecast_method").format(method=t(method_key)))
+            if fc["method"] == "insufficient_data":
+                st.warning(
+                    t("forecast_too_few").format(min=MIN_FORECAST_POINTS, points=fc["points"])
+                )
+            else:
+                st.dataframe(
+                    {date_col: fc["forecast_dates"], value_col: fc["forecast"]},
+                    use_container_width=True,
+                )
+                combined = pd.DataFrame(
+                    {
+                        date_col: fc["history_dates"] + fc["forecast_dates"],
+                        value_col: fc["history_values"] + fc["forecast"],
+                        "kind": [t("forecast_actual")] * len(fc["history_dates"])
+                        + [t("forecast_predicted")] * len(fc["forecast_dates"]),
+                    }
+                )
+                combined[date_col] = pd.to_datetime(combined[date_col])
+                st.plotly_chart(
+                    line_chart(combined, date_col, value_col, color="kind"),
+                    use_container_width=True,
+                )

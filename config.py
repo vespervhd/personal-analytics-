@@ -39,6 +39,11 @@ class Settings:
     max_upload_mb: int = int(os.environ.get("PDA_MAX_UPLOAD_MB", DEFAULT_MAX_UPLOAD_MB))
     log_level: str = os.environ.get("PDA_LOG_LEVEL", "INFO")
     allowed_extensions: frozenset[str] = ALLOWED_EXTENSIONS
+    #: Telegram bot used to forward live-source alert events. Empty
+    #: means Telegram is off and alerts stay in-app only; the token
+    #: is never printed in logs or shown in the UI.
+    telegram_bot_token: str = os.environ.get("ANALYTICS_TG_BOT_TOKEN", "")
+    telegram_chat_id: str = os.environ.get("ANALYTICS_TG_CHAT_ID", "")
 
     def __post_init__(self) -> None:
         if self.max_upload_mb <= 0:
@@ -50,6 +55,11 @@ class Settings:
     def db_path(self) -> Path:
         """SQLite file for metadata, history, and preferences."""
         return self.database_dir / "analytics.db"
+
+    @property
+    def telegram_configured(self) -> bool:
+        """True only when both the bot token and the chat id are set."""
+        return bool(self.telegram_bot_token and self.telegram_chat_id)
 
     @property
     def db_url(self) -> str:
