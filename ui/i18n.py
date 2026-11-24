@@ -16,9 +16,7 @@ from __future__ import annotations
 
 import streamlit as st
 
-#: Vazirmatn from Google Fonts (injected only for Persian; the sandbox
-#: has no internet, so the font cannot be verified loading here).
-FONT_URL = "https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap"
+from core.persian_text import font_face_css
 
 STRINGS = {
     "fa": {
@@ -319,6 +317,96 @@ STRINGS = {
         "rk_lower": "کران پایین",
         "rk_upper": "کران بالا",
         "rk_outliers": "داده‌های پرت",
+        "page_compare": "مقایسه مجموعه‌داده‌ها",
+        "compare_intro": "دو مجموعه‌داده را کنار هم بگذارید: مجموعه‌داده در حال کار با نسخه اصلی آن پیش از پاک‌سازی، یا با فایلی که تازه بارگذاری می‌کنید.",
+        "compare_a_label": "مجموعه‌داده اول",
+        "compare_a_current": "در حال کار",
+        "compare_a_original": "نسخه اصلی (پیش از پاک‌سازی)",
+        "compare_b_label": "مجموعه‌داده دوم",
+        "compare_b_original": "نسخه اصلی (پیش از پاک‌سازی)",
+        "compare_b_upload": "بارگذاری فایل دوم",
+        "compare_upload_label": "فایل دوم را اینجا رها کنید",
+        "compare_loaded": "فایل دوم بارگذاری شد ({rows} ردیف × {cols} ستون).",
+        "compare_failed": "بارگذاری فایل دوم ناموفق بود: {err}",
+        "compare_need_b": "برای مقایسه، مجموعه‌داده دوم را انتخاب کنید.",
+        "compare_summary_sub": "خلاصه تفاوت‌ها",
+        "compare_rows_diff": "تفاوت ردیف‌ها: {d}",
+        "compare_shared_line": "ستون‌های مشترک: {n} · فقط در اول: {a} · فقط در دوم: {b}",
+        "compare_no_shared": "دو مجموعه‌داده هیچ ستون مشترکی ندارند.",
+        "compare_numeric_sub": "ستون‌های عددی مشترک",
+        "compare_cat_sub": "ستون‌های دسته‌ای مشترک",
+        "compare_col": "ستون",
+        "compare_mean_a": "میانگین اول",
+        "compare_mean_b": "میانگین دوم",
+        "compare_mean_diff": "تفاوت میانگین",
+        "compare_min_a": "کمترین اول",
+        "compare_max_a": "بیشترین اول",
+        "compare_min_b": "کمترین دوم",
+        "compare_max_b": "بیشترین دوم",
+        "compare_unique_a": "یکتا اول",
+        "compare_unique_b": "یکتا دوم",
+        "compare_top_a": "پرتکرارترین اول",
+        "compare_top_b": "پرتکرارترین دوم",
+        "live_sub": "منبع زنده (CSV از لینک)",
+        "live_intro": "به‌جای بارگذاری دستی، یک لینک CSV بدهید؛ برنامه خودش دوره‌ای آن را تازه می‌کند و نسخه ذخیره‌شده را به‌روز نگه می‌دارد. نسخه‌ای که الان باز است تا بارگذاری دوباره صفحه یا زدن دکمه تازه‌سازی، همان قبلی می‌ماند.",
+        "live_url_label": "لینک CSV",
+        "live_interval_label": "هر چند دقیقه یک بار تازه شود",
+        "live_every_min": "هر {n} دقیقه",
+        "live_connect_btn": "اتصال به منبع زنده",
+        "live_connected": "منبع زنده وصل شد ({rows} ردیف × {cols} ستون).",
+        "live_failed": "اتصال به منبع زنده ممکن نشد: {err}",
+        "live_status": "منبع زنده فعال است: {url}",
+        "live_last_refresh": "آخرین تازه‌سازی: {t}",
+        "live_never": "هنوز تازه‌سازی نشده است",
+        "live_rows": "ردیف‌های آخرین تازه‌سازی: {n}",
+        "live_error": "آخرین خطا: {err}",
+        "live_refresh_btn": "تازه‌سازی اکنون",
+        "live_refreshed": "تازه شد ({rows} ردیف × {cols} ستون).",
+        "live_no_change": "تغییری نسبت به نسخه قبلی نبود.",
+        "live_refresh_failed": "تازه‌سازی ممکن نشد: {err}",
+        "live_disconnect_btn": "قطع منبع زنده",
+        "live_disconnected": "منبع زنده قطع شد؛ مجموعه‌داده فعلی سر جایش ماند.",
+        "alert_sub": "هشدارهای منبع زنده",
+        "alert_intro": "وقتی بیشترین مقدار یک ستون عددی از حد بالاتر برود، یا کمترین مقدار آن از حد پایین‌تر برود، هشدار ثبت می‌شود. هشدارها فقط همین‌جا نمایش داده می‌شوند؛ هیچ اعلان ایمیل یا تلگرام ارسال نمی‌شود.",
+        "alert_column_label": "ستون عددی",
+        "alert_condition_label": "شرط",
+        "alert_condition_above": "بالاتر از",
+        "alert_condition_below": "پایین‌تر از",
+        "alert_threshold_label": "حد (عدد)",
+        "alert_add_btn": "افزودن هشدار",
+        "alert_added": "هشدار اضافه شد.",
+        "alert_add_failed": "افزودن هشدار ممکن نشد: {err}",
+        "alert_no_rules": "هنوز هشداری تعریف نشده است.",
+        "alert_rules_label": "هشدارهای فعال",
+        "alert_rule_line": "{column} {cond} {threshold}",
+        "alert_delete_btn": "حذف",
+        "alert_deleted": "هشدار حذف شد.",
+        "alert_events_label": "هشدارهای ثبت‌شده",
+        "alert_no_events": "هنوز هشداری فعال نشده است.",
+        "alert_new": "هشدار تازه‌ای ثبت شده است!",
+        "alert_event_line": "{column} {cond} {value} ({at})",
+        "version_sub": "نسخه‌های مجموعه‌داده",
+        "version_intro": "پیش از هر عملیات پاک‌سازی، یک نسخه ذخیره می‌شود تا بتوانید به آن برگردید. حداکثر 10 نسخه نگه داشته می‌شود و قدیمی‌ترین‌ها خودکار حذف می‌شوند.",
+        "version_snapshot_btn": "ذخیره نسخه اکنون",
+        "version_saved": "نسخه ذخیره شد ({rows} ردیف × {cols} ستون).",
+        "version_save_failed": "ذخیره نسخه ممکن نشد.",
+        "version_before": "قبل از {op}",
+        "version_manual": "نسخه دستی",
+        "version_no_versions": "هنوز نسخه‌ای ذخیره نشده است.",
+        "version_line": "{label} - {rows} ردیف × {cols} ستون - {at}",
+        "version_restore_btn": "بازگردانی",
+        "version_restored": "نسخه {label} بازگردانی شد.",
+        "version_restore_failed": "بازگردانی ممکن نشد: {err}",
+        "version_delete_btn": "حذف",
+        "version_deleted": "نسخه حذف شد.",
+        "gsheets_sub": "وارد کردن از Google Sheets",
+        "gsheets_intro": "فقط شیت‌های عمومی کار می‌کنند؛ شیت باید روی «هر کسی که لینک را دارد» تنظیم شده باشد. ورود به حساب گوگل لازم نیست و ساخته نمی‌شود.",
+        "gsheets_url_label": "لینک Google Sheet",
+        "gsheets_import_btn": "وارد کردن شیت",
+        "gsheets_imported": "شیت وارد شد ({rows} ردیف × {cols} ستون).",
+        "gsheets_failed": "وارد کردن شیت ممکن نشد: {err}",
+        "gsheets_public_only": "این شیت عمومی نیست. شیت را روی «هر کسی که لینک را دارد» بگذارید و دوباره تلاش کنید.",
+        "gsheets_invalid_url": "لینک Google Sheets معتبر نیست.",
     },
     "en": {
         "lang_label": "Language",
@@ -618,6 +706,96 @@ STRINGS = {
         "rk_lower": "lower bound",
         "rk_upper": "upper bound",
         "rk_outliers": "outliers",
+        "page_compare": "Compare Datasets",
+        "compare_intro": "Put two datasets side by side: the working dataset against its original before cleaning, or against a newly uploaded file.",
+        "compare_a_label": "First dataset",
+        "compare_a_current": "Working copy",
+        "compare_a_original": "Original (before cleaning)",
+        "compare_b_label": "Second dataset",
+        "compare_b_original": "Original (before cleaning)",
+        "compare_b_upload": "Upload a second file",
+        "compare_upload_label": "Drop the second file here",
+        "compare_loaded": "Second file loaded ({rows} rows × {cols} columns).",
+        "compare_failed": "Second file failed to load: {err}",
+        "compare_need_b": "Pick a second dataset to compare.",
+        "compare_summary_sub": "Summary of differences",
+        "compare_rows_diff": "Row difference: {d}",
+        "compare_shared_line": "Shared columns: {n} · only in first: {a} · only in second: {b}",
+        "compare_no_shared": "The two datasets share no columns.",
+        "compare_numeric_sub": "Shared numeric columns",
+        "compare_cat_sub": "Shared categorical columns",
+        "compare_col": "Column",
+        "compare_mean_a": "Mean (first)",
+        "compare_mean_b": "Mean (second)",
+        "compare_mean_diff": "Mean difference",
+        "compare_min_a": "Min (first)",
+        "compare_max_a": "Max (first)",
+        "compare_min_b": "Min (second)",
+        "compare_max_b": "Max (second)",
+        "compare_unique_a": "Unique (first)",
+        "compare_unique_b": "Unique (second)",
+        "compare_top_a": "Most frequent (first)",
+        "compare_top_b": "Most frequent (second)",
+        "live_sub": "Live source (CSV from a link)",
+        "live_intro": "Instead of uploading by hand, give a CSV link; the app refreshes it on its own and keeps the saved copy up to date. The copy already open on screen stays as it is until you reload the page or press refresh.",
+        "live_url_label": "CSV link",
+        "live_interval_label": "Refresh every",
+        "live_every_min": "Every {n} minutes",
+        "live_connect_btn": "Connect live source",
+        "live_connected": "Live source connected ({rows} rows × {cols} columns).",
+        "live_failed": "Could not connect to the live source: {err}",
+        "live_status": "Live source active: {url}",
+        "live_last_refresh": "Last refreshed: {t}",
+        "live_never": "Not refreshed yet",
+        "live_rows": "Rows at last refresh: {n}",
+        "live_error": "Last error: {err}",
+        "live_refresh_btn": "Refresh now",
+        "live_refreshed": "Refreshed ({rows} rows × {cols} columns).",
+        "live_no_change": "Nothing changed since the last version.",
+        "live_refresh_failed": "Refresh failed: {err}",
+        "live_disconnect_btn": "Disconnect live source",
+        "live_disconnected": "Live source disconnected; the current dataset stays as it is.",
+        "alert_sub": "Live source alerts",
+        "alert_intro": "An alert is recorded when the largest value of a numeric column goes above the limit, or the smallest value goes below it. Alerts are shown here only; no email or Telegram notification is sent.",
+        "alert_column_label": "Numeric column",
+        "alert_condition_label": "Condition",
+        "alert_condition_above": "Above",
+        "alert_condition_below": "Below",
+        "alert_threshold_label": "Threshold (number)",
+        "alert_add_btn": "Add alert",
+        "alert_added": "Alert added.",
+        "alert_add_failed": "Could not add the alert: {err}",
+        "alert_no_rules": "No alerts defined yet.",
+        "alert_rules_label": "Active alerts",
+        "alert_rule_line": "{column} {cond} {threshold}",
+        "alert_delete_btn": "Delete",
+        "alert_deleted": "Alert deleted.",
+        "alert_events_label": "Triggered alerts",
+        "alert_no_events": "No alerts have triggered yet.",
+        "alert_new": "A new alert was triggered!",
+        "alert_event_line": "{column} {cond} {value} ({at})",
+        "version_sub": "Dataset versions",
+        "version_intro": "A version is saved before every cleaning operation so you can go back to it. At most 10 versions are kept; the oldest are removed automatically.",
+        "version_snapshot_btn": "Save a version now",
+        "version_saved": "Version saved ({rows} rows × {cols} columns).",
+        "version_save_failed": "Could not save the version.",
+        "version_before": "Before {op}",
+        "version_manual": "Manual snapshot",
+        "version_no_versions": "No versions saved yet.",
+        "version_line": "{label} - {rows} rows × {cols} columns - {at}",
+        "version_restore_btn": "Restore",
+        "version_restored": "Version {label} restored.",
+        "version_restore_failed": "Could not restore: {err}",
+        "version_delete_btn": "Delete",
+        "version_deleted": "Version deleted.",
+        "gsheets_sub": "Import from Google Sheets",
+        "gsheets_intro": "Only public sheets work; the sheet must be shared with 'Anyone with the link'. No Google sign-in is needed or used.",
+        "gsheets_url_label": "Google Sheet link",
+        "gsheets_import_btn": "Import sheet",
+        "gsheets_imported": "Sheet imported ({rows} rows × {cols} columns).",
+        "gsheets_failed": "Could not import the sheet: {err}",
+        "gsheets_public_only": "This sheet is not public. Share it with 'Anyone with the link' and try again.",
+        "gsheets_invalid_url": "Not a valid Google Sheets link.",
     },
 }
 
@@ -650,21 +828,25 @@ def rtl_style(lang: str | None = None) -> str:
     """Return the RTL + Vazirmatn injection for Persian, else ``""``.
 
     For English this returns an empty string so the default LTR layout
-    is untouched. The returned HTML links the Vazirmatn font and sets
-    ``direction: rtl`` on the app container and the sidebar.
+    is untouched. The returned HTML embeds the bundled Vazirmatn font
+    as ``@font-face`` (base64 data URIs, no network request) and sets
+    ``direction: rtl`` on the app container and the sidebar, so Persian
+    renders in Vazirmatn even when Google Fonts is unreachable.
     """
     code = lang if lang in STRINGS else current_lang()
     if code != "fa":
         return ""
     return (
-        f'<link href="{FONT_URL}" rel="stylesheet">\n'
         "<style>\n"
-        "html, body, [data-testid=\"stAppViewContainer\"], "
-        "[data-testid=\"stSidebar\"] {\n"
+        f"{font_face_css()}\n"
+        "</style>\n"
+        "<style>\n"
+        'html, body, [data-testid="stAppViewContainer"], '
+        '[data-testid="stSidebar"] {\n'
         "  direction: rtl;\n"
         "  font-family: 'Vazirmatn', Tahoma, sans-serif;\n"
         "}\n"
-        "[data-testid=\"stSidebar\"] *, .stApp input, .stApp textarea, "
+        '[data-testid="stSidebar"] *, .stApp input, .stApp textarea, '
         ".stApp select {\n"
         "  font-family: 'Vazirmatn', Tahoma, sans-serif;\n"
         "}\n"

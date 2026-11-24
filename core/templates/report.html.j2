@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <title>{{ title }}</title>
 <style>
-  body { font-family: Tahoma, 'Vazirmatn', system-ui, sans-serif; max-width: 960px; margin: 2rem auto;
+  {{ font_face_css | safe }}
+  body { font-family: 'Vazirmatn', Tahoma, system-ui, sans-serif; max-width: 960px; margin: 2rem auto;
          padding: 0 1rem; color: #1a1a1a; line-height: 1.5; }
   h1 { font-size: 1.6rem; } h2 { margin-top: 2rem; font-size: 1.2rem; }
   table { border-collapse: collapse; width: 100%; margin: 0.5rem 0; }

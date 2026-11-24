@@ -32,6 +32,15 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 from core.analyzer import eda_report, key_insights
+from core.persian_text import (
+    bundled_font_pair,
+    contains_arabic,
+    ensure_matplotlib_persian,
+    font_face_css,
+    is_arabic_char,
+    localize_matplotlib_texts,
+    reshape_persian,
+)
 from core.visualization import (
     correlation_graph,
     heatmap,
@@ -59,51 +68,23 @@ def _t(key: str, lang: str) -> str:
 # ---------------------------------------------------------------------------
 # Persian text handling (ReportLab / matplotlib have no shaping engine)
 # ---------------------------------------------------------------------------
-
-#: Arabic-script ranges (base letters, supplements, presentation forms).
-_ARABIC_RANGES = (
-    (0x0600, 0x06FF),
-    (0x0750, 0x077F),
-    (0x08A0, 0x08FF),
-    (0xFB50, 0xFDFF),
-    (0xFE70, 0xFEFF),
-)
-
-
-def _is_arabic_char(char: str) -> bool:
-    code = ord(char)
-    return any(start <= code <= end for start, end in _ARABIC_RANGES)
-
-
-def contains_arabic(text: str) -> bool:
-    """Return True when ``text`` holds any Arabic-script character."""
-    return any(_is_arabic_char(char) for char in text)
-
-
-def reshape_persian(text: str) -> str:
-    """Reshape + reorder Persian text into visual order for dumb renderers.
-
-    ``arabic_reshaper`` joins letters into their presentation forms and
-    ``python-bidi`` reorders the line so a left-to-right renderer (PDF,
-    matplotlib) draws it correctly. Non-Arabic text passes through
-    unchanged apart from the bidi pass, which leaves pure Latin order
-    intact.
-    """
-    import arabic_reshaper
-    from bidi.algorithm import get_display
-
-    return get_display(arabic_reshaper.reshape(text))
-
+# Reshaping, Arabic-script detection and the bundled Vazirmatn files live
+# in core.persian_text (shared with visualization and the web UI); the
+# names are re-exported here so existing imports keep working.
 
 #: Candidate (regular, bold) system font pairs, best first. Noto Sans
 #: Arabic covers 751/832 Arabic presentation forms (verified with
-#: fontTools); DejaVu Sans is the matplotlib-bundled fallback and covers
-#: every form ``arabic_reshaper`` produces for common Persian words.
+#: fontTools); the bundled Vazirmatn pair ships in the repo so reports
+#: work on machines without fonts-noto-core; DejaVu Sans is the
+#: matplotlib-bundled fallback and covers every form ``arabic_reshaper``
+#: produces for common Persian words.
+_BUNDLED_PAIR = bundled_font_pair()
 _ARABIC_FONT_CANDIDATES: tuple[tuple[str, str], ...] = (
     (
         "/usr/share/fonts/truetype/noto/NotoSansArabic-Regular.ttf",
         "/usr/share/fonts/truetype/noto/NotoSansArabic-Bold.ttf",
     ),
+    *((_BUNDLED_PAIR,) if _BUNDLED_PAIR else ()),
     (
         "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
         "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
@@ -144,9 +125,10 @@ def find_arabic_font() -> tuple[str, str]:
                 return regular, bold
             return regular, regular
     raise ReportError(
-        "No Arabic-capable font found on this system: Persian PDF reports "
-        "need Noto Sans Arabic (or DejaVu Sans) installed. Install "
-        "fonts-noto-core and retry."
+        "No Arabic-capable font found: Persian PDF reports need Noto "
+        "Sans Arabic (or DejaVu Sans) installed, or the bundled "
+        "Vazirmatn files under assets/fonts/. Install fonts-noto-core "
+        "and retry."
     )
 
 
@@ -194,9 +176,9 @@ def persian_paragraph_markup(text: str, bold: bool = False) -> str:
 
     for char in visual:
         # Spaces ride with the current run so word spacing uses that font.
-        kind = current_font if char == " " else ("arabic" if _is_arabic_char(char) else "latin")
+        kind = current_font if char == " " else ("arabic" if is_arabic_char(char) else "latin")
         if kind is None:
-            kind = "arabic" if _is_arabic_char(char) else "latin"
+            kind = "arabic" if is_arabic_char(char) else "latin"
         if kind != current_font and current_run:
             flush()
             current_run = []
@@ -209,33 +191,16 @@ def persian_paragraph_markup(text: str, bold: bool = False) -> str:
 def _localize_matplotlib_figure(fig: plt.Figure, lang: str) -> None:
     """Reshape Persian text inside a matplotlib figure (fa reports only).
 
-    Pure Persian texts switch to the Noto Sans Arabic family; mixed
-    Latin/Persian texts keep matplotlib's default DejaVu Sans, which
-    covers Latin plus every common reshaped Persian form. If no Arabic
-    font is available the figure is left untouched (English titles)
-    rather than failing the whole report.
+    Registers the bundled Vazirmatn with matplotlib (once per process)
+    and rewrites every Persian text object into visual order. If the
+    bundled fonts are missing the figure is left untouched (English
+    titles) rather than failing the whole report.
     """
     if lang != "fa":
         return
-    from matplotlib.text import Text
-
-    try:
-        regular, _bold = find_arabic_font()
-    except ReportError:
+    if ensure_matplotlib_persian() is None:
         return
-    from matplotlib import font_manager
-
-    try:
-        font_manager.fontManager.addfont(regular)
-        arabic_family = font_manager.FontProperties(fname=regular).get_name()
-    except Exception:
-        arabic_family = None
-    for obj in fig.findobj(lambda item: isinstance(item, Text)):
-        text = obj.get_text()
-        if text and contains_arabic(text):
-            obj.set_text(reshape_persian(text))
-            if arabic_family and not any("A" <= c <= "z" for c in text):
-                obj.set_fontfamily(arabic_family)
+    localize_matplotlib_texts(fig)
 
 
 # ---------------------------------------------------------------------------
@@ -285,9 +250,7 @@ def type_label(column_type: str, lang: str) -> str:
     return _t(label_key, lang) if label_key else column_type
 
 
-def build_report_context(
-    df: pd.DataFrame, anomalies: dict | None = None, lang: str = "en"
-) -> dict:
+def build_report_context(df: pd.DataFrame, anomalies: dict | None = None, lang: str = "en") -> dict:
     """Compute the shared context every report format renders."""
     eda = eda_report(df)
     return {
@@ -340,7 +303,8 @@ def _figure_png_bytes(fig: plt.Figure) -> bytes:
 
 def _anomaly_line(anomalies: dict, lang: str) -> str:
     return _t("report_anomaly_line", lang).format(
-        method=anomalies["method"], n=anomalies["anomalies"],
+        method=anomalies["method"],
+        n=anomalies["anomalies"],
         rows=anomalies["rows_analysed"],
     )
 
@@ -359,8 +323,13 @@ def generate_csv_report(
         for key, value in eda["overview"].items():
             writer.writerow(["overview", key, value])
         for row in _stats_rows(eda):
-            writer.writerow(["column_stats", row["column"],
-                             "; ".join(f"{k}={v}" for k, v in row.items() if k != "column")])
+            writer.writerow(
+                [
+                    "column_stats",
+                    row["column"],
+                    "; ".join(f"{k}={v}" for k, v in row.items() if k != "column"),
+                ]
+            )
         for insight in context["insights"]:
             writer.writerow(["insight", "", insight])
         if anomalies:
@@ -401,22 +370,36 @@ def generate_excel_report(
         sheet = workbook.add_worksheet("Column stats")
         if lang == "fa":
             sheet.right_to_left()
-        sheet.write_row(0, 0, [_t("col_column", lang), _t("col_type", lang),
-                               _t("col_mean", lang), _t("col_median", lang),
-                               _t("col_std", lang), _t("col_min", lang),
-                               _t("col_max", lang), _t("col_unique", lang)], header)
+        sheet.write_row(
+            0,
+            0,
+            [
+                _t("col_column", lang),
+                _t("col_type", lang),
+                _t("col_mean", lang),
+                _t("col_median", lang),
+                _t("col_std", lang),
+                _t("col_min", lang),
+                _t("col_max", lang),
+                _t("col_unique", lang),
+            ],
+            header,
+        )
         for row, stats in enumerate(_stats_rows(eda), start=1):
             values = [stats["column"], type_label(stats["type"], lang)]
-            values += ["" if stats[c] is None else stats[c]
-                       for c in ["mean", "median", "std", "min", "max", "unique"]]
+            values += [
+                "" if stats[c] is None else stats[c]
+                for c in ["mean", "median", "std", "min", "max", "unique"]
+            ]
             sheet.write_row(row, 0, values)
         sheet.set_column(0, 7, 18)
 
         sheet = workbook.add_worksheet("Missing values")
         if lang == "fa":
             sheet.right_to_left()
-        sheet.write_row(0, 0, [_t("col_column", lang), _t("col_missing", lang),
-                               _t("col_percent", lang)], header)
+        sheet.write_row(
+            0, 0, [_t("col_column", lang), _t("col_missing", lang), _t("col_percent", lang)], header
+        )
         for row, (col, info) in enumerate(eda["missing"]["columns"].items(), start=1):
             sheet.write_row(row, 0, [col, info["missing"], info["percent"]])
         sheet.set_column(0, 2, 18)
@@ -446,8 +429,9 @@ def generate_excel_report(
             sheet.right_to_left()
         if anomalies:
             sheet.write_row(0, 0, ["Method", "Anomalies", "Rows analysed"], header)
-            sheet.write_row(1, 0, [anomalies["method"], anomalies["anomalies"],
-                                   anomalies["rows_analysed"]])
+            sheet.write_row(
+                1, 0, [anomalies["method"], anomalies["anomalies"], anomalies["rows_analysed"]]
+            )
             rows = anomalies.get("anomaly_rows") or []
             if rows:
                 sheet.write_row(3, 0, list(rows[0]), header)
@@ -462,8 +446,9 @@ def generate_excel_report(
         row = 0
         for title, fig in _chart_figures(df, lang=lang):
             sheet.write(row, 0, title, header)
-            sheet.insert_image(row + 1, 0, "chart.png",
-                               {"image_data": io.BytesIO(_figure_png_bytes(fig))})
+            sheet.insert_image(
+                row + 1, 0, "chart.png", {"image_data": io.BytesIO(_figure_png_bytes(fig))}
+            )
             row += 28
     finally:
         workbook.close()
@@ -482,8 +467,9 @@ def generate_html_report(
     charts_html: list[str] = []
     numeric = df.select_dtypes(include="number")
     if len(numeric.columns) >= 1:
-        charts_html.append(histogram(df, str(numeric.columns[0])).to_html(
-            full_html=False, include_plotlyjs="cdn"))
+        charts_html.append(
+            histogram(df, str(numeric.columns[0])).to_html(full_html=False, include_plotlyjs="cdn")
+        )
     if len(numeric.columns) >= 2:
         charts_html.append(heatmap(df).to_html(full_html=False, include_plotlyjs=False))
     # Normalise column summaries so every key exists for the template.
@@ -506,6 +492,7 @@ def generate_html_report(
         title=_t("report_title", lang),
         lang=lang,
         direction="rtl" if lang == "fa" else "ltr",
+        font_face_css=font_face_css(),
         overview=overview_labels(eda, lang),
         missing=eda["missing"],
         columns=columns,
@@ -586,16 +573,29 @@ def generate_pdf_report(
     sample = getSampleStyleSheet()
     if lang == "fa":
         regular, bold = _PDF_FONT_NAMES
-        title_style = ParagraphStyle("FaTitle", parent=sample["Title"], fontName=bold,
-                                     alignment=TA_CENTER)
-        heading_style = ParagraphStyle("FaHeading2", parent=sample["Heading2"], fontName=bold,
-                                       alignment=TA_RIGHT)
-        body_style = ParagraphStyle("FaBody", parent=sample["BodyText"], fontName=regular,
-                                    alignment=TA_RIGHT)
-        cell_style = ParagraphStyle("FaCell", parent=sample["BodyText"], fontName=regular,
-                                    fontSize=9, leading=12, alignment=TA_RIGHT)
+        title_style = ParagraphStyle(
+            "FaTitle", parent=sample["Title"], fontName=bold, alignment=TA_CENTER
+        )
+        heading_style = ParagraphStyle(
+            "FaHeading2", parent=sample["Heading2"], fontName=bold, alignment=TA_RIGHT
+        )
+        body_style = ParagraphStyle(
+            "FaBody", parent=sample["BodyText"], fontName=regular, alignment=TA_RIGHT
+        )
+        cell_style = ParagraphStyle(
+            "FaCell",
+            parent=sample["BodyText"],
+            fontName=regular,
+            fontSize=9,
+            leading=12,
+            alignment=TA_RIGHT,
+        )
     else:
-        title_style, heading_style, body_style = sample["Title"], sample["Heading2"], sample["BodyText"]
+        title_style, heading_style, body_style = (
+            sample["Title"],
+            sample["Heading2"],
+            sample["BodyText"],
+        )
         cell_style = ParagraphStyle("EnCell", parent=sample["BodyText"], fontSize=9, leading=12)
 
     def cell(value) -> object:
@@ -615,47 +615,68 @@ def generate_pdf_report(
         [cell(label), cell(value)] for label, value in overview_labels(eda, lang)
     ]
     table = Table(overview_data, colWidths=[5 * cm, 11 * cm])
-    table.setStyle(TableStyle([
-        ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#D9E2F3")),
-        ("GRID", (0, 0), (-1, -1), 0.5, colors.grey),
-        ("FONTSIZE", (0, 0), (-1, -1), 9),
-    ]))
+    table.setStyle(
+        TableStyle(
+            [
+                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#D9E2F3")),
+                ("GRID", (0, 0), (-1, -1), 0.5, colors.grey),
+                ("FONTSIZE", (0, 0), (-1, -1), 9),
+            ]
+        )
+    )
     story.append(table)
 
     story.append(para(_t("report_quality", lang), heading_style, bold=True))
-    missing_data = [[cell(_t("col_column", lang)), cell(_t("col_missing", lang)),
-                     cell(_t("col_percent", lang))]] + [
+    missing_data = [
+        [cell(_t("col_column", lang)), cell(_t("col_missing", lang)), cell(_t("col_percent", lang))]
+    ] + [
         [cell(col), info["missing"], info["percent"]]
         for col, info in eda["missing"]["columns"].items()
     ]
     table = Table(missing_data, colWidths=[7 * cm, 4 * cm, 5 * cm])
-    table.setStyle(TableStyle([
-        ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#D9E2F3")),
-        ("GRID", (0, 0), (-1, -1), 0.5, colors.grey),
-        ("FONTSIZE", (0, 0), (-1, -1), 9),
-    ]))
+    table.setStyle(
+        TableStyle(
+            [
+                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#D9E2F3")),
+                ("GRID", (0, 0), (-1, -1), 0.5, colors.grey),
+                ("FONTSIZE", (0, 0), (-1, -1), 9),
+            ]
+        )
+    )
     story.append(table)
 
     story.append(para(_t("report_stats", lang), heading_style, bold=True))
-    stats_header = [cell(_t("col_column", lang)), cell(_t("col_type", lang)),
-                    cell(_t("col_mean", lang)), cell(_t("col_median", lang)),
-                    cell(_t("col_std", lang)), cell(_t("col_min", lang)),
-                    cell(_t("col_max", lang))]
+    stats_header = [
+        cell(_t("col_column", lang)),
+        cell(_t("col_type", lang)),
+        cell(_t("col_mean", lang)),
+        cell(_t("col_median", lang)),
+        cell(_t("col_std", lang)),
+        cell(_t("col_min", lang)),
+        cell(_t("col_max", lang)),
+    ]
     stats_data = [stats_header] + [
-        [cell(row["column"]), cell(type_label(row["type"], lang)),
-         "" if row["mean"] is None else round(row["mean"], 3),
-         "" if row["median"] is None else round(row["median"], 3),
-         "" if row["std"] is None else round(row["std"], 3),
-         "" if row["min"] is None else round(row["min"], 3),
-         "" if row["max"] is None else round(row["max"], 3)]
+        [
+            cell(row["column"]),
+            cell(type_label(row["type"], lang)),
+            "" if row["mean"] is None else round(row["mean"], 3),
+            "" if row["median"] is None else round(row["median"], 3),
+            "" if row["std"] is None else round(row["std"], 3),
+            "" if row["min"] is None else round(row["min"], 3),
+            "" if row["max"] is None else round(row["max"], 3),
+        ]
         for row in _stats_rows(eda)
     ]
     table = Table(stats_data, colWidths=[3.2 * cm, 2.2 * cm] + [1.9 * cm] * 5)
-    table.setStyle(TableStyle([
-        ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#D9E2F3")),
-        ("GRID", (0, 0), (-1, -1), 0.5, colors.grey),
-        ("FONTSIZE", (0, 0), (-1, -1), 8),
-    ]))
+    table.setStyle(
+        TableStyle(
+            [
+                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#D9E2F3")),
+                ("GRID", (0, 0), (-1, -1), 0.5, colors.grey),
+                ("FONTSIZE", (0, 0), (-1, -1), 8),
+            ]
+        )
+    )
     story.append(table)
 
     story.append(para(_t("report_anomalies", lang), heading_style, bold=True))

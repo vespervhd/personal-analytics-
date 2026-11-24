@@ -22,12 +22,24 @@ import plotly.express as px
 import plotly.graph_objects as go
 import seaborn as sns
 
+from core.persian_text import ensure_matplotlib_persian, localize_matplotlib_texts
 from utils.logger import get_logger
 
 log = get_logger("visualization")
 
 #: Maximum pie slices before the tail is grouped into "Other".
 PIE_MAX_SLICES = 15
+
+
+def _style_fig(fig: go.Figure) -> go.Figure:
+    """Use Vazirmatn for every Plotly text (title, axes, legend).
+
+    Plotly renders in the browser, which shapes Persian natively, so
+    no reshaping here — only the family, so charts match the UI font
+    instead of falling back to a system font.
+    """
+    fig.update_layout(font_family="Vazirmatn")
+    return fig
 
 
 class VisualizationError(ValueError):
@@ -64,13 +76,18 @@ def bar_chart(
     if y is None:
         counts = df[x].value_counts(dropna=False).reset_index()
         counts.columns = [x, "count"]
-        fig = px.bar(counts, x=x, y="count", color=color if color in counts else None,
-                     title=_title_or(f"Count by {x}", title))
+        fig = px.bar(
+            counts,
+            x=x,
+            y="count",
+            color=color if color in counts else None,
+            title=_title_or(f"Count by {x}", title),
+        )
     else:
         _require_numeric(df, [y])
         fig = px.bar(df, x=x, y=y, color=color, title=_title_or(f"{y} by {x}", title))
     log.info("bar_chart built for x={} y={}", x, y)
-    return fig
+    return _style_fig(fig)
 
 
 def line_chart(
@@ -86,7 +103,7 @@ def line_chart(
     ordered = df.sort_values(by=x, kind="stable")
     fig = px.line(ordered, x=x, y=y, color=color, title=_title_or(f"{y} over {x}", title))
     log.info("line_chart built for x={} y={}", x, y)
-    return fig
+    return _style_fig(fig)
 
 
 def scatter_plot(
@@ -102,10 +119,9 @@ def scatter_plot(
     _require_numeric(df, [x, y])
     if size is not None:
         _require_numeric(df, [size])
-    fig = px.scatter(df, x=x, y=y, color=color, size=size,
-                     title=_title_or(f"{y} vs {x}", title))
+    fig = px.scatter(df, x=x, y=y, color=color, size=size, title=_title_or(f"{y} vs {x}", title))
     log.info("scatter_plot built for x={} y={}", x, y)
-    return fig
+    return _style_fig(fig)
 
 
 def histogram(
@@ -119,10 +135,11 @@ def histogram(
     _require_numeric(df, [column])
     if bins < 1:
         raise VisualizationError("bins must be at least 1.")
-    fig = px.histogram(df, x=column, nbins=bins,
-                       title=_title_or(f"Distribution of {column}", title))
+    fig = px.histogram(
+        df, x=column, nbins=bins, title=_title_or(f"Distribution of {column}", title)
+    )
     log.info("histogram built for {}", column)
-    return fig
+    return _style_fig(fig)
 
 
 def box_plot(
@@ -134,10 +151,14 @@ def box_plot(
     """Box plot of a numeric column, optionally grouped by a category."""
     _require_columns(df, [column, by])
     _require_numeric(df, [column])
-    fig = px.box(df, x=by, y=column,
-                 title=_title_or(f"Box plot of {column}" + (f" by {by}" if by else ""), title))
+    fig = px.box(
+        df,
+        x=by,
+        y=column,
+        title=_title_or(f"Box plot of {column}" + (f" by {by}" if by else ""), title),
+    )
     log.info("box_plot built for {} by {}", column, by)
-    return fig
+    return _style_fig(fig)
 
 
 def heatmap(
@@ -154,11 +175,14 @@ def heatmap(
         raise VisualizationError("A correlation heatmap needs at least 2 numeric columns.")
     corr = df[targets].corr(numeric_only=True)
     fig = px.imshow(
-        corr, text_auto=".2f", aspect="auto", color_continuous_scale="RdBu_r",
+        corr,
+        text_auto=".2f",
+        aspect="auto",
+        color_continuous_scale="RdBu_r",
         title=_title_or("Correlation heatmap", title),
     )
     log.info("heatmap built for {}", targets)
-    return fig
+    return _style_fig(fig)
 
 
 def pie_chart(
@@ -181,19 +205,18 @@ def pie_chart(
         head = counts.iloc[:PIE_MAX_SLICES]
         tail_count = int(counts.iloc[PIE_MAX_SLICES:].sum())
         tail_n = len(counts) - PIE_MAX_SLICES
-        counts = pd.concat(
-            [head, pd.Series({f"Other ({tail_n} categories)": tail_count})]
-        )
+        counts = pd.concat([head, pd.Series({f"Other ({tail_n} categories)": tail_count})])
         grouped = True
     fig = px.pie(
-        names=counts.index.astype(str), values=counts.values,
+        names=counts.index.astype(str),
+        values=counts.values,
         title=_title_or(
             f"Share of {column}" + (" (small categories grouped)" if grouped else ""),
             title,
         ),
     )
     log.info("pie_chart built for {} (grouped={})", column, grouped)
-    return fig
+    return _style_fig(fig)
 
 
 def matplotlib_histogram(
@@ -202,11 +225,13 @@ def matplotlib_histogram(
     """Static matplotlib histogram (used for PDF/Excel reports)."""
     _require_columns(df, [column])
     _require_numeric(df, [column])
+    ensure_matplotlib_persian()
     fig, ax = plt.subplots()
     ax.hist(df[column].dropna(), bins=bins)
     ax.set_title(f"Distribution of {column}")
     ax.set_xlabel(column)
     ax.set_ylabel("Count")
+    localize_matplotlib_texts(fig)
     fig.tight_layout()
     return fig, ax
 
@@ -217,12 +242,14 @@ def matplotlib_box(
     """Static matplotlib/seaborn box plot (used for PDF/Excel reports)."""
     _require_columns(df, [column, by])
     _require_numeric(df, [column])
+    ensure_matplotlib_persian()
     fig, ax = plt.subplots()
     if by:
         sns.boxplot(data=df, x=by, y=column, ax=ax)
     else:
         sns.boxplot(data=df, y=column, ax=ax)
     ax.set_title(f"Box plot of {column}" + (f" by {by}" if by else ""))
+    localize_matplotlib_texts(fig)
     fig.tight_layout()
     return fig, ax
 
@@ -238,8 +265,10 @@ def correlation_graph(
     if len(targets) < 2:
         raise VisualizationError("A correlation graph needs at least 2 numeric columns.")
     corr = df[targets].corr(numeric_only=True)
+    ensure_matplotlib_persian()
     fig, ax = plt.subplots(figsize=(max(6, len(targets) * 0.8), max(5, len(targets) * 0.7)))
     sns.heatmap(corr, annot=True, fmt=".2f", cmap="RdBu_r", center=0, ax=ax)
     ax.set_title("Correlation graph")
+    localize_matplotlib_texts(fig)
     fig.tight_layout()
     return fig, ax

@@ -1,10 +1,10 @@
 """Tests for the Persian/English string dictionary (ui/i18n.py).
 
 No network is required: the RTL helper only builds a string, and the
-font link is never fetched here.
+bundled font is embedded as a data URI, never fetched.
 """
 
-from ui.i18n import FONT_URL, STRINGS, rtl_style, t
+from ui.i18n import STRINGS, rtl_style, t
 
 
 def test_parity_fa_en():
@@ -33,8 +33,12 @@ def test_rtl_style_persian():
     css = rtl_style("fa")
     assert "direction: rtl" in css
     assert "Vazirmatn" in css
-    assert FONT_URL in css
-    assert FONT_URL.startswith("https://fonts.googleapis.com/")
+    # The font is embedded, not fetched: @font-face with data URIs, and
+    # no Google Fonts dependency (unreachable on slow/filtered links).
+    assert "@font-face" in css
+    assert "data:font/woff2;base64," in css
+    assert "fonts.googleapis.com" not in css
+    assert "fonts.gstatic.com" not in css
 
 
 def test_rtl_style_english_is_empty():
